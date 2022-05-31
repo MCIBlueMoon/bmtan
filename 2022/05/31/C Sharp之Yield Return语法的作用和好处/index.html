@@ -23,15 +23,15 @@
 <meta property="og:site_name" content="Bmtan">
 <meta property="og:description" content="首先我贴出平时正常输出偶数集合的办法 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273&#x2F;* * *  学习Yield Return 语法 *  使用两个方法，显示1 - 10">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/5-31-1-1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/5-31-1-2.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/5-31-1-3.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/5-31-1-3.png">
-<meta property="og:image" content="g:/BlogPhoto/5-31/5-31-1/5-31-1-3.png">
 <meta property="article:published_time" content="2022-05-31T07:01:31.000Z">
-<meta property="article:modified_time" content="2022-05-31T09:11:52.408Z">
+<meta property="article:modified_time" content="2022-05-31T09:15:38.002Z">
 <meta property="article:author" content="Bmtan">
 <meta property="article:tag" content="C Sharp">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/5-31-1-3.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/5-31-1-1.png">
   
   
   
@@ -282,12 +282,12 @@
 
 <p>​		大家测试了2个代码结果没，是不是都可以正确拿到全部偶数集合，具体我需要你们测，这样进步快，才会真是学会。只看不练假把戏。</p>
 <p>​		现在我们说他们的区别：<br>​		这个才是真正要学的地方<br>​		我们需要下断点</p>
-<p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/5-31-1-3.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/5-31-1-1.png" srcset="/img/loading.gif" lazyload></p>
 <p>​		我希望你是在断点调试，具体就贴太多，你会发现代码跑到Yield return num的时候，当前函数就会结束，并把这个num交给这里，我先上图</p>
-<p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/5-31-1-3.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/5-31-1-2.png" srcset="/img/loading.gif" lazyload></p>
 <p>​		最终会给item变量。<br>​		然后输出，然后在执行 GetAllEvenNumber（）方法，和上次得到偶数是一样。<br>​		我们发现这个Yield Return是可以让当前函数的进程状态切换到阻塞状态，然后去选择了把cpu交给当前的出进程，这样就转而执行调用方函数。 （补充个小知识点其实我们写的程序加入到内存中，并不定就是一个进程，我们会根据情况分成几个子进程去干活，方便操作系统去管理以及多道程序运行在内存，提高计算机资源的利用率）<br>​		这样有个好处，我们假如有1000000个数据，我们需要得到里面的耦合，当我们通过这个方法得到一个耦合会立马显示在控制台上。而不是等很久也就把全部偶数都查找到存入集合当中，然后在一一遍历输出。<br>​		这个好处是很大的。比如我们用户可能就看数据开始肯定不是全部值需要部分就可以，看完这些在看后面的，这样数据会让觉得显示没有延迟。</p>
 <p>​		下面我们来断点调一般的查找偶数的函数</p>
-<p><img src="G:\BlogPhoto\5-31\5-31-1\5-31-1-3.png" srcset="/img/loading.gif" lazyload alt="5-31-1-3"></p>
+<p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/5-31-1-3.png" srcset="/img/loading.gif" lazyload></p>
 <p>​		我们发现这个循环没有跑完是不会退出当前函数的，也就是必须要查找全部的偶数才可以。这样假如我们很多数据。就会一直等这个数据才可以拿到这个数据去显示给用户看。<br>这样就麻烦了。</p>
 <p>​		因此我们下个结论：Yield Return关键字的作用就是退出当前函数，并且会保存当前函数执行到什么地方，也就上下文。你发现没下次执行这个函数上次跑来的代码是不会重复执行的，</p>
 <p>​		但是你一般的return result 假如你在循环体提前return ,下面调这个函数是会从第一步开始重新执行的。不会记录上次执行的地方。</p>

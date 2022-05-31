@@ -1173,7 +1173,8 @@ i.iconfont {
 .index-excerpt {
   color: var(--sec-text-color);
   margin: 0.5rem 0 0.5rem 0;
-  height: calc(1.4rem * 3);
+  max-height: calc(1.4rem * 3);
+  line-height: 1.4rem;
   overflow: hidden;
   display: flex;
   align-items: center;

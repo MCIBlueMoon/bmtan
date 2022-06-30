@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%B7%B1%E6%8B%B7%E8%B4%9D.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%BB%BA%E9%80%A0%E8%80%85%E7%BB%93%E6%9E%84%E5%9B%BE.png">
 <meta property="article:published_time" content="2022-06-30T13:38:47.000Z">
-<meta property="article:modified_time" content="2022-06-30T13:40:32.089Z">
+<meta property="article:modified_time" content="2022-06-30T13:46:04.910Z">
 <meta property="article:author" content="Bmtan">
 <meta property="article:tag" content="C#">
 <meta property="article:tag" content="设计模式">
@@ -342,7 +342,8 @@
 <hr>
 <h3 id="②-工厂方法模式"><a href="#②-工厂方法模式" class="headerlink" title="② 工厂方法模式"></a>② 工厂方法模式</h3><h4 id="1、引言-1"><a href="#1、引言-1" class="headerlink" title="1、引言"></a>1、引言</h4><p>　　<strong>工厂方法模式(Factory Method Pattern)：</strong>定义一个用于创建对象的接口，让子类决定将哪一个类实例化。工厂方法模式让一个类的实例化延迟到其子类。工厂方法模式又简称为工厂模式(Factory Pattern)，又可称作虚拟构造器模式(Virtual Constructor Pattern)或多态工厂模式(Polymorphic Factory Pattern)。工厂方法模式是一种类创建型模式。</p>
 <h4 id="2、工厂方法模式的介绍"><a href="#2、工厂方法模式的介绍" class="headerlink" title="2、工厂方法模式的介绍"></a>2、工厂方法模式的介绍</h4><p>　　工厂方法模式之所以可以解决简单工厂的模式，是因为它的实现把具体产品的创建推迟到子类中，此时工厂类不再负责所有产品的创建，而只是给出具体工厂必须实现的接口，这样工厂方法模式就可以允许系统不修改工厂类逻辑的情况下来添加新产品，这样也就克服了简单工厂模式中缺点。</p>
-<h4 id="3、实现-1"><a href="#3、实现-1" class="headerlink" title="3、实现"></a>3、实现</h4><div align="center"><b>工厂方法UML</b>
+<h4 id="3、实现-1"><a href="#3、实现-1" class="headerlink" title="3、实现"></a>3、实现</h4><div align="center"><b>工厂方法UML</b></div>
+
 
 <p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95UML.png" srcset="/img/loading.gif" lazyload></p>
 <blockquote>
@@ -360,11 +361,11 @@
 </blockquote>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs C#">IFactory operFactory=<span class="hljs-keyword">new</span> AddFactory();<br>Operation oper=operFactory.CreatOperation();<br>oper.NumberA=<span class="hljs-number">1</span>;<br>oper.NumberB=<span class="hljs-number">2</span>;<br><span class="hljs-built_in">double</span> result=oper.GetResult;<br></code></pre></td></tr></table></figure>
 
-<div align="center"><b>工厂方法结构图</b>
+<div align="center"><b>工厂方法结构图</b></div>
+
 
 <p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E7%BB%93%E6%9E%84%E5%9B%BE.png" srcset="/img/loading.gif" lazyload></p>
-<h4 id="4、优点与缺点-1"><a href="#4、优点与缺点-1" class="headerlink" title="4、优点与缺点"></a>4、优点与缺点</h4><pre><code class="hljs"> **1. 主要优点**
-</code></pre>
+<h4 id="4、优点与缺点-1"><a href="#4、优点与缺点-1" class="headerlink" title="4、优点与缺点"></a>4、优点与缺点</h4><p>​	<strong>1.主要优点</strong></p>
 <p>​    工厂方法模式的主要优点如下：</p>
 <p>​    (1) 在工厂方法模式中，工厂方法用来创建客户所需要的产品，同时还向客户隐藏了哪种具体产品类将被实例化这一细节，用户只需要关心所需产品对应的工厂，无须关心创建细节，甚至无须知道具体产品类的类名。</p>
 <p>​    (2) 基于工厂角色和产品角色的多态性设计是工厂方法模式的关键。它能够让工厂可以自主确定创建何种产品对象，而如何创建这个对象的细节则完全封装在具体工厂内部。工厂方法模式之所以又被称为多态工厂模式，就正是因为所有的具体工厂类都具有同一抽象父类。</p>

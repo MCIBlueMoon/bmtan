@@ -16,25 +16,22 @@
   <meta name="author" content="Bmtan">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Unity生命周期Unity生命周期图 ResetReset 是当Scripts第一次绑定到物体上或者点击Reset按钮的时候会触发，且只在Editor的模式下触发，游戏打包的时候并不会触发。 1234void Reset()&amp;#123;    &amp;#125;    AwakeAwake 是当脚本实例在游戏运行被载入的时候运行，一般为了初始化游戏变量和游戏状态，注意，无论函数是否被激活，Awake">
+    <meta name="description" content="C# 连接数据库c# 连接数据库的步骤，和相关的方法调用123456789101112131415161718192021222324252627282930313233343536373839404142&#x2F;&#x2F;第一步：创建Connection 数据库连接对象         SqlConnection conn &#x3D; new SqlConnection(&quot;server &#x3D; . ; uid">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Unity 生命周期">
-<meta property="og:url" content="http://bmtan.cc/2022/06/05/Unity%E8%84%9A%E6%9C%AC%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/index.html">
+<meta property="og:title" content="C# 连接数据库">
+<meta property="og:url" content="http://bmtan.cc/2022/06/10/CSharp-%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93/index.html">
 <meta property="og:site_name" content="Bmtan">
-<meta property="og:description" content="Unity生命周期Unity生命周期图 ResetReset 是当Scripts第一次绑定到物体上或者点击Reset按钮的时候会触发，且只在Editor的模式下触发，游戏打包的时候并不会触发。 1234void Reset()&amp;#123;    &amp;#125;    AwakeAwake 是当脚本实例在游戏运行被载入的时候运行，一般为了初始化游戏变量和游戏状态，注意，无论函数是否被激活，Awake">
+<meta property="og:description" content="C# 连接数据库c# 连接数据库的步骤，和相关的方法调用123456789101112131415161718192021222324252627282930313233343536373839404142&#x2F;&#x2F;第一步：创建Connection 数据库连接对象         SqlConnection conn &#x3D; new SqlConnection(&quot;server &#x3D; . ; uid">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/06-05/Unity%E8%84%9A%E6%9C%AC%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png">
-<meta property="article:published_time" content="2022-06-05T06:25:45.000Z">
-<meta property="article:modified_time" content="2022-06-05T07:19:46.684Z">
+<meta property="article:published_time" content="2022-06-10T12:51:40.000Z">
+<meta property="article:modified_time" content="2022-07-02T12:58:57.672Z">
 <meta property="article:author" content="Bmtan">
-<meta property="article:tag" content="Unity">
-<meta property="article:tag" content="生命周期">
+<meta property="article:tag" content="C#">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/06-05/Unity%E8%84%9A%E6%9C%AC%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png">
   
   
   
-  <title>Unity 生命周期 - Bmtan</title>
+  <title>C# 连接数据库 - Bmtan</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,7 +194,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Unity 生命周期"></span>
+            <span id="subtitle" data-typed-text="C# 连接数据库"></span>
           
         </div>
 
@@ -208,8 +205,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-06-05 14:25" pubdate>
-          2022年6月5日 下午
+        <time datetime="2022-06-10 20:51" pubdate>
+          2022年6月10日 晚上
         </time>
       </span>
     
@@ -269,66 +266,13 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Unity 生命周期</h1>
+            <h1 style="display: none">C# 连接数据库</h1>
             
             <div class="markdown-body">
               
-              <h1 id="Unity生命周期"><a href="#Unity生命周期" class="headerlink" title="Unity生命周期"></a>Unity生命周期</h1><h3 id="Unity生命周期图"><a href="#Unity生命周期图" class="headerlink" title="Unity生命周期图"></a>Unity生命周期图</h3><p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/06-05/Unity%E8%84%9A%E6%9C%AC%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png" srcset="/img/loading.gif" lazyload></p>
-<h3 id="Reset"><a href="#Reset" class="headerlink" title="Reset"></a>Reset</h3><p><strong>Reset</strong> 是当Scripts第一次绑定到物体上或者点击Reset按钮的时候会触发，且只在Editor的模式下触发，游戏打包的时候并不会触发。</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c#"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Reset</span>()</span><br>&#123;<br>    <br>&#125;<br></code></pre></td></tr></table></figure>
+              <h1 id="C-连接数据库"><a href="#C-连接数据库" class="headerlink" title="C# 连接数据库"></a>C# 连接数据库</h1><h2 id="c-连接数据库的步骤，和相关的方法调用"><a href="#c-连接数据库的步骤，和相关的方法调用" class="headerlink" title="c# 连接数据库的步骤，和相关的方法调用"></a>c# 连接数据库的步骤，和相关的方法调用</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment">//第一步：创建Connection 数据库连接对象</span><br>         SqlConnection conn = <span class="hljs-keyword">new</span> SqlConnection(<span class="hljs-string">&quot;server = . ; uid = sa ; pwd = jnos;database = JINGDONGDB&quot;</span>);<br>         <br><span class="hljs-comment">//第二步：打开连接数据库</span><br>         conn.Open();<br>         <br><span class="hljs-comment">//第三步：使用数据库，@符号表示可以换行，代码也连接在一起</span><br>         <span class="hljs-built_in">string</span> sql = <span class="hljs-string">$@&quot;select ProductNo, ProductName, ProductImage,</span><br><span class="hljs-string">        	Price,password from Product where ProductNo=<span class="hljs-subst">&#123;_ProductNo&#125;</span>and</span><br><span class="hljs-string">         password=&#x27;<span class="hljs-subst">&#123;_password&#125;</span>&#x27;&quot;</span>;	   <br>         <br>SqlCommand command = <span class="hljs-keyword">new</span> SqlCommand(sql,conn);<br>         SqlDataReader reader = command.ExecuteReader();<span class="hljs-comment">//</span><br><br><span class="hljs-comment">//在数据库里面是为  next（） 有数据为 true 没有数据为 flase</span><br>         <span class="hljs-keyword">if</span> (reader.Read())<br>         &#123;<br>             <span class="hljs-built_in">string</span> ProductNo = reader[<span class="hljs-string">&quot;ProductNo&quot;</span>].ToString();<br>             <span class="hljs-built_in">string</span> ProductName = reader[<span class="hljs-string">&quot;ProductName&quot;</span>].ToString();<br>             MessageBox.Show(<span class="hljs-string">$&quot;欢迎<span class="hljs-subst">&#123;ProductName&#125;</span>登录成功&quot;</span>);<br>         &#125;<br>         <span class="hljs-keyword">else</span><br>         &#123;<br>             MessageBox.Show(<span class="hljs-string">&quot;账号或密码错误，请重新输入！&quot;</span>);<br>         &#125;<br><br><br><br>         <span class="hljs-comment">//int resule = command.ExecuteNonQuery();//添加、删除、修改（返回行数受影响）接SqlCommand command = new SqlCommand(sql,conn);</span><br>                                                                 <span class="hljs-comment">//行 是添加删除修改的步骤</span><br>         <span class="hljs-comment">//object result = command.ExecuteScalar();//查询聚合函数用到</span><br>         <span class="hljs-comment">//if(resule &gt; 0)</span><br>         <span class="hljs-comment">//&#123;</span><br>         <span class="hljs-comment">//    MessageBox.Show(&quot;删除成功&quot;);</span><br>         <span class="hljs-comment">//&#125;</span><br>         <span class="hljs-comment">//else</span><br>         <span class="hljs-comment">//&#123;</span><br>         <span class="hljs-comment">//    MessageBox.Show(&quot;删除失败&quot;);</span><br>         <span class="hljs-comment">//&#125;</span><br>         <span class="hljs-comment">//第四步：关闭连接对象</span><br>         conn.Close();<br><br></code></pre></td></tr></table></figure>
 
-
-
-<h3 id="Awake"><a href="#Awake" class="headerlink" title="Awake"></a>Awake</h3><p><strong>Awake</strong> 是当脚本实例在游戏运行被载入的时候运行，一般为了初始化游戏变量和游戏状态，注意，无论函数是否被激活，Awake 都会执行。</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c#"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Awake</span>()</span><br>&#123;<br>    <br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="OnEable"><a href="#OnEable" class="headerlink" title="OnEable"></a>OnEable</h3><p><strong>OnEable</strong> 是在游戏对象是可激活状态的时候会调用</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">OnEable</span>()</span><br>&#123;<br>    <br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="Start"><a href="#Start" class="headerlink" title="Start"></a>Start</h3><p><strong>Start</strong> 也是为了初始化变量的方法但是和 <strong>Awake</strong> 有些许的不同</p>
-<p>首先，<strong>Awake</strong> 是在项目初始化的时候被调用的，但是 <strong>Start</strong> 可能在初始之后调用，所有如果把一些状态放在 <strong>Start</strong> 中进行初始化，会很不安全，因为可能会有别的函数在 <strong>Start</strong> 之前就被执行，造成一些空引用的问题。</p>
-<p>其次，如果对象不是处于激活状态，<strong>Start</strong> 是不会被调用的，而 <strong>Awake</strong> 无论是不是激活都会被引用。</p>
-<p><strong>所以，建议把所有初始化都放在Awake上</strong></p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>()</span><br>&#123;<br>    <br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="FixedUpdate"><a href="#FixedUpdate" class="headerlink" title="FixedUpdate"></a>FixedUpdate</h3><p>Unity 建议，把所有的物理行为的每帧更新的逻辑都应当放在 <strong>FixedUpdate</strong> 里，原因因为这个是固定间隔的帧执行的，而普通的 <strong>Update</strong> 每一帧之间的间隔是不固定的，不一样的，所以一般都希望物体上的力是均匀的，否则会出现卡顿的现象。</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">FixedUpdate</span>()</span><br>&#123;<br>    <br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="OnTrigger、OnCollison、OnMouse"><a href="#OnTrigger、OnCollison、OnMouse" class="headerlink" title="OnTrigger、OnCollison、OnMouse"></a>OnTrigger、OnCollison、OnMouse</h3><p>先处理 <strong>OnTrigger</strong> 触发器行为，再处理 <strong>OnCollison</strong> 碰撞体行为，在此处理 <strong>OnMouse</strong> 的点击鼠标，点击输入的行为.</p>
-<p>这三个行为是完全连续的行为。</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">OnTrigger</span>()</span><br>&#123;<br>    <br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">OnCollison</span>()</span><br>&#123;<br>    <br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">OnMouse</span>()</span><br>&#123;<br>    <br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="Update"><a href="#Update" class="headerlink" title="Update"></a>Update</h3><p><strong>Update</strong> 是每一帧进行调用，是我们实现大部分游戏逻辑的方法.</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>()</span><br>&#123;<br>    <br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="LateUpdate"><a href="#LateUpdate" class="headerlink" title="LateUpdate"></a>LateUpdate</h3><p><strong>LateUpdate</strong> 再所有 Update 方法执行之后执行，一般用于摄像机的跟随移动。</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">LateUpdate</span>()</span><br>&#123;<br>    <br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h3 id="OnGUI"><a href="#OnGUI" class="headerlink" title="OnGUI"></a>OnGUI</h3><p><strong>OnGUI</strong> 处理GUI数据，也是每一帧执行一次</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">OnGUI</span>()</span><br>&#123;<br>    <br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="OnDisable"><a href="#OnDisable" class="headerlink" title="OnDisable"></a>OnDisable</h3><p><strong>OnDisable</strong> 在对象被取消活跃状态的时候响应，和 <strong>OnEnable</strong> 相对应，但与此同时对象再次被激活的时候，<strong>OnEnable</strong> 也会再次响应。</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">OnDisable</span>()</span><br>&#123;<br>    <br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="OnDestory"><a href="#OnDestory" class="headerlink" title="OnDestory"></a>OnDestory</h3><p><strong>OnDestory</strong> 在对象被销毁的时候被调用，但是如果一开始对象就处于不激活状态然后被销毁了，就不会调用这个函数。</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">OnDisable</span>()</span><br>&#123;<br>    <br>&#125;<br></code></pre></td></tr></table></figure>
-
+<h3 id="相关的方法调用："><a href="#相关的方法调用：" class="headerlink" title="相关的方法调用："></a>相关的方法调用：</h3><p>command.ExecuteNonQuery：添加、删除、修改（返回行数受影响<br>command.ExecuteScalar：查询聚合函数<br>command.ExecuteReader：查询单列函数</p>
 
               
             </div>
@@ -346,7 +290,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B/" class="category-chain-item">游戏编程</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
   
   
 
@@ -361,9 +305,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Unity/">#Unity</a>
-      
-        <a href="/tags/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">#生命周期</a>
+        <a href="/tags/C/">#C#</a>
       
     </div>
   
@@ -375,8 +317,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Unity 生命周期</div>
-      <div>http://bmtan.cc/2022/06/05/Unity脚本生命周期/</div>
+      <div>C# 连接数据库</div>
+      <div>http://bmtan.cc/2022/06/10/CSharp-连接数据库/</div>
     </div>
     <div class="license-meta">
       
@@ -388,7 +330,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年6月5日</div>
+          <div>2022年6月10日</div>
         </div>
       
       
@@ -418,9 +360,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/06/30/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="C# 设计模式">
+                      <a href="/2022/06/15/Unity%20AI%E4%B9%8B%E8%A1%8C%E4%B8%BA%E6%A0%91/" title="Unity 游戏AI之行为树">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">C# 设计模式</span>
+                        <span class="hidden-mobile">Unity 游戏AI之行为树</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -428,8 +370,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/06/02/Unity%20AI%E4%B9%8B%E8%A1%8C%E4%B8%BA%E6%A0%91/" title="Unity 游戏AI之行为树">
-                        <span class="hidden-mobile">Unity 游戏AI之行为树</span>
+                      <a href="/2022/06/05/C%20Sharp%E4%B9%8BArray%E3%80%81ArrayList%E5%92%8CList%E7%9A%84%E5%8C%BA%E5%88%AB/" title="C# Array、ArrayList和List的区别">
+                        <span class="hidden-mobile">C# Array、ArrayList和List的区别</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

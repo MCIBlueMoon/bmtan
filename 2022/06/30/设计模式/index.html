@@ -40,8 +40,11 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84%E5%9B%BE.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84%E5%9B%BE.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84%E5%9B%BE.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84%E5%9B%BE.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E7%BB%93%E6%9E%84%E5%9B%BE.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84%E5%9B%BE.png">
 <meta property="article:published_time" content="2022-06-30T13:38:47.000Z">
-<meta property="article:modified_time" content="2022-07-02T12:50:24.998Z">
+<meta property="article:modified_time" content="2022-07-03T12:02:09.601Z">
 <meta property="article:author" content="Bmtan">
 <meta property="article:tag" content="C Sharp">
 <meta property="article:tag" content="设计模式">
@@ -236,7 +239,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          28k 字
+          33k 字
         
       </span>
     
@@ -247,7 +250,7 @@
         
         
         
-          235 分钟
+          273 分钟
         
       </span>
     
@@ -329,13 +332,13 @@
 <p><strong><font color="FF0000">聚合关系用空心菱形+实线箭头</font></strong></p>
 <p><strong><font color="FF0000">依赖关系用虚线箭头</font></strong></p>
 <hr>
-<h2 id="一、创建型设计模式"><a href="#一、创建型设计模式" class="headerlink" title="一、创建型设计模式"></a>一、创建型设计模式</h2><h3 id="①-简单工厂模式"><a href="#①-简单工厂模式" class="headerlink" title="① 简单工厂模式"></a>① 简单工厂模式</h3><h4 id="1、引言"><a href="#1、引言" class="headerlink" title="1、引言"></a>1、引言</h4><p>　　这个系列也是自己对设计模式的一些学习笔记,希望对一些初学设计模式的人有所帮助的,在上一个专题中介绍了单例模式,在这个专题中继续为大家介绍一个比较容易理解的模式——简单工厂模式。</p>
-<h4 id="2、简单工厂模式的介绍"><a href="#2、简单工厂模式的介绍" class="headerlink" title="2、简单工厂模式的介绍"></a>2、简单工厂模式的介绍</h4><p>　　说到简单工厂，自然的第一个疑问当然就是什么是简单工厂模式了？ 在现实生活中工厂是负责生产产品的,同样在设计模式中,简单工厂模式我们也可以理解为负责<strong>生产对象的一个类</strong>, 我们平常编程中，当使用”new”关键字创建一个对象时，此时该类就依赖与这个对象，也就是他们之间的耦合度高，当需求变化时，我们就不得不去修改此类的源码，此时我们可以运用面向对象（OO）的很重要的原则去解决这一的问题，该原则就是——<font color="#FF0000">封装改变，既然要封装改变，自然也就要找到改变的代码，然后把改变的代码用类来封装</font>，这样的一种思路也就是我们简单工厂模式的实现方式了。下面通过一个现实生活中的例子来引出简单工厂模式。</p>
-<h4 id="3、实现"><a href="#3、实现" class="headerlink" title="3、实现"></a>3、实现</h4><p><strong>简单工厂类：</strong></p>
+<h2 id="一、创建型设计模式"><a href="#一、创建型设计模式" class="headerlink" title="一、创建型设计模式"></a>一、创建型设计模式</h2><h3 id="1、简单工厂模式"><a href="#1、简单工厂模式" class="headerlink" title="1、简单工厂模式"></a>1、简单工厂模式</h3><h4 id="①-引言"><a href="#①-引言" class="headerlink" title="① 引言"></a>① 引言</h4><p>　　这个系列也是自己对设计模式的一些学习笔记,希望对一些初学设计模式的人有所帮助的,在上一个专题中介绍了单例模式,在这个专题中继续为大家介绍一个比较容易理解的模式——简单工厂模式。</p>
+<h4 id="②-简单工厂模式的介绍"><a href="#②-简单工厂模式的介绍" class="headerlink" title="② 简单工厂模式的介绍"></a>② 简单工厂模式的介绍</h4><p>　　说到简单工厂，自然的第一个疑问当然就是什么是简单工厂模式了？ 在现实生活中工厂是负责生产产品的,同样在设计模式中,简单工厂模式我们也可以理解为负责<strong>生产对象的一个类</strong>, 我们平常编程中，当使用”new”关键字创建一个对象时，此时该类就依赖与这个对象，也就是他们之间的耦合度高，当需求变化时，我们就不得不去修改此类的源码，此时我们可以运用面向对象（OO）的很重要的原则去解决这一的问题，该原则就是——<font color="#FF0000">封装改变，既然要封装改变，自然也就要找到改变的代码，然后把改变的代码用类来封装</font>，这样的一种思路也就是我们简单工厂模式的实现方式了。下面通过一个现实生活中的例子来引出简单工厂模式。</p>
+<h4 id="③-实现"><a href="#③-实现" class="headerlink" title="③ 实现"></a>③ 实现</h4><p><strong>简单工厂类：</strong></p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs c#"><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">OperationFactory</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Operation <span class="hljs-title">createOperate</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> operate</span>)</span><br>    &#123;<br>     	Operation oper=<span class="hljs-literal">null</span>;<br>        <span class="hljs-keyword">switch</span>(operate)<br>        &#123;<br>            <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;+&quot;</span>:<br>                oper = <span class="hljs-keyword">new</span> OperationAdd();<br>                <span class="hljs-keyword">break</span>;<br>            <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;-&quot;</span>:<br>                oper = <span class="hljs-keyword">new</span> OpeationSub();<br>            	<span class="hljs-keyword">break</span>;<br>            <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;*&quot;</span>:<br>                oper = <span class="hljs-keyword">new</span> OperationMul();<br>            <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;/&quot;</span>:<br>                oper = <span class="hljs-keyword">new</span> OperationDiv();<br>                <span class="hljs-keyword">break</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> oper;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82UML.png" srcset="/img/loading.gif" lazyload></p>
-<h4 id="4、优点与缺点"><a href="#4、优点与缺点" class="headerlink" title="4、优点与缺点"></a>4、优点与缺点</h4><p>​	<strong>1.主要优点</strong></p>
+<h4 id="④-优点与缺点"><a href="#④-优点与缺点" class="headerlink" title="④ 优点与缺点"></a>④ 优点与缺点</h4><p>​	<strong>1.主要优点</strong></p>
 <p>​    简单工厂模式的主要优点如下：</p>
 <p>​    (1) 工厂类包含必要的判断逻辑，可以决定在什么时候创建哪一个产品类的实例，客户端可以免除直接创建产品对象的职责，而仅仅“消费”产品，简单工厂模式实现了对象创建和使用的分离。</p>
 <p>​    (2) 客户端无须知道所创建的具体产品类的类名，只需要知道具体产品类所对应的参数即可，对于一些复杂的类名，通过简单工厂模式可以在一定程度减少使用者的记忆量。</p>
@@ -347,9 +350,9 @@
 <p>​    (3) 系统扩展困难，一旦添加新产品就不得不修改工厂逻辑，在产品类型较多时，有可能造成工厂逻辑过于复杂，不利于系统的扩展和维护。</p>
 <p>​    (4) 简单工厂模式由于使用了静态工厂方法，造成工厂角色无法形成基于继承的等级结构。</p>
 <hr>
-<h3 id="②-工厂方法模式"><a href="#②-工厂方法模式" class="headerlink" title="② 工厂方法模式"></a>② 工厂方法模式</h3><h4 id="1、引言-1"><a href="#1、引言-1" class="headerlink" title="1、引言"></a>1、引言</h4><p>　　<strong>工厂方法模式(Factory Method Pattern)：</strong>定义一个用于创建对象的接口，让子类决定将哪一个类实例化。工厂方法模式让一个类的实例化延迟到其子类。工厂方法模式又简称为工厂模式(Factory Pattern)，又可称作虚拟构造器模式(Virtual Constructor Pattern)或多态工厂模式(Polymorphic Factory Pattern)。工厂方法模式是一种类创建型模式。</p>
-<h4 id="2、工厂方法模式的介绍"><a href="#2、工厂方法模式的介绍" class="headerlink" title="2、工厂方法模式的介绍"></a>2、工厂方法模式的介绍</h4><p>　　工厂方法模式之所以可以解决简单工厂的模式，是因为它的实现把具体产品的创建推迟到子类中，此时工厂类不再负责所有产品的创建，而只是给出具体工厂必须实现的接口，这样工厂方法模式就可以允许系统不修改工厂类逻辑的情况下来添加新产品，这样也就克服了简单工厂模式中缺点。</p>
-<h4 id="3、实现-1"><a href="#3、实现-1" class="headerlink" title="3、实现"></a>3、实现</h4><div align="center"><b>工厂方法UML</b></div>
+<h3 id="2、工厂方法模式"><a href="#2、工厂方法模式" class="headerlink" title="2、工厂方法模式"></a>2、工厂方法模式</h3><h4 id="①-引言-1"><a href="#①-引言-1" class="headerlink" title="① 引言"></a>① 引言</h4><p>　　<strong>工厂方法模式(Factory Method Pattern)：</strong>定义一个用于创建对象的接口，让子类决定将哪一个类实例化。工厂方法模式让一个类的实例化延迟到其子类。工厂方法模式又简称为工厂模式(Factory Pattern)，又可称作虚拟构造器模式(Virtual Constructor Pattern)或多态工厂模式(Polymorphic Factory Pattern)。工厂方法模式是一种类创建型模式。</p>
+<h4 id="②-工厂方法模式的介绍"><a href="#②-工厂方法模式的介绍" class="headerlink" title="② 工厂方法模式的介绍"></a>② 工厂方法模式的介绍</h4><p>　　工厂方法模式之所以可以解决简单工厂的模式，是因为它的实现把具体产品的创建推迟到子类中，此时工厂类不再负责所有产品的创建，而只是给出具体工厂必须实现的接口，这样工厂方法模式就可以允许系统不修改工厂类逻辑的情况下来添加新产品，这样也就克服了简单工厂模式中缺点。</p>
+<h4 id="③-实现-1"><a href="#③-实现-1" class="headerlink" title="③ 实现"></a>③ 实现</h4><div align="center"><b>工厂方法UML</b></div>
 
 
 <p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95UML.png" srcset="/img/loading.gif" lazyload></p>
@@ -372,7 +375,7 @@
 
 
 <p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E7%BB%93%E6%9E%84%E5%9B%BE.png" srcset="/img/loading.gif" lazyload></p>
-<h4 id="4、优点与缺点-1"><a href="#4、优点与缺点-1" class="headerlink" title="4、优点与缺点"></a>4、优点与缺点</h4><p>​	<strong>1.主要优点</strong></p>
+<h4 id="④-优点与缺点-1"><a href="#④-优点与缺点-1" class="headerlink" title="④ 优点与缺点"></a>④ 优点与缺点</h4><p>​	<strong>1.主要优点</strong></p>
 <p>​    工厂方法模式的主要优点如下：</p>
 <p>​    (1) 在工厂方法模式中，工厂方法用来创建客户所需要的产品，同时还向客户隐藏了哪种具体产品类将被实例化这一细节，用户只需要关心所需产品对应的工厂，无须关心创建细节，甚至无须知道具体产品类的类名。</p>
 <p>​    (2) 基于工厂角色和产品角色的多态性设计是工厂方法模式的关键。它能够让工厂可以自主确定创建何种产品对象，而如何创建这个对象的细节则完全封装在具体工厂内部。工厂方法模式之所以又被称为多态工厂模式，就正是因为所有的具体工厂类都具有同一抽象父类。</p>
@@ -381,11 +384,11 @@
 <p>   工厂方法模式的主要缺点如下：</p>
 <p>   (1) 在添加新产品时，需要编写新的具体产品类，而且还要提供与之对应的具体工厂类，系统中类的个数将成对增加，在一定程度上增加了系统的复杂度，有更多的类需要编译和运行，会给系统带来一些额外的开销。</p>
 <p>   (2) 由于考虑到系统的可扩展性，需要引入抽象层，在客户端代码中均使用抽象层进行定义，增加了系统的抽象性和理解难度，且在实现时可能需要用到DOM、反射等技术，增加了系统的实现难度。</p>
-<h4 id="5、总结"><a href="#5、总结" class="headerlink" title="5、总结"></a>5、总结</h4><p><strong>工厂方法模式(Factory Method)</strong>,定义一个用于创建对象的接口，让子类决定实例化哪一个类。工厂方法使一个类的实例化延迟到其子类。</p>
+<h4 id="⑤-总结"><a href="#⑤-总结" class="headerlink" title="⑤ 总结"></a>⑤ 总结</h4><p><strong>工厂方法模式(Factory Method)</strong>,定义一个用于创建对象的接口，让子类决定实例化哪一个类。工厂方法使一个类的实例化延迟到其子类。</p>
 <hr>
-<h3 id="③-抽象工厂模式"><a href="#③-抽象工厂模式" class="headerlink" title="③ 抽象工厂模式"></a>③ 抽象工厂模式</h3><h4 id="1、引言-2"><a href="#1、引言-2" class="headerlink" title="1、引言"></a>1、引言</h4><p>​		工厂方法模式是为了克服简单工厂模式的缺点而设计出来的,简单工厂模式的工厂类随着产品类的增加需要增加额外的代码），而工厂方法模式每个具体工厂类只完成单个实例的创建,所以它具有很好的可扩展性。但是在现实生活中，一个工厂只创建单个产品这样的例子很少，因为现在的工厂都多元化了，一个工厂创建一系列的产品，如果我们要设计这样的系统时，工厂方法模式显然在这里不适用，然后抽象工厂模式却可以很好地解决一系列产品创建的问题</p>
-<h4 id="2、抽象工厂模式的介绍"><a href="#2、抽象工厂模式的介绍" class="headerlink" title="2、抽象工厂模式的介绍"></a>2、抽象工厂模式的介绍</h4><p>​		抽象工厂模式：<strong>提供一个创建一系列相关或相互依赖对象的接口，而无须指定它们具体的类。抽象工厂模式又称为Kit模式，它是一种对象创建型模式。</strong></p>
-<h4 id="3、实现-2"><a href="#3、实现-2" class="headerlink" title="3、实现"></a>3、实现</h4><p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82Uml.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="3、抽象工厂模式"><a href="#3、抽象工厂模式" class="headerlink" title="3、抽象工厂模式"></a>3、抽象工厂模式</h3><h4 id="①-引言-2"><a href="#①-引言-2" class="headerlink" title="① 引言"></a>① 引言</h4><p>​		工厂方法模式是为了克服简单工厂模式的缺点而设计出来的,简单工厂模式的工厂类随着产品类的增加需要增加额外的代码），而工厂方法模式每个具体工厂类只完成单个实例的创建,所以它具有很好的可扩展性。但是在现实生活中，一个工厂只创建单个产品这样的例子很少，因为现在的工厂都多元化了，一个工厂创建一系列的产品，如果我们要设计这样的系统时，工厂方法模式显然在这里不适用，然后抽象工厂模式却可以很好地解决一系列产品创建的问题</p>
+<h4 id="②-抽象工厂模式的介绍"><a href="#②-抽象工厂模式的介绍" class="headerlink" title="② 抽象工厂模式的介绍"></a>② 抽象工厂模式的介绍</h4><p>​		抽象工厂模式：<strong>提供一个创建一系列相关或相互依赖对象的接口，而无须指定它们具体的类。抽象工厂模式又称为Kit模式，它是一种对象创建型模式。</strong></p>
+<h4 id="③-实现-2"><a href="#③-实现-2" class="headerlink" title="③ 实现"></a>③ 实现</h4><p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82Uml.png" srcset="/img/loading.gif" lazyload></p>
 <blockquote>
 <p>IDepartment接口，用于客户端访问，解除与具体数据库访问的耦合</p>
 </blockquote>
@@ -423,7 +426,7 @@
 
 
 <p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E6%8A%BD%E8%B1%A1%E6%96%B9%E6%B3%95%E7%BB%93%E6%9E%84%E5%9B%BE.png" srcset="/img/loading.gif" lazyload></p>
-<h4 id="4、优点与缺点-2"><a href="#4、优点与缺点-2" class="headerlink" title="4、优点与缺点"></a>4、优点与缺点</h4><p>​	<strong>1.主要优点</strong></p>
+<h4 id="④-优点与缺点-2"><a href="#④-优点与缺点-2" class="headerlink" title="④ 优点与缺点"></a>④ 优点与缺点</h4><p>​	<strong>1.主要优点</strong></p>
 <p>​    抽象工厂模式的主要优点如下：</p>
 <p>​    (1) 抽象工厂模式隔离了具体类的生成，使得客户并不需要知道什么被创建。由于这种隔离，更换一个具体工厂就变得相对容易，所有的具体工厂都实现了抽象工厂中定义的那些公共接口，因此只需改变具体工厂的实例，就可以在某种程度上改变整个软件系统的行为。</p>
 <p>​    (2) 当一个产品族中的多个对象被设计成一起工作时，它能够保证客户端始终只使用同一个产品族中的对象。</p>
@@ -431,13 +434,13 @@
 <p>​    <strong>2. 主要缺点</strong></p>
 <p>​    抽象工厂模式的主要缺点如下：</p>
 <p>​    增加新的产品等级结构麻烦，需要对原有系统进行较大的修改，甚至需要修改抽象层代码，这显然会带来较大的不便，违背了“开闭原则”。</p>
-<h4 id="5、总结-1"><a href="#5、总结-1" class="headerlink" title="5、总结"></a>5、总结</h4><p><strong>抽象工厂模式</strong>，提供一个创建一系列相关或相互依赖对象的接口，而无需指定他们具体的类。</p>
+<h4 id="⑤-总结-1"><a href="#⑤-总结-1" class="headerlink" title="⑤ 总结"></a>⑤ 总结</h4><p><strong>抽象工厂模式</strong>，提供一个创建一系列相关或相互依赖对象的接口，而无需指定他们具体的类。</p>
 <hr>
-<h3 id="④-单例模式"><a href="#④-单例模式" class="headerlink" title="④ 单例模式"></a>④ 单例模式</h3><h4 id="1、引言-3"><a href="#1、引言-3" class="headerlink" title="1、引言"></a>1、引言</h4><p>​		单例”字面意思上理解为——一个类只有一个实例，所以单例模式也就是<font color="FF0000"><strong>保证一个类只有一个实例的一种实现方法</strong></font>，单例模式的一个官方定义：<strong>确保一个类只有一个实例,并提供一个全局访问点。</strong></p>
-<h4 id="2、单例设计模式介绍"><a href="#2、单例设计模式介绍" class="headerlink" title="2、单例设计模式介绍"></a>2、单例设计模式介绍</h4><p>​		<strong>单例模式（Singleton）</strong>，保证一个类仅有一个实例，并提供一个访问它的全局访问点。</p>
+<h3 id="4、单例模式"><a href="#4、单例模式" class="headerlink" title="4、单例模式"></a>4、单例模式</h3><h4 id="①-引言-3"><a href="#①-引言-3" class="headerlink" title="① 引言"></a>① 引言</h4><p>​		单例”字面意思上理解为——一个类只有一个实例，所以单例模式也就是<font color="FF0000"><strong>保证一个类只有一个实例的一种实现方法</strong></font>，单例模式的一个官方定义：<strong>确保一个类只有一个实例,并提供一个全局访问点。</strong></p>
+<h4 id="②-单例设计模式介绍"><a href="#②-单例设计模式介绍" class="headerlink" title="② 单例设计模式介绍"></a>② 单例设计模式介绍</h4><p>​		<strong>单例模式（Singleton）</strong>，保证一个类仅有一个实例，并提供一个访问它的全局访问点。</p>
 <p>​		“通常我们可以让一个全局变量是的一个对象被访问，但它不能防止你实例化多个对象。一个最好办法就是，让类自身负责保存它的唯一实例。这个类可以保证有没有其他实例可以被创建，并且它可以提供一个访问该实例的方法。</p>
 <p>​		<strong>单例模式因为Singleton类封装它的唯一实例，这样它可以严格控制客户怎样访问它以及何时访问它。简单地说就是对唯一实例的受控访问。</strong></p>
-<h4 id="3、实现-3"><a href="#3、实现-3" class="headerlink" title="3、实现"></a>3、实现</h4><p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84%E5%9B%BE.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="③-实现-3"><a href="#③-实现-3" class="headerlink" title="③ 实现"></a>③ 实现</h4><p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84%E5%9B%BE.png" srcset="/img/loading.gif" lazyload></p>
 <blockquote>
 <p>Singleton类，定义一个GetInstance操作，允许客户访问它的唯一实例。GetInstance 是一个静态方法，主要负责创建自己的唯一实例。</p>
 </blockquote>
@@ -448,20 +451,20 @@
 </blockquote>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-built_in">string</span>[] args</span>)</span><br>&#123;<br>    Singleton s1 = Singleton.GetInstance();<br>    Singleton s2 = Singleton.GetInstance();<br>    <br>    <span class="hljs-keyword">if</span>(s1==s2)<br>    &#123;<br>        Console.WriteLine(<span class="hljs-string">&quot;两个对象是相同的实例&quot;</span>);<br>    &#125;<br>    Console.Read();<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h4 id="4、多线程使用单例模式所引发的问题"><a href="#4、多线程使用单例模式所引发的问题" class="headerlink" title="4、多线程使用单例模式所引发的问题"></a>4、多线程使用单例模式所引发的问题</h4><p>上面的单例模式的实现在单线程下确实是完美的,然而在多线程的情况下会得到多个Singleton实例,因为在两个线程同时运行GetInstance方法时，此时两个线程判断(uniqueInstance &#x3D;&#x3D;null)这个条件时都返回真，此时两个线程就都会创建Singleton的实例，这样就违背了我们单例模式初衷了，既然上面的实现会运行多个线程执行，那<strong>我们对于多线程的解决方案自然就是使GetInstance方法在同一时间只运行一个线程运行就好了</strong></p>
+<h4 id="④-多线程使用单例模式所引发的问题"><a href="#④-多线程使用单例模式所引发的问题" class="headerlink" title="④ 多线程使用单例模式所引发的问题"></a>④ 多线程使用单例模式所引发的问题</h4><p>上面的单例模式的实现在单线程下确实是完美的,然而在多线程的情况下会得到多个Singleton实例,因为在两个线程同时运行GetInstance方法时，此时两个线程判断(uniqueInstance &#x3D;&#x3D;null)这个条件时都返回真，此时两个线程就都会创建Singleton的实例，这样就违背了我们单例模式初衷了，既然上面的实现会运行多个线程执行，那<strong>我们对于多线程的解决方案自然就是使GetInstance方法在同一时间只运行一个线程运行就好了</strong></p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs c#"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span><br>    &#123;<br>        <span class="hljs-comment">// 定义一个静态变量来保存类的实例</span><br>        <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Singleton uniqueInstance;<br><br>        <span class="hljs-comment">// 定义一个标识确保线程同步</span><br>        <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">readonly</span> <span class="hljs-built_in">object</span> locker = <span class="hljs-keyword">new</span> <span class="hljs-built_in">object</span>();<br><br>        <span class="hljs-comment">// 定义私有构造函数，使外界不能创建该类实例</span><br>        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">Singleton</span>()</span><br>        &#123;<br>        &#125;<br><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> 定义公有方法提供一个全局访问点,同时你也可以定义公有属性来提供全局访问点</span><br>        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>       <br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Singleton <span class="hljs-title">GetInstance</span>()</span><br>        &#123;<br>            <span class="hljs-comment">// 当第一个线程运行到这里时，此时会对locker对象 &quot;加锁&quot;，</span><br>            <span class="hljs-comment">// 当第二个线程运行该方法时，首先检测到locker对象为&quot;加锁&quot;状态，该线程就会挂起等待第一个线程解锁</span><br>            <span class="hljs-comment">// lock语句运行完之后（即线程运行完之后）会对该对象&quot;解锁&quot;</span><br>            <span class="hljs-keyword">lock</span> (locker)<br>            &#123;<br>                <span class="hljs-comment">// 如果类的实例不存在则创建，否则直接返回</span><br>                <span class="hljs-keyword">if</span> (uniqueInstance == <span class="hljs-literal">null</span>)<br>                &#123;<br>                    uniqueInstance = <span class="hljs-keyword">new</span> Singleton();<br>                &#125;<br>            &#125;<br><br>            <span class="hljs-keyword">return</span> uniqueInstance;<br>        &#125;<br>    &#125;<br></code></pre></td></tr></table></figure>
 
 <p>上面这种解决方案确实可以解决多线程的问题,但是**上面代码对于每个线程都会对线程辅助对象locker加锁之后再判断实例是否存在，对于这个操作完全没有必要的，因为当第一个线程创建了该类的实例之后，后面的线程此时只需要直接判断（uniqueInstance&#x3D;&#x3D;null）为假，此时完全没必要对线程辅助对象加锁之后再去判断，所以上面的实现方式增加了额外的开销，损失了性能，为了改进上面实现方式的缺陷，我们只需要在lock语句前面加一句（uniqueInstance&#x3D;&#x3D;null）的判断就可以避免锁所增加的额外开销，这种实现方式我们就叫它 **<font color="FF0000"><b>“双重锁定”</b></font>，下面具体看看实现代码的：</p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span><br>   &#123;<br>       <span class="hljs-comment">// 定义一个静态变量来保存类的实例</span><br>       <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Singleton uniqueInstance;<br><br>       <span class="hljs-comment">// 定义一个标识确保线程同步</span><br>       <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">readonly</span> <span class="hljs-built_in">object</span> locker = <span class="hljs-keyword">new</span> <span class="hljs-built_in">object</span>();<br><br>       <span class="hljs-comment">// 定义私有构造函数，使外界不能创建该类实例</span><br>       <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">Singleton</span>()</span><br>       &#123;<br>       &#125;<br><br>       <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>       <span class="hljs-comment"><span class="hljs-doctag">///</span> 定义公有方法提供一个全局访问点,同时你也可以定义公有属性来提供全局访问点</span><br>       <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Singleton <span class="hljs-title">GetInstance</span>()</span><br>       &#123;<br>           <span class="hljs-comment">// 当第一个线程运行到这里时，此时会对locker对象 &quot;加锁&quot;，</span><br>           <span class="hljs-comment">// 当第二个线程运行该方法时，首先检测到locker对象为&quot;加锁&quot;状态，该线程就会挂起等待第一个线程解锁</span><br>           <span class="hljs-comment">// lock语句运行完之后（即线程运行完之后）会对该对象&quot;解锁&quot;</span><br>           <span class="hljs-comment">// 双重锁定只需要一句判断就可以了</span><br>           <span class="hljs-keyword">if</span> (uniqueInstance == <span class="hljs-literal">null</span>)<br>           &#123;<br>               <span class="hljs-keyword">lock</span> (locker)<br>               &#123;<br>                   <span class="hljs-comment">// 如果类的实例不存在则创建，否则直接返回</span><br>                   <span class="hljs-keyword">if</span> (uniqueInstance == <span class="hljs-literal">null</span>)<br>                   &#123;<br>                       uniqueInstance = <span class="hljs-keyword">new</span> Singleton();<br>                   &#125;<br>               &#125;<br>           &#125;<br>           <span class="hljs-keyword">return</span> uniqueInstance;<br>       &#125;<br>   &#125;<br></code></pre></td></tr></table></figure>
 
-<h4 id="5、C-中实现了单例模式的类"><a href="#5、C-中实现了单例模式的类" class="headerlink" title="5、C#中实现了单例模式的类"></a>5、C#中实现了单例模式的类</h4><p>经过查看，.NET类库中确实存在单例模式的实现类，不过该类不是公开的，下面就具体看看该类的一个实现的(该类具体存在于System.dll程序集，命名空间为System,可以用反射工具Reflector去查看源码的)</p>
+<h4 id="⑤-C-中实现了单例模式的类"><a href="#⑤-C-中实现了单例模式的类" class="headerlink" title="⑤ C#中实现了单例模式的类"></a>⑤ C#中实现了单例模式的类</h4><p>经过查看，.NET类库中确实存在单例模式的实现类，不过该类不是公开的，下面就具体看看该类的一个实现的(该类具体存在于System.dll程序集，命名空间为System,可以用反射工具Reflector去查看源码的)</p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-keyword">internal</span> <span class="hljs-keyword">sealed</span> <span class="hljs-keyword">class</span> <span class="hljs-title">SR</span><br>    &#123;<br>        <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> SR loader;<br>        <span class="hljs-function"><span class="hljs-keyword">internal</span> <span class="hljs-title">SR</span>()</span><br>        &#123;<br>        &#125;<br>        <span class="hljs-comment">// 主要是因为该类不是公有，所以这个全部访问点也定义为私有的了</span><br>        <span class="hljs-comment">// 但是思想还是用到了单例模式的思想的</span><br>        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> SR <span class="hljs-title">GetLoader</span>()</span><br>        &#123;<br>            <span class="hljs-keyword">if</span> (loader == <span class="hljs-literal">null</span>)<br>            &#123;<br>                SR sr = <span class="hljs-keyword">new</span> SR();<br>                Interlocked.CompareExchange&lt;SR&gt;(<span class="hljs-keyword">ref</span> loader, sr, <span class="hljs-literal">null</span>);<br>            &#125;<br>            <span class="hljs-keyword">return</span> loader;<br>        &#125;<br><br>        <span class="hljs-comment">// 这个公有方法中调用了GetLoader方法的</span><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-built_in">object</span> <span class="hljs-title">GetObject</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> name</span>)</span><br>        &#123;<br>            SR loader = GetLoader();<br>            <span class="hljs-keyword">if</span> (loader == <span class="hljs-literal">null</span>)<br>            &#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>            &#125;<br>            <span class="hljs-keyword">return</span> loader.resources.GetObject(name, Culture);<br>        &#125;<br>    &#125;<br></code></pre></td></tr></table></figure>
-<h4 id="6、总结"><a href="#6、总结" class="headerlink" title="6、总结"></a>6、总结</h4><p><strong>单例模式（Singleton）</strong>，保证一个类仅有一个实例，并提供一个访问它的全局访问点。</p>
+<h4 id="⑥-总结"><a href="#⑥-总结" class="headerlink" title="⑥ 总结"></a>⑥ 总结</h4><p><strong>单例模式（Singleton）</strong>，保证一个类仅有一个实例，并提供一个访问它的全局访问点。</p>
 <hr>
-<h3 id="⑤-原型模式"><a href="#⑤-原型模式" class="headerlink" title="⑤ 原型模式"></a>⑤ 原型模式</h3><h4 id="1、引言-4"><a href="#1、引言-4" class="headerlink" title="1、引言"></a>1、引言</h4><p>​		在软件系统中，当创建一个类的实例的过程很昂贵或很复杂，并且我们需要创建多个这样类的实例时，如果我们用new操作符去创建这样的类实例，这未免会增加创建类的复杂度和耗费更多的内存空间，因为这样在内存中分配了多个一样的类实例对象，然后如果采用工厂模式来创建这样的系统的话，随着产品类的不断增加，导致子类的数量不断增多，反而增加了系统复杂程度，所以在这里使用工厂模式来封装类创建过程并不合适，然而原型模式可以很好地解决这个问题，因为每个类实例都是相同的，当我们需要多个相同的类实例时，没必要每次都使用new运算符去创建相同的类实例对象，此时我们一般思路就是想——只创建一个类实例对象，如果后面需要更多这样的实例，可以通过对原来对象拷贝一份来完成创建，这样在内存中不需要创建多个相同的类实例，从而减少内存的消耗和达到类实例的复用。然而这个思路正是<strong>原型模式</strong>的实现方式。</p>
-<h4 id="2、原型设计模式介绍"><a href="#2、原型设计模式介绍" class="headerlink" title="2、原型设计模式介绍"></a>2、原型设计模式介绍</h4><p><strong>原型模式（prototype）</strong>，用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象</p>
+<h3 id="5、原型模式"><a href="#5、原型模式" class="headerlink" title="5、原型模式"></a>5、原型模式</h3><h4 id="①-引言-4"><a href="#①-引言-4" class="headerlink" title="① 引言"></a>① 引言</h4><p>​		在软件系统中，当创建一个类的实例的过程很昂贵或很复杂，并且我们需要创建多个这样类的实例时，如果我们用new操作符去创建这样的类实例，这未免会增加创建类的复杂度和耗费更多的内存空间，因为这样在内存中分配了多个一样的类实例对象，然后如果采用工厂模式来创建这样的系统的话，随着产品类的不断增加，导致子类的数量不断增多，反而增加了系统复杂程度，所以在这里使用工厂模式来封装类创建过程并不合适，然而原型模式可以很好地解决这个问题，因为每个类实例都是相同的，当我们需要多个相同的类实例时，没必要每次都使用new运算符去创建相同的类实例对象，此时我们一般思路就是想——只创建一个类实例对象，如果后面需要更多这样的实例，可以通过对原来对象拷贝一份来完成创建，这样在内存中不需要创建多个相同的类实例，从而减少内存的消耗和达到类实例的复用。然而这个思路正是<strong>原型模式</strong>的实现方式。</p>
+<h4 id="②-原型设计模式介绍"><a href="#②-原型设计模式介绍" class="headerlink" title="② 原型设计模式介绍"></a>② 原型设计模式介绍</h4><p><strong>原型模式（prototype）</strong>，用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象</p>
 <p>在现实生活中，也有很多原型设计模式的例子，例如，细胞分裂的过程，一个细胞的有丝分裂产生两个相同的细胞；还有西游记中孙悟空变出后孙的本领和火影忍者中鸣人的隐分身忍术，写多份简历等。</p>
-<h4 id="3、实现-4"><a href="#3、实现-4" class="headerlink" title="3、实现"></a>3、实现</h4><p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84%E5%9B%BE.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="③-实现-4"><a href="#③-实现-4" class="headerlink" title="③ 实现"></a>③ 实现</h4><p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%8E%9F%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84%E5%9B%BE.png" srcset="/img/loading.gif" lazyload></p>
 <blockquote>
 <p>原型类</p>
 </blockquote>
@@ -477,7 +480,7 @@
 </blockquote>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-built_in">string</span>[] args</span>)</span><br>&#123;<br>    ConcretePrototype p1= <span class="hljs-keyword">new</span> ConcretePrototype(<span class="hljs-string">&quot;I&quot;</span>);<br>    <span class="hljs-comment">//克隆类ConcretePrototype的对象p1就能得到新得实例c1</span><br>    ConcretePrototype c1= <span class="hljs-keyword">new</span> (ConcretePrototype)p1.Clone();<br>    Console.WriteLine(<span class="hljs-string">&quot;Clonded:&#123;0&#125;&quot;</span>,c1.Id);<br>    Console.Read();<br>    <br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h4 id="4、浅拷贝和深拷贝"><a href="#4、浅拷贝和深拷贝" class="headerlink" title="4、浅拷贝和深拷贝"></a>4、浅拷贝和深拷贝</h4><p><strong>MemberwiseClone</strong>方法创建一个<strong>浅表副本</strong>，方法是创建一个新对象，然后将当前对象的非静态字段复制到该新对象。如果字段是<strong>值类型的，则对该字段执行逐位复制</strong>。如果字段是<strong>引用类型，则复制引用单不复制引用的对象</strong>；因此原始对象及其副本引用同一对象。</p>
+<h4 id="④-浅拷贝和深拷贝"><a href="#④-浅拷贝和深拷贝" class="headerlink" title="④ 浅拷贝和深拷贝"></a>④ 浅拷贝和深拷贝</h4><p><strong>MemberwiseClone</strong>方法创建一个<strong>浅表副本</strong>，方法是创建一个新对象，然后将当前对象的非静态字段复制到该新对象。如果字段是<strong>值类型的，则对该字段执行逐位复制</strong>。如果字段是<strong>引用类型，则复制引用单不复制引用的对象</strong>；因此原始对象及其副本引用同一对象。</p>
 <p>例如，考虑引用对象A和B的被称为X的对象。对象B依次引用对象C。X的浅表副本创建一个新对象X2，该对象也引用对象A和B。相比而言，X的深层副本创建一个新对象X2，该对象引用新对象A2和B2（人别为A和B的副本）。B2有引用新对象C2，C2是C的副本。该实例阐释了千层和深层复制操作之间的区别。</p>
 <p>有很多方法可以实现深层复制操作，前提是浅表赋值操作有MemberwiseClone方法执行但不符合您的要求。这些要求包括：</p>
 <ul>
@@ -505,7 +508,7 @@
 
 
 
-<h4 id="5、优点和缺点"><a href="#5、优点和缺点" class="headerlink" title="5、优点和缺点"></a>5、优点和缺点</h4><p><strong>原型模式的优点有：</strong></p>
+<h4 id="⑤-优点和缺点"><a href="#⑤-优点和缺点" class="headerlink" title="⑤ 优点和缺点"></a>⑤ 优点和缺点</h4><p><strong>原型模式的优点有：</strong></p>
 <ol>
 <li>原型模式向客户隐藏了创建新实例的复杂性</li>
 <li>原型模式允许动态增加或较少产品类。</li>
@@ -517,12 +520,12 @@
 <li>每个类必须配备一个克隆方法</li>
 <li>配备克隆方法需要对类的功能进行通盘考虑，这对于全新的类不是很难，但对于已有的类不一定很容易，特别当一个类引用不支持串行化的间接对象，或者引用含有循环结构的时候。</li>
 </ol>
-<h4 id="6、总结-1"><a href="#6、总结-1" class="headerlink" title="6、总结"></a>6、总结</h4><p><strong>原型模式（prototype）</strong>，用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象</p>
+<h4 id="⑥-总结-1"><a href="#⑥-总结-1" class="headerlink" title="⑥ 总结"></a>⑥ 总结</h4><p><strong>原型模式（prototype）</strong>，用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象</p>
 <hr>
-<h3 id="⑥-建造者模式"><a href="#⑥-建造者模式" class="headerlink" title="⑥ 建造者模式"></a>⑥ 建造者模式</h3><h4 id="1、引言-5"><a href="#1、引言-5" class="headerlink" title="1、引言"></a>1、引言</h4><p>​		在软件系统中，有时需要创建一个复杂对象，并且这个复杂对象由其各部分子对象通过一定的步骤组合而成。例如一个采购系统中，如果需要采购员去采购一批电脑时，在这个实际需求中，电脑就是一个复杂的对象，它是由CPU、主板、硬盘、显卡、机箱等组装而成的，如果此时让采购员一台一台电脑去组装的话真是要累死采购员了，这里就可以采用建造者模式来解决这个问题，我们可以把电脑的各个组件的组装过程封装到一个建造者类对象里，建造者只要负责返还给客户端全部组件都建造完毕的产品对象就可以了。然而现实生活中也是如此的，如果公司要采购一批电脑，此时采购员不可能自己去买各个组件并把它们组织起来，此时采购员只需要像电脑城的老板说自己要采购什么样的电脑就可以了，电脑城老板自然会把组装好的电脑送到公司。</p>
-<h4 id="2、建造者设计模式介绍"><a href="#2、建造者设计模式介绍" class="headerlink" title="2、建造者设计模式介绍"></a>2、建造者设计模式介绍</h4><p>​		如果需要<strong>将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示</strong>的意图的时候，我们需要应用于一个设计模式，‘<strong>建造者（Builder）模式</strong>’，又称叫生成器模式叫生成器模式。建造者模式可以将一个产品的内部表象与产品的生成过程分割开来，从而可以使一个建造过程生成具有不同的内部表象的产品对象。<strong>如果我们用了建造者模式，那么用户就只需指定需要建造的类型就可以得到它们，而具体建造的过程和细节就不需知道了</strong>。</p>
+<h3 id="6、建造者模式"><a href="#6、建造者模式" class="headerlink" title="6、建造者模式"></a>6、建造者模式</h3><h4 id="①-引言-5"><a href="#①-引言-5" class="headerlink" title="① 引言"></a>① 引言</h4><p>​		在软件系统中，有时需要创建一个复杂对象，并且这个复杂对象由其各部分子对象通过一定的步骤组合而成。例如一个采购系统中，如果需要采购员去采购一批电脑时，在这个实际需求中，电脑就是一个复杂的对象，它是由CPU、主板、硬盘、显卡、机箱等组装而成的，如果此时让采购员一台一台电脑去组装的话真是要累死采购员了，这里就可以采用建造者模式来解决这个问题，我们可以把电脑的各个组件的组装过程封装到一个建造者类对象里，建造者只要负责返还给客户端全部组件都建造完毕的产品对象就可以了。然而现实生活中也是如此的，如果公司要采购一批电脑，此时采购员不可能自己去买各个组件并把它们组织起来，此时采购员只需要像电脑城的老板说自己要采购什么样的电脑就可以了，电脑城老板自然会把组装好的电脑送到公司。</p>
+<h4 id="②-建造者设计模式介绍"><a href="#②-建造者设计模式介绍" class="headerlink" title="② 建造者设计模式介绍"></a>② 建造者设计模式介绍</h4><p>​		如果需要<strong>将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示</strong>的意图的时候，我们需要应用于一个设计模式，‘<strong>建造者（Builder）模式</strong>’，又称叫生成器模式叫生成器模式。建造者模式可以将一个产品的内部表象与产品的生成过程分割开来，从而可以使一个建造过程生成具有不同的内部表象的产品对象。<strong>如果我们用了建造者模式，那么用户就只需指定需要建造的类型就可以得到它们，而具体建造的过程和细节就不需知道了</strong>。</p>
 <p>​		<strong>建造者模式是在当创建复杂对象的算法应该独立于该对象的组成部分以及它们的装配方法时适用的模式</strong></p>
-<h4 id="3、实现-5"><a href="#3、实现-5" class="headerlink" title="3、实现"></a>3、实现</h4><p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%BB%BA%E9%80%A0%E8%80%85%E7%BB%93%E6%9E%84%E5%9B%BE.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="③-实现-5"><a href="#③-实现-5" class="headerlink" title="③ 实现"></a>③ 实现</h4><p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%BB%BA%E9%80%A0%E8%80%85%E7%BB%93%E6%9E%84%E5%9B%BE.png" srcset="/img/loading.gif" lazyload></p>
 <blockquote>
 <p>Product类——产品类，由多个部件组成</p>
 </blockquote>
@@ -555,12 +558,12 @@
 
 
 
-<h4 id="4、总结"><a href="#4、总结" class="headerlink" title="4、总结"></a>4、总结</h4><p><strong>建造者（Builder）模式</strong>，将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示</p>
+<h4 id="④-总结"><a href="#④-总结" class="headerlink" title="④ 总结"></a>④ 总结</h4><p><strong>建造者（Builder）模式</strong>，将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示</p>
 <hr>
-<h2 id="二、结构型设计模式"><a href="#二、结构型设计模式" class="headerlink" title="二、结构型设计模式"></a>二、结构型设计模式</h2><h3 id="①-适配器模式"><a href="#①-适配器模式" class="headerlink" title="① 适配器模式"></a>① 适配器模式</h3><h4 id="1、引言-6"><a href="#1、引言-6" class="headerlink" title="1、引言"></a>1、引言</h4><p>​		在实际的开发过程中，由于应用环境的变化（例如使用语言的变化），我们需要的实现在新的环境中没有现存对象可以满足，但是其他环境却存在这样现存的对象。那么如果将“将现存的对象”在新的环境中进行调用呢？解决这个问题的办法就是我们本文要介绍的适配器模式——<strong>使得新环境中不需要去重复实现已经存在了的实现而很好地把现有对象（指原来环境中的现有对象）加入到新环境来使用</strong>。</p>
-<h4 id="2、适配器设计模式介绍"><a href="#2、适配器设计模式介绍" class="headerlink" title="2、适配器设计模式介绍"></a>2、适配器设计模式介绍</h4><p>​		适配器模式——把一个类的接口变换成客户端所期待的另一种接口，从而使原本接口不匹配而无法一起工作的两个类能够在一起工作。</p>
+<h2 id="二、结构型设计模式"><a href="#二、结构型设计模式" class="headerlink" title="二、结构型设计模式"></a>二、结构型设计模式</h2><h3 id="1、适配器模式"><a href="#1、适配器模式" class="headerlink" title="1、适配器模式"></a>1、适配器模式</h3><h4 id="①-引言-6"><a href="#①-引言-6" class="headerlink" title="① 引言"></a>① 引言</h4><p>​		在实际的开发过程中，由于应用环境的变化（例如使用语言的变化），我们需要的实现在新的环境中没有现存对象可以满足，但是其他环境却存在这样现存的对象。那么如果将“将现存的对象”在新的环境中进行调用呢？解决这个问题的办法就是我们本文要介绍的适配器模式——<strong>使得新环境中不需要去重复实现已经存在了的实现而很好地把现有对象（指原来环境中的现有对象）加入到新环境来使用</strong>。</p>
+<h4 id="②-适配器设计模式介绍"><a href="#②-适配器设计模式介绍" class="headerlink" title="② 适配器设计模式介绍"></a>② 适配器设计模式介绍</h4><p>​		适配器模式——把一个类的接口变换成客户端所期待的另一种接口，从而使原本接口不匹配而无法一起工作的两个类能够在一起工作。</p>
 <p>​		当系统的数据和行为都正确，但接口不符合时，我们应该考虑用适配器，目的时使控制范围之外的一个原有对象与某个接口匹配。适配器模式主要应用与希望复用一些现存的类，但是接口又与复用环境要求不一致的情况。<strong>适配器模式有类的适配器模式和对象的适配器模式两种形式。</strong>但由于类适配器模式通过多重继承对一个接口与另一个接口进行匹配，<strong>而C#不支持多重继承，所以主要是对象适配器</strong>。</p>
-<h4 id="3、实现-6"><a href="#3、实现-6" class="headerlink" title="3、实现"></a>3、实现</h4><p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E9%80%82%E9%85%8D%E5%99%A8%E7%BB%93%E6%9E%84%E5%9B%BE.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="③-实现-6"><a href="#③-实现-6" class="headerlink" title="③ 实现"></a>③ 实现</h4><p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E9%80%82%E9%85%8D%E5%99%A8%E7%BB%93%E6%9E%84%E5%9B%BE.png" srcset="/img/loading.gif" lazyload></p>
 <blockquote>
 <p>Target (这是客户所期待的接口。目标可以是具体的或抽象的的类，也可以是接口)</p>
 </blockquote>
@@ -581,8 +584,8 @@
 </blockquote>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-built_in">string</span>[] args</span>)</span><br>&#123;<br>    Target target=<span class="hljs-keyword">new</span> Adapter();<br>    <span class="hljs-comment">//对客户端来说，调用的就是Target的Request()</span><br>    target.Requset();<br>    Console.Read();<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h4 id="4、适配器模式的-NET应用"><a href="#4、适配器模式的-NET应用" class="headerlink" title="4、适配器模式的.NET应用"></a>4、适配器模式的.NET应用</h4><p>​		在.NET中有一个类库已经实现了适配器，那就是<strong>DataAdapter</strong>。<strong>DataAdapter用作DataSet和数据源之间的适配器以便检索和保存数据。DataAdapter通过映射Fill（者更改了DataSet中数据以便与数据源中的数据相匹配）和Updata（这更改了数据源中的数据以便于DataSet中的数据相匹配）来提供这一适配器</strong></p>
-<h4 id="5、优点和缺点-1"><a href="#5、优点和缺点-1" class="headerlink" title="5、优点和缺点"></a>5、优点和缺点</h4><p><strong>类的适配器模式：</strong></p>
+<h4 id="④-适配器模式的-NET应用"><a href="#④-适配器模式的-NET应用" class="headerlink" title="④ 适配器模式的.NET应用"></a>④ 适配器模式的.NET应用</h4><p>​		在.NET中有一个类库已经实现了适配器，那就是<strong>DataAdapter</strong>。<strong>DataAdapter用作DataSet和数据源之间的适配器以便检索和保存数据。DataAdapter通过映射Fill（者更改了DataSet中数据以便与数据源中的数据相匹配）和Updata（这更改了数据源中的数据以便于DataSet中的数据相匹配）来提供这一适配器</strong></p>
+<h4 id="⑤-优点和缺点-1"><a href="#⑤-优点和缺点-1" class="headerlink" title="⑤ 优点和缺点"></a>⑤ 优点和缺点</h4><p><strong>类的适配器模式：</strong></p>
 <p><strong>优点：</strong></p>
 <ul>
 <li>可以在不修改原有代码的基础上来复用现有类，很好地符合 “开闭原则”</li>
@@ -604,14 +607,14 @@
 <ul>
 <li>使得重定义Adaptee的行为较困难，这就需要生成Adaptee的子类并且使得Adapter引用这个子类而不是引用Adaptee本身。</li>
 </ul>
-<h4 id="6、总结-2"><a href="#6、总结-2" class="headerlink" title="6、总结"></a>6、总结</h4><p><strong>适配器模式（Adapter）</strong>，将一个类的接口转换成客户希望的另外一个接口。Adapter模式使得原本由于接口不能兼容而不能一起工作的那些类可以一起工作</p>
+<h4 id="6、总结"><a href="#6、总结" class="headerlink" title="6、总结"></a>6、总结</h4><p><strong>适配器模式（Adapter）</strong>，将一个类的接口转换成客户希望的另外一个接口。Adapter模式使得原本由于接口不能兼容而不能一起工作的那些类可以一起工作</p>
 <hr>
-<h3 id="②-桥接模式"><a href="#②-桥接模式" class="headerlink" title="② 桥接模式"></a>② 桥接模式</h3><h4 id="1、桥接设计模式介绍"><a href="#1、桥接设计模式介绍" class="headerlink" title="1、桥接设计模式介绍"></a>1、桥接设计模式介绍</h4><p>​		桥接模式即将抽象部分与实现部分脱耦，使它们可以独立变化。桥接模式的目的就是使两者分离，根据面向对象的封装变化的原则，我们可以把实现部分的变化封装到另外一个类中，这样的一个思路也就是桥接模式的实现，我们可以对照桥接模式的实现代码来解决我们的分析思路。</p>
-<h4 id="2、合成-x2F-聚合复用原则"><a href="#2、合成-x2F-聚合复用原则" class="headerlink" title="2、合成&#x2F;聚合复用原则"></a>2、合成&#x2F;聚合复用原则</h4><p>​		<strong>合成&#x2F;聚合复用原则（CARP）</strong>尽量使用合成&#x2F;聚合，尽量不要使用类继承。</p>
+<h3 id="2、桥接模式"><a href="#2、桥接模式" class="headerlink" title="2、桥接模式"></a>2、桥接模式</h3><h4 id="①-桥接设计模式介绍"><a href="#①-桥接设计模式介绍" class="headerlink" title="① 桥接设计模式介绍"></a>① 桥接设计模式介绍</h4><p>​		桥接模式即将抽象部分与实现部分脱耦，使它们可以独立变化。桥接模式的目的就是使两者分离，根据面向对象的封装变化的原则，我们可以把实现部分的变化封装到另外一个类中，这样的一个思路也就是桥接模式的实现，我们可以对照桥接模式的实现代码来解决我们的分析思路。</p>
+<h4 id="②-合成-x2F-聚合复用原则"><a href="#②-合成-x2F-聚合复用原则" class="headerlink" title="② 合成&#x2F;聚合复用原则"></a>② 合成&#x2F;聚合复用原则</h4><p>​		<strong>合成&#x2F;聚合复用原则（CARP）</strong>尽量使用合成&#x2F;聚合，尽量不要使用类继承。</p>
 <p>​		<strong>聚合</strong>表示一种<strong>弱’拥有‘</strong>关系，<strong>体现的是A对象可以包含B对象，但B对象不是A对象的一部分</strong>；<strong>合成</strong>则是一种<strong>强的’拥有‘</strong>关系，<strong>体现了严格部分和整体关系，部分和整体的生命周期一样</strong>。</p>
 <p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%90%88%E6%88%90%E8%81%9A%E5%90%88.png" srcset="/img/loading.gif" lazyload></p>
 <p>​		<font color="FF000"><b>好处：</b></font>font优先使用对象的合成&#x2F;聚合将有助于保持每个类被封装，并被集中在单个任务上。这样类和类继承层次回保持较小规模，并且不太可能增长为不可控制的庞然大物。</p>
-<h4 id="3、实现-7"><a href="#3、实现-7" class="headerlink" title="3、实现"></a>3、实现</h4><p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84%E5%9B%BE.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="③-实现-7"><a href="#③-实现-7" class="headerlink" title="③ 实现"></a>③ 实现</h4><p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84%E5%9B%BE.png" srcset="/img/loading.gif" lazyload></p>
 <blockquote>
 <p>Implementor实现者类 											</p>
 </blockquote>
@@ -639,16 +642,16 @@
 
 
 
-<h4 id="4、优点和缺点"><a href="#4、优点和缺点" class="headerlink" title="4、优点和缺点"></a>4、优点和缺点</h4><p><strong>优点：</strong></p>
+<h4 id="④-优点和缺点"><a href="#④-优点和缺点" class="headerlink" title="④ 优点和缺点"></a>④ 优点和缺点</h4><p><strong>优点：</strong></p>
 <p>把抽象接口与其实现解耦。</p>
 <p>抽象和实现可以独立扩展，不会影响到对方。</p>
 <p>实现细节对客户透明，对用于隐藏了具体实现细节。</p>
 <p><strong>缺点：</strong> 增加了系统的复杂度</p>
-<h4 id="5、总结-2"><a href="#5、总结-2" class="headerlink" title="5、总结"></a>5、总结</h4><p><strong>桥接模式（Bridge）</strong>，将抽象部分与它的实现部分分离，使它们都可以独立地变化。</p>
+<h4 id="⑤-总结-2"><a href="#⑤-总结-2" class="headerlink" title="⑤ 总结"></a>⑤ 总结</h4><p><strong>桥接模式（Bridge）</strong>，将抽象部分与它的实现部分分离，使它们都可以独立地变化。</p>
 <hr>
-<h3 id="③装饰者模式"><a href="#③装饰者模式" class="headerlink" title="③装饰者模式"></a>③装饰者模式</h3><h4 id="1、引言-7"><a href="#1、引言-7" class="headerlink" title="1、引言"></a>1、引言</h4><p>​		在软件开发中，我们经常想要对一类对象添加不同的功能，例如要给手机添加贴膜，手机挂件，手机外壳等，如果此时利用继承来实现的话，就需要定义无数的类，如StickerPhone（贴膜是手机类）、AccessoriesPhone（挂件手机类）等，这样就会导致 ”子类爆炸“问题，为了解决这个问题，我们可以使用<strong>装饰者模式来动态地给一个对象添加额外的职责</strong>。</p>
-<h4 id="2、装饰者设计模式介绍"><a href="#2、装饰者设计模式介绍" class="headerlink" title="2、装饰者设计模式介绍"></a>2、装饰者设计模式介绍</h4><p>​		装饰者模式以对客户透明的方式动态地给一个对象附加上更多的责任，装饰者模式相比生成子类可以更灵活地增加功能。每个装饰的对象的实现就和如何使用这个对象分离开了，每个装饰对象只关心自己的功能，不需要关心如何被添加到对象链当中。</p>
-<h4 id="3、实现-8"><a href="#3、实现-8" class="headerlink" title="3、实现"></a>3、实现</h4><p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%A3%85%E9%A5%B0%E8%80%85%E7%BB%93%E6%9E%84%E5%9B%BE.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="3、装饰者模式"><a href="#3、装饰者模式" class="headerlink" title="3、装饰者模式"></a>3、装饰者模式</h3><h4 id="①-引言-7"><a href="#①-引言-7" class="headerlink" title="① 引言"></a>① 引言</h4><p>​		在软件开发中，我们经常想要对一类对象添加不同的功能，例如要给手机添加贴膜，手机挂件，手机外壳等，如果此时利用继承来实现的话，就需要定义无数的类，如StickerPhone（贴膜是手机类）、AccessoriesPhone（挂件手机类）等，这样就会导致 ”子类爆炸“问题，为了解决这个问题，我们可以使用<strong>装饰者模式来动态地给一个对象添加额外的职责</strong>。</p>
+<h4 id="②-装饰者设计模式介绍"><a href="#②-装饰者设计模式介绍" class="headerlink" title="② 装饰者设计模式介绍"></a>② 装饰者设计模式介绍</h4><p>​		装饰者模式以对客户透明的方式动态地给一个对象附加上更多的责任，装饰者模式相比生成子类可以更灵活地增加功能。每个装饰的对象的实现就和如何使用这个对象分离开了，每个装饰对象只关心自己的功能，不需要关心如何被添加到对象链当中。</p>
+<h4 id="③-实现-8"><a href="#③-实现-8" class="headerlink" title="③ 实现"></a>③ 实现</h4><p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%A3%85%E9%A5%B0%E8%80%85%E7%BB%93%E6%9E%84%E5%9B%BE.png" srcset="/img/loading.gif" lazyload></p>
 <blockquote>
 <p>Component类</p>
 </blockquote>
@@ -676,19 +679,19 @@
 
 
 
-<h4 id="4、优点和缺点-1"><a href="#4、优点和缺点-1" class="headerlink" title="4、优点和缺点"></a>4、优点和缺点</h4><p><strong>优点</strong>：</p>
+<h4 id="④-优点和缺点-1"><a href="#④-优点和缺点-1" class="headerlink" title="④ 优点和缺点"></a>④ 优点和缺点</h4><p><strong>优点</strong>：</p>
 <ol>
 <li>装饰这模式和继承的目的都是扩展对象的功能，但装饰者模式比继承更灵活</li>
 <li>通过使用不同的具体装饰类以及这些类的排列组合，设计师可以创造出很多不同行为的组合</li>
 <li>装饰者模式有很好地可扩展性</li>
 </ol>
 <p><strong>缺点</strong>：装饰者模式会导致设计中出现许多小对象，如果过度使用，会让程序变的更复杂。并且更多的对象会是的差错变得困难，特别是这些对象看上去都很像。</p>
-<h4 id="5、总结-3"><a href="#5、总结-3" class="headerlink" title="5、总结"></a>5、总结</h4><p><strong>装饰模式（Decorator）</strong>，动态地给一个对象添加一些额外地职责，就增加功能来说，装饰者模式比生成子类更加灵活。</p>
+<h4 id="⑤-总结-3"><a href="#⑤-总结-3" class="headerlink" title="⑤ 总结"></a>⑤ 总结</h4><p><strong>装饰模式（Decorator）</strong>，动态地给一个对象添加一些额外地职责，就增加功能来说，装饰者模式比生成子类更加灵活。</p>
 <hr>
-<h3 id="④-组合模式"><a href="#④-组合模式" class="headerlink" title="④ 组合模式"></a>④ 组合模式</h3><h4 id="1、引言-8"><a href="#1、引言-8" class="headerlink" title="1、引言"></a>1、引言</h4><p>​		在软件开发过程中，我们经常会遇到处理简单对象和复合对象的情况，例如对操作系统中目录的处理就是这样的一个例子，因为目录可以包括单独的文件，也可以包括文件夹，文件夹又是由文件组成的，由于简单对象和复合对象在功能上区别，导致在操作过程中必须区分简单对象和复合对象，这样就会导致客户调用带来不必要的麻烦，然而作为客户，它们希望能够始终一致地对待简单对象和复合对象。然而组合模式就是解决这样的问题。</p>
-<h4 id="2、组合设计模式介绍"><a href="#2、组合设计模式介绍" class="headerlink" title="2、组合设计模式介绍"></a>2、组合设计模式介绍</h4><p>​		组合模式允许你将对象组合成树形结构来表现”部分-整体“的层次结构，使得客户以一致的方式处理单个对象以及对象的组合。</p>
+<h3 id="4、组合模式"><a href="#4、组合模式" class="headerlink" title="4、组合模式"></a>4、组合模式</h3><h4 id="①-引言-8"><a href="#①-引言-8" class="headerlink" title="① 引言"></a>① 引言</h4><p>​		在软件开发过程中，我们经常会遇到处理简单对象和复合对象的情况，例如对操作系统中目录的处理就是这样的一个例子，因为目录可以包括单独的文件，也可以包括文件夹，文件夹又是由文件组成的，由于简单对象和复合对象在功能上区别，导致在操作过程中必须区分简单对象和复合对象，这样就会导致客户调用带来不必要的麻烦，然而作为客户，它们希望能够始终一致地对待简单对象和复合对象。然而组合模式就是解决这样的问题。</p>
+<h4 id="②-组合设计模式介绍"><a href="#②-组合设计模式介绍" class="headerlink" title="② 组合设计模式介绍"></a>② 组合设计模式介绍</h4><p>​		组合模式允许你将对象组合成树形结构来表现”部分-整体“的层次结构，使得客户以一致的方式处理单个对象以及对象的组合。</p>
 <p>​		当发现<strong>需求中体现部分与整体层次的结构</strong>时，以及你<strong>希望用户可以忽略组合对象与单个对象的不同，统一地使用组合结构中地所有对象时，就应该考虑组合模式</strong>。</p>
-<h4 id="3、实现-9"><a href="#3、实现-9" class="headerlink" title="3、实现"></a>3、实现</h4><p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84%E5%9B%BE.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="③-实现-9"><a href="#③-实现-9" class="headerlink" title="③ 实现"></a>③ 实现</h4><p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84%E5%9B%BE.png" srcset="/img/loading.gif" lazyload></p>
 <blockquote>
 <p>Component为组合中的对象声明接口，再适当情况下，实现所有类共有接口的默认行为。声明一个接口用于访问和管理Component的子部件</p>
 </blockquote>
@@ -709,18 +712,18 @@
 </blockquote>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-built_in">string</span>[] args</span>)</span><br>&#123;<br>    <span class="hljs-comment">//生成树根root，根上长出两叶LeafA和LeafB</span><br>    Composite root = <span class="hljs-keyword">new</span> Composite(<span class="hljs-string">&quot;root&quot;</span>);<br>    root.Add(<span class="hljs-keyword">new</span> Leaf(<span class="hljs-string">&quot;Leaf A&quot;</span>));<br>    root.Add(<span class="hljs-keyword">new</span> Leaf(<span class="hljs-string">&quot;Leaf B&quot;</span>));<br>    <br>    <span class="hljs-comment">//根上长出分值Composite X，分支上也有两叶LeafXA和LeafXB</span><br>    Composite comp = <span class="hljs-keyword">new</span> Composite(<span class="hljs-string">&quot;Composite X&quot;</span>);<br>    comp.Add(<span class="hljs-keyword">new</span> Leaf(<span class="hljs-string">&quot;Leaf XA&quot;</span>));<br>    comp.Add(<span class="hljs-keyword">new</span> Leaf(<span class="hljs-string">&quot;Leaf XB&quot;</span>));<br>    <br>    root.Add(comp);<br>    <br>    <span class="hljs-comment">//在Composite X上再长出分枝CompositeXY，分枝上也有两叶LeafXYA和LeafXYB</span><br>    Composite comp2=<span class="hljs-keyword">new</span> Composite(<span class="hljs-string">&quot;Composite XY&quot;</span>);<br>    comp2.Add(<span class="hljs-keyword">new</span> Leaf(<span class="hljs-string">&quot;Leaf XYA&quot;</span>));<br>    comp2.Add(<span class="hljs-keyword">new</span> Leaf(<span class="hljs-string">&quot;Leaf XYB&quot;</span>));<br>    <br>    comp.Add(comp2);<br>    <span class="hljs-comment">//根部又掌出两叶 C和D，可惜D没长牢，被风吹走了</span><br>    root.Add(<span class="hljs-keyword">new</span> Leaf(<span class="hljs-string">&quot;Leaf C&quot;</span>));<br>    <br>    Leaf leaf=newLeaf(<span class="hljs-string">&quot;Leaf D&quot;</span>);<br>    root.Add(leaf);<br>    root.Remove(leaf);<br>    <br>    <span class="hljs-comment">//显示大树的样子</span><br>    root.Display(<span class="hljs-number">1</span>);<br>    <br>    Console.Read();            <br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h4 id="4、优点和缺点-2"><a href="#4、优点和缺点-2" class="headerlink" title="4、优点和缺点"></a>4、优点和缺点</h4><p><strong>优点：</strong></p>
+<h4 id="④-优点和缺点-2"><a href="#④-优点和缺点-2" class="headerlink" title="④ 优点和缺点"></a>④ 优点和缺点</h4><p><strong>优点：</strong></p>
 <ol>
 <li>组合模式使得客户端代码可以一致地处理对象和对象容器，无需关系处理的单个对象，还是组合的对象容器。</li>
 <li>将”客户代码与复杂的对象容器结构“解耦。</li>
 <li>可以更容易地往组合对象中加入新的构件。</li>
 </ol>
 <p><strong>缺点：</strong>使得设计更加复杂。客户端需要花更多时间理清类之间的层次关系。（这个是几乎所有设计模式所面临的问题）。</p>
-<h4 id="5、总结-4"><a href="#5、总结-4" class="headerlink" title="5、总结"></a>5、总结</h4><p><strong>组合模式（Composite）</strong>，将对象组合成树形结构以表示‘部分-整体’的层次结构。组合模式使得用户对单个对象和组合对象的使用具有一致性。</p>
+<h4 id="⑤-总结-4"><a href="#⑤-总结-4" class="headerlink" title="⑤ 总结"></a>⑤ 总结</h4><p><strong>组合模式（Composite）</strong>，将对象组合成树形结构以表示‘部分-整体’的层次结构。组合模式使得用户对单个对象和组合对象的使用具有一致性。</p>
 <hr>
-<h3 id="⑤-外观模式"><a href="#⑤-外观模式" class="headerlink" title="⑤ 外观模式"></a>⑤ 外观模式</h3><h4 id="1、引言-9"><a href="#1、引言-9" class="headerlink" title="1、引言"></a>1、引言</h4><p>​		在软件开发过程中，客户端程序经常会与复杂系统的内部子系统进行耦合，从而导致客户端程序随着子系统的变化而变化，然而为了将复杂系统的内部子系统与客户端之间的依赖解耦，从而就有了外观模式，也称作 ”门面“模式。</p>
-<h4 id="2、外观设计模式介绍"><a href="#2、外观设计模式介绍" class="headerlink" title="2、外观设计模式介绍"></a>2、外观设计模式介绍</h4><p>​		外观模式提供了一个统一的接口，用来访问子系统中的一群接口。外观定义了一个高层接口，让子系统更容易使用。使用外观模式时，我们创建了一个统一的类，用来包装子系统中一个或多个复杂的类，客户端可以直接通过外观类来调用内部子系统中方法，从而外观模式让客户和子系统之间避免了紧耦合。</p>
-<h4 id="3、实现-10"><a href="#3、实现-10" class="headerlink" title="3、实现"></a>3、实现</h4><p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84%E5%9B%BE.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="5、外观模式"><a href="#5、外观模式" class="headerlink" title="5、外观模式"></a>5、外观模式</h3><h4 id="①-引言-9"><a href="#①-引言-9" class="headerlink" title="① 引言"></a>① 引言</h4><p>​		在软件开发过程中，客户端程序经常会与复杂系统的内部子系统进行耦合，从而导致客户端程序随着子系统的变化而变化，然而为了将复杂系统的内部子系统与客户端之间的依赖解耦，从而就有了外观模式，也称作 ”门面“模式。</p>
+<h4 id="②-外观设计模式介绍"><a href="#②-外观设计模式介绍" class="headerlink" title="② 外观设计模式介绍"></a>② 外观设计模式介绍</h4><p>​		外观模式提供了一个统一的接口，用来访问子系统中的一群接口。外观定义了一个高层接口，让子系统更容易使用。使用外观模式时，我们创建了一个统一的类，用来包装子系统中一个或多个复杂的类，客户端可以直接通过外观类来调用内部子系统中方法，从而外观模式让客户和子系统之间避免了紧耦合。</p>
+<h4 id="③-实现-10"><a href="#③-实现-10" class="headerlink" title="③ 实现"></a>③ 实现</h4><p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84%E5%9B%BE.png" srcset="/img/loading.gif" lazyload></p>
 <blockquote>
 <p>四个子系统的类</p>
 </blockquote>
@@ -740,7 +743,7 @@
 
 
 
-<h4 id="4、优点和缺点-3"><a href="#4、优点和缺点-3" class="headerlink" title="4、优点和缺点"></a>4、优点和缺点</h4><p><strong>优点：</strong></p>
+<h4 id="④-优点和缺点-3"><a href="#④-优点和缺点-3" class="headerlink" title="④ 优点和缺点"></a>④ 优点和缺点</h4><p><strong>优点：</strong></p>
 <ol>
 <li>外观模式对客户屏蔽了子系统组件，从而简化了接口，减少了客户处理的对象数目并使子系统的使用更加简单。</li>
 <li>外观模式实现了子系统与客户之间的松耦合关系，而子系统内部的功能组件是紧耦合的。松耦合使得子系统的组件变化不会影响到它的客户。</li>
@@ -749,14 +752,14 @@
 <ol>
 <li>如果增加新的子系统可能需要修改外观类或客户端的源代码，这样就违背了”开——闭原则“（不过这点也是不可避免）。</li>
 </ol>
-<h4 id="5、总结-5"><a href="#5、总结-5" class="headerlink" title="5、总结"></a>5、总结</h4><p><strong>外观模式（Facade）</strong>，为子系统中的一组接口提供一个一致的界面，此模式定义了一个高层接口，这个接口使得这一子系统更加容易使用</p>
+<h4 id="⑤-总结-5"><a href="#⑤-总结-5" class="headerlink" title="⑤ 总结"></a>⑤ 总结</h4><p><strong>外观模式（Facade）</strong>，为子系统中的一组接口提供一个一致的界面，此模式定义了一个高层接口，这个接口使得这一子系统更加容易使用</p>
 <hr>
-<h3 id="⑥享元模式"><a href="#⑥享元模式" class="headerlink" title="⑥享元模式"></a>⑥享元模式</h3><h4 id="1、引言-10"><a href="#1、引言-10" class="headerlink" title="1、引言"></a>1、引言</h4><p>​		在软件开发过程，如果我们需要重复使用某个对象的时候，如果我们重复地使用new创建这个对象的话，这样我们在内存就需要多次地去申请内存空间了，这样可能会出现内存使用越来越多的情况，这样的问题是非常严重，然而享元模式可以解决这个问题。</p>
-<h4 id="2、享元设计模式介绍"><a href="#2、享元设计模式介绍" class="headerlink" title="2、享元设计模式介绍"></a>2、享元设计模式介绍</h4><p>​		享元模式——运用共享技术有效地支持大量细粒度的对象。享元模式可以避免大量相似类的开销，在软件开发中如果需要生成大量细粒度的类实例来表示数据，如果这些实例除了几个参数外基本上都是相同的，这时候就可以使用享元模式来大幅度减少需要实例化类的数量。如果能把这些参数（指的这些类实例不同的参数）移动类实例外面，在方法调用时将他们传递进来，这样就可以通过共享大幅度地减少单个实例的数目。（这个也是享元模式的实现要领）,然而我们把类实例外面的参数称为享元对象的外部状态，把在享元对象内部定义称为内部状态。具体享元对象的内部状态与外部状态的定义为：</p>
+<h3 id="6、享元模式"><a href="#6、享元模式" class="headerlink" title="6、享元模式"></a>6、享元模式</h3><h4 id="①-引言-10"><a href="#①-引言-10" class="headerlink" title="① 引言"></a>① 引言</h4><p>​		在软件开发过程，如果我们需要重复使用某个对象的时候，如果我们重复地使用new创建这个对象的话，这样我们在内存就需要多次地去申请内存空间了，这样可能会出现内存使用越来越多的情况，这样的问题是非常严重，然而享元模式可以解决这个问题。</p>
+<h4 id="②-享元设计模式介绍"><a href="#②-享元设计模式介绍" class="headerlink" title="② 享元设计模式介绍"></a>② 享元设计模式介绍</h4><p>​		享元模式——运用共享技术有效地支持大量细粒度的对象。享元模式可以避免大量相似类的开销，在软件开发中如果需要生成大量细粒度的类实例来表示数据，如果这些实例除了几个参数外基本上都是相同的，这时候就可以使用享元模式来大幅度减少需要实例化类的数量。如果能把这些参数（指的这些类实例不同的参数）移动类实例外面，在方法调用时将他们传递进来，这样就可以通过共享大幅度地减少单个实例的数目。（这个也是享元模式的实现要领）,然而我们把类实例外面的参数称为享元对象的外部状态，把在享元对象内部定义称为内部状态。具体享元对象的内部状态与外部状态的定义为：</p>
 <p>​		<strong>内部状态：</strong>在享元对象的内部并且不会随着环境的改变而改变的共享部分</p>
 <p>​		<strong>外部状态：</strong>随环境改变而改变的，不可以共享的状态。</p>
 <p>​		如果一个应用程序使用了大量的对象，而大量的这些对象造成了很大的存储开销时就应该考虑使用；还有就是对象的大多数状态可以外部状态，如果删除对象的外部状态，那么可以用相对较少的共享对象取代很多组对象，此时可以考虑使用享元模式。</p>
-<h4 id="3、实现-11"><a href="#3、实现-11" class="headerlink" title="3、实现"></a>3、实现</h4><p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84%E5%9B%BE.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="③-实现-11"><a href="#③-实现-11" class="headerlink" title="③ 实现"></a>③ 实现</h4><p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84%E5%9B%BE.png" srcset="/img/loading.gif" lazyload></p>
 <blockquote>
 <p>Flyweight类，他是所有具体享元类的超类或接口，通过这个接口，Flyweight可以接受并作用于外部状态</p>
 </blockquote>
@@ -784,7 +787,7 @@
 
 
 
-<h4 id="4、优点和缺点-4"><a href="#4、优点和缺点-4" class="headerlink" title="4、优点和缺点"></a>4、优点和缺点</h4><p><strong>优点：</strong></p>
+<h4 id="④-优点和缺点-4"><a href="#④-优点和缺点-4" class="headerlink" title="④ 优点和缺点"></a>④ 优点和缺点</h4><p><strong>优点：</strong></p>
 <ol>
 <li>降低了系统中对象的数量，从而降低了系统中细粒度对象给内存带来的压力。</li>
 </ol>
@@ -793,8 +796,128 @@
 <li>为了使对象可以共享，需要将一些状态外部化，这使得程序的逻辑更复杂，使系统复杂化。</li>
 <li>享元模式将享元对象的状态外部化，而读取外部状态使得运行时间稍微变长。</li>
 </ol>
-<h4 id="5、总结-6"><a href="#5、总结-6" class="headerlink" title="5、总结"></a>5、总结</h4><p><strong>享元模式（Flyweight）</strong>运用共享技术有效地支持大量细粒度的对象。</p>
-<h2 id="三、行为型设计模式"><a href="#三、行为型设计模式" class="headerlink" title="三、行为型设计模式"></a>三、行为型设计模式</h2>
+<h4 id="⑤-总结-6"><a href="#⑤-总结-6" class="headerlink" title="⑤ 总结"></a>⑤ 总结</h4><p><strong>享元模式（Flyweight）</strong>运用共享技术有效地支持大量细粒度的对象。</p>
+<hr>
+<h3 id="7、代理模式"><a href="#7、代理模式" class="headerlink" title="7、代理模式"></a>7、代理模式</h3><h4 id="①-引言-11"><a href="#①-引言-11" class="headerlink" title="① 引言"></a>① 引言</h4><p>​		在软件开发过程中，有些对象有时候会由于网络或其他的障碍，以至于不能够或者不能直接访问到这些对象，如果直接访问对象给系统带来不必要的复杂性，这时候可以在客户端和目标对象之间增加一层中间层，让代理对象代替目标对象，然后客户端只需要访问代理对象，由代理对象去帮我们去请求目标对象并返回结果给客户端，这样的一个解决思路就是代理模式。</p>
+<h4 id="②-代理设计模式介绍"><a href="#②-代理设计模式介绍" class="headerlink" title="② 代理设计模式介绍"></a>② 代理设计模式介绍</h4><p>代理模式按照使用目的可以分为以下几种：</p>
+<ul>
+<li><strong>远程（Remote）代理：</strong>为一个位于不同的地址空间的对象提供一个局域代表对象。这个不同的地址空间可以是本电脑中，也可以在另一台电脑中。最典型的例子就是——客户端调用Web服务或WCF服务。</li>
+<li><strong>虚拟（Virtual）代理：</strong>根据需要创建一个资源消耗较大的对象，使得对象只在需要时才会被真正创建。</li>
+<li><strong>Copy-on-Write代理：</strong>虚拟代理的一种，把复制（或者叫克隆）拖延到只有在客户端需要时，才真正采取行动。</li>
+<li><strong>保护（Protect or Access）代理：</strong>控制一个对象的访问，可以给不同的用户提供不同级别的使用权限。</li>
+<li><strong>防火墙（Firewall）代理：</strong>保护目标不让恶意用户接近。</li>
+<li><strong>智能引用（Smart Reference）代理：</strong>当一个对象被引用时，提供一些额外的操作，比如将对此对象调用的次数记录下来等。</li>
+<li><strong>Cache代理：</strong>为某一个目标操作的结果提供临时的存储空间，以便多个客户端可以这些结果。</li>
+</ul>
+<p>在上面所有种类的代理模式中，虚拟代理、远程代理、智能引用代理和保护代理较为常见的代理模式。</p>
+<p>​		代理模式——就是给某一个对象提供一个代理，并由代理对象控制对原对象的引用。在一些情况下，一个客户不想或者不能直接引用一个对象，而代理对象可以在客户端和目标对象之间起到中介的作用。</p>
+<h4 id="③-实现-12"><a href="#③-实现-12" class="headerlink" title="③ 实现"></a>③ 实现</h4><p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84%E5%9B%BE.png" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>Subject 类，定义了RealSubject 和Proxy的共用接口，这样就在任何使用RealSubject的地方都可以使用Proxy</p>
+</blockquote>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Subject</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Request</span>()</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>RealSubject类，定义Proxy所代表的真实实体</p>
+</blockquote>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-keyword">class</span> <span class="hljs-title">RealSubject</span>:<span class="hljs-title">Subject</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Request</span>()</span><br>    &#123;<br>        Console.WriteLine(<span class="hljs-string">&quot;真实的请求&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Proxy类，保存一个引用使得代理可以访问实体，并提供一个与Subject的接口相同的接口，这样代理就可以替代实体</p>
+</blockquote>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-keyword">class</span> <span class="hljs-title">Proxy</span>:<span class="hljs-title">Subject</span><br>&#123;<br>    RealSubject realSubject;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Request</span>()</span><br>    &#123;<br>        <span class="hljs-keyword">if</span>(realSubject==<span class="hljs-literal">null</span>)<br>        &#123;<br>            realSubject=<span class="hljs-keyword">new</span> Realsubject();<br>        &#125;<br>        realSubject.Request();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>客户端代码</p>
+</blockquote>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-built_in">string</span>[] args</span>)</span><br>&#123;<br>    Proxy proxy=<span class="hljs-keyword">new</span> proxy();<br>    proxy.Request();<br>    <br>    Conosle.Read();<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="④-优点和缺点-5"><a href="#④-优点和缺点-5" class="headerlink" title="④ 优点和缺点"></a>④ 优点和缺点</h4><p><strong>优点：</strong></p>
+<ol>
+<li>代理模式能够将调用用于真正被调用的对象隔离，在一定程度上降低了系统的耦合度；</li>
+<li>代理对象在客户端和目标对象之间起到一个中介的作用，这样可以起到对目标对象的保护。代理对象可以在对目标对象发出请求之前进行一个额外的操作，例如权限检查等。</li>
+</ol>
+<p><strong>缺点：</strong></p>
+<ol>
+<li>由于在客户端和真实主题之间增加了一个代理对象，所以会造成请求的处理速度变慢</li>
+<li>实现代理类也需要额外的工作，从而增加了系统的实现复杂度。</li>
+</ol>
+<h4 id="⑤-总结-7"><a href="#⑤-总结-7" class="headerlink" title="⑤ 总结"></a>⑤ 总结</h4><p><strong>代理模式（Proxy）</strong>，为其他对象提供一种代理以控制这个对象的访问。</p>
+<hr>
+<h2 id="三、行为型设计模式"><a href="#三、行为型设计模式" class="headerlink" title="三、行为型设计模式"></a>三、行为型设计模式</h2><h3 id="1、模板方法模式"><a href="#1、模板方法模式" class="headerlink" title="1、模板方法模式"></a>1、模板方法模式</h3><h4 id="①-引言-12"><a href="#①-引言-12" class="headerlink" title="① 引言"></a>① 引言</h4><p>​		提到模板，肯定不免想到生活中的“简历模板”、“论文模板”、“Word中模版文件”等，在现实生活中，模板的概念就是——有一个规定的格式，然后每个人都可以根据自己的需求或情况去更新它，例如简历模板，下载下来的简历模板的格式都是相同的，然而我们下载下来简历模板之后我们可以根据自己的情况填充不同的内容要完成属于自己的简历。在设计模式中，模板方法模式中模板和生活中模板概念非常类似.</p>
+<h4 id="②-模板方法设计模式介绍"><a href="#②-模板方法设计模式介绍" class="headerlink" title="② 模板方法设计模式介绍"></a>② 模板方法设计模式介绍</h4><p>​		模板方法模式——在一个抽象类中定义一个操作中的算法骨架（对应于生活中的大家下载的模板），而将一些步骤延迟到子类中去实现（对应于我们根据自己的情况向模板填充内容）。模板方法使得子类可以不改变一个算法的结构前提下，重新定义算法的某些特定步骤，模板方法模式把不变行为搬到超类中，从而去除了子类中的重复代码。</p>
+<h4 id="③-实现-13"><a href="#③-实现-13" class="headerlink" title="③ 实现"></a>③ 实现</h4><p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E7%BB%93%E6%9E%84%E5%9B%BE.png" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>AbstractClass是抽象类，其实也就是一抽象模板，定义并实现了一个模板方法。这个模板方法一般是一个具体方方法，它给出了一个顶级逻辑的骨架，而逻辑的组成步骤再相应的抽象操作中，推迟到子类实现。顶级逻辑也有可能调用一些具体方法。</p>
+</blockquote>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title">AbstractClass</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">PrimitiveOperation1</span>()</span>;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">PrimitiveOperation2</span>()</span>;<br>    <br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">TemplateMethod</span>()</span><br>    &#123;<br>        PrimitiveOperation1();<br>        PrimitiveOperation2();<br>        Console.WriteLine(<span class="hljs-string">&quot;&quot;</span>);<br>    &#125;<br>    <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>ConcreteClass,实现父类所定义的一个或多个抽象方法。每一个AbstractClass 都可以由任意多个ConcreteClass 与之对应，而每一个ConcreteClass都可以给出这些抽象方法（也就是顶级逻辑的组成步骤）的不同实现，从而使得顶级逻辑的实现各不相同</p>
+</blockquote>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-keyword">class</span> <span class="hljs-title">ConcreteClassA</span> :<span class="hljs-title">AbstractClass</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">PrimitiveOperation1</span>()</span><br>    &#123;<br>        Console.WriteLine(<span class="hljs-string">&quot;具体类A的方法1实现&quot;</span>);<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">PrimitiveOperation2</span>()</span><br>    &#123;<br>        Console.WriteLine(<span class="hljs-string">&quot;具体类A的方法2实现&quot;</span>);<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title">ConcreteClassB</span> : <span class="hljs-title">AbstractClass</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">PrimitiveOperation1</span>()</span><br>    &#123;<br>        Console.WriteLine(<span class="hljs-string">&quot;具体类B的方法1实现&quot;</span>);<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">PrimitiveOperation2</span>()</span><br>    &#123;<br>        Console.WriteLine(<span class="hljs-string">&quot;具体类B的方法2实现&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>客户端调用</p>
+</blockquote>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-built_in">string</span>[] args</span>)</span><br>&#123;<br>    AbstractClass c;<br>    <br>    c=<span class="hljs-keyword">new</span> ConcreteClassA();<br>    c.TemplateMethod();<br>    <br>    c=<span class="hljs-keyword">new</span> ConcreteClassB();<br>    c.TemplateMethod();<br>    <br>    Console.Read();<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="④-优点和缺点-6"><a href="#④-优点和缺点-6" class="headerlink" title="④ 优点和缺点"></a>④ 优点和缺点</h4><p><strong>优点：</strong></p>
+<ol>
+<li>实现了代码复用</li>
+<li>能够灵活应对子步骤的变化，符合开放-封闭原则</li>
+</ol>
+<p><strong>缺点</strong>：因为引入了一个抽象类，如果具体实现过多的话，需要用户或开发人员需要花更多的时间去理清类之间的关系。</p>
+<p> 附：在.NET中模板方法的应用也很多，例如我们在开发自定义的Web控件或WinForm控件时，我们只需要重写某个控件的部分方法。</p>
+<h4 id="⑤-总结-8"><a href="#⑤-总结-8" class="headerlink" title="⑤ 总结"></a>⑤ 总结</h4><p><strong>模板方法模式（TemplateMethod）</strong>，定义一个操作中的算法的骨架，而将一些步骤延迟到子类中。模板方法使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。</p>
+<hr>
+<h3 id="2、命令模式"><a href="#2、命令模式" class="headerlink" title="2、命令模式"></a>2、命令模式</h3><h4 id="①-命令设计模式介绍"><a href="#①-命令设计模式介绍" class="headerlink" title="① 命令设计模式介绍"></a>① 命令设计模式介绍</h4><p>​		命令模式属于对象的行为型模式。命令模式是把一个操作或者行为抽象为一个对象中，通过对命令的抽象化来使得发出命令的责任和执行命令的责任分隔开。命令模式的实现可以提供命令的撤销和恢复功能。</p>
+<h4 id="②-实现"><a href="#②-实现" class="headerlink" title="② 实现"></a>② 实现</h4><p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84%E5%9B%BE.png" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>Command类，用来声明执行操作的接口</p>
+</blockquote>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Command</span><br>&#123;<br>    <span class="hljs-keyword">protected</span> Receiver receiver;<br>    <br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Command</span>(<span class="hljs-params">Receiver receive</span>)</span><br>    &#123;<br>        <span class="hljs-keyword">this</span>.receive=receive<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>ConcreteCommand类，将一个接收者对象绑定于一个动作，调用接收者相应的操作，以实现Execute。</p>
+</blockquote>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-keyword">class</span> <span class="hljs-title">ConcreteCommand</span> : <span class="hljs-title">Command</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ConcreteCommand</span>(<span class="hljs-params">Reciver reciver</span>):<span class="hljs-title">base</span>(<span class="hljs-params">receiver</span>)</span><br>    &#123;<br>        <br>    &#125;<br>    <br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Execute</span>()</span><br>    &#123;<br>        receiver.Action();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Invoker类，要求该命令执行这个请求</p>
+</blockquote>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-keyword">class</span> <span class="hljs-title">Invoker</span><br>&#123;<br>    <span class="hljs-keyword">private</span> Command command;<br>    <br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">SetCommand</span>(<span class="hljs-params">Command command</span>)</span><br>    &#123;<br>        <span class="hljs-keyword">this</span>.command=command;<br>    &#125;<br>    <br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">ExecuteCommand</span>()</span><br>    &#123;<br>        command.Execute();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Receiver类，知道如何实施与执行一个与请求相关的操作，任何类都可能作为一个接收者。</p>
+</blockquote>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-keyword">class</span> <span class="hljs-title">Receiver</span><br>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Action</span>()</span><br>    &#123;<br>        Console.WriteLine(<span class="hljs-string">&quot;执行请求！&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>客户端代码，创建一个具体命令对象并设定它的接收者。</p>
+</blockquote>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-built_in">string</span>[] args</span>)</span><br>&#123;<br>    Receiver r=<span class="hljs-keyword">new</span> Receiver();<br>    Command c=<span class="hljs-keyword">new</span> ConcreteCommand(r);<br>    Invoker i=<span class="hljs-keyword">new</span> Invoker();<br>    <br>    i.SetCommand(c);<br>    i.ExecuteCommand();<br>    <br>    Console.Read();<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="③-优点和缺点"><a href="#③-优点和缺点" class="headerlink" title="③ 优点和缺点"></a>③ 优点和缺点</h4><p>命令模式使得命令发出的一个和接收的一方实现低耦合。</p>
+<p><strong>优点：</strong></p>
+<ul>
+<li>命令模式使得新的命令很容易被加入到系统里。</li>
+<li>可以设计一个命令队列来实现对请求的Undo和Redo操作。</li>
+<li>可以较容易地将命令写入日志。</li>
+<li>可以把命令对象聚合在一起，合成为合成命令。合成命令式合成模式的应用。</li>
+</ul>
+<p><strong>缺点：</strong></p>
+<ul>
+<li>使用命令模式可能会导致系统有过多的具体命令类。这会使得命令模式在这样的系统里变得不实际。</li>
+</ul>
+<h4 id="④-总结-1"><a href="#④-总结-1" class="headerlink" title="④ 总结"></a>④ 总结</h4><p><strong>命令模式（Command）</strong>将一个请求封装为一个对象，从而使你可用不同的请求队客户进行参数化；对请求排队或记录请求日志，以及支持可撤销的操作。</p>
+
               
             </div>
             <hr/>
@@ -887,7 +1010,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/06/15/Unity%E8%84%9A%E6%9C%AC%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" title="Unity 生命周期">
+                      <a href="/2022/06/05/Unity%E8%84%9A%E6%9C%AC%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" title="Unity 生命周期">
                         <span class="hidden-mobile">Unity 生命周期</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>

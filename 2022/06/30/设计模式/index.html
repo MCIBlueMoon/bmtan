@@ -53,7 +53,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%A4%87%E5%BF%98%E5%BD%95%E7%BB%93%E6%9E%84%E5%9B%BE.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84%E5%9B%BE.png">
 <meta property="article:published_time" content="2022-06-30T13:38:47.000Z">
-<meta property="article:modified_time" content="2022-07-08T10:29:16.588Z">
+<meta property="article:modified_time" content="2022-07-09T11:35:02.287Z">
 <meta property="article:author" content="Bmtan">
 <meta property="article:tag" content="C Sharp">
 <meta property="article:tag" content="设计模式">
@@ -248,7 +248,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          53k 字
+          55k 字
         
       </span>
     
@@ -259,7 +259,7 @@
         
         
         
-          439 分钟
+          456 分钟
         
       </span>
     
@@ -333,13 +333,123 @@
 <p>访问者：在不改变类的前提下，为一个类添加多种操作。</p>
 <hr>
 <h2 id="UML类图"><a href="#UML类图" class="headerlink" title="UML类图"></a>UML类图</h2><p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/UML%E4%BD%BF%E7%94%A8.png" srcset="/img/loading.gif" lazyload></p>
-<p><strong><font color="FF0000">注意:</font></strong></p>
-<p><strong><font color="ff0000">“+”表示public，”-“表示private，”#”表示protected</font></strong></p>
-<p><strong><font color="FF0000">空心三角形+实线表示实现继承</font></strong></p>
-<p><strong><font color="FF0000">空心三角形+虚线表示实现接口</font></strong></p>
-<p><strong><font color="FF0000">关联关系用实线箭头</font></strong></p>
-<p><strong><font color="FF0000">聚合关系用空心菱形+实线箭头</font></strong></p>
-<p><strong><font color="FF0000">依赖关系用虚线箭头</font></strong></p>
+<p><strong>注意:</strong></p>
+<p>“+”表示public，”-“表示private，”#”表示protected</p>
+<p>空心三角形+实线表示实现<strong>继承</strong></p>
+<p>空心三角形+虚线表示实现<strong>接口</strong></p>
+<p><strong>关联关系</strong>用实线箭头</p>
+<p><strong>聚合关系</strong>用空心菱形+实线箭头</p>
+<p><strong>依赖关系</strong>用虚线箭头</p>
+<hr>
+<h2 id="面向对象六大原则"><a href="#面向对象六大原则" class="headerlink" title="面向对象六大原则"></a>面向对象六大原则</h2><h4 id="①-单一职责原则"><a href="#①-单一职责原则" class="headerlink" title="① 单一职责原则"></a>① 单一职责原则</h4><p><strong>定义：</strong></p>
+<blockquote>
+<p>单一职责原则，就一个类而言，应该仅有一个引起它变化的原因。</p>
+</blockquote>
+<ol>
+<li><p><strong>如果一个类承担的职责过多，就等于把这些职责耦合在一起，一个职责的变化可能会削弱或者抑制这个类完成其他职责的能力。这种耦合会导致脆弱的设计，当变化发生时，设计会遭受到意想不到的破坏。</strong></p>
+</li>
+<li><p><strong>软件设计真正要做的许多内容，就是发现职责并把那些职责相互分离。</strong></p>
+</li>
+<li><p><strong>如果你能够想到多于一个的动机去改变一个类，那么这个类就具有多于一个的职责。</strong></p>
+</li>
+</ol>
+<p><strong>好处</strong>:</p>
+<ul>
+<li>类的复杂性降低，实现什么职责都有清晰明确的定义</li>
+<li>可读性提高，复杂性降低，那当然可读性提高了</li>
+<li>可维护性提高，可读性提高，那当然更容易维护了</li>
+<li>变更引起的风险降低，变更是必不可少的，如果接口的单一职责做得好，一个接口修改只对相应的实现类有影响，对其他的接口无影响，这对系统的扩展性、维护性都有非常大的帮助</li>
+</ul>
+<hr>
+<h4 id="②-开放-封闭原则"><a href="#②-开放-封闭原则" class="headerlink" title="② 开放-封闭原则"></a>② 开放-封闭原则</h4><p><strong>定义：</strong></p>
+<blockquote>
+<p>开放-封闭原则，是说软件实体（类、模块、函数等等)应该可以扩展，但是不可修改。对于扩展是开放的（Open for extension)，对于更改是封闭的（Closed for modification)</p>
+</blockquote>
+<ol>
+<li><p><strong>无论模块是多么的‘封闭’，都会存在一些无法对之封闭的变化。既然不可能完全封闭，设计人员必须对于他设计的模块应该对哪种变化封闭做出选择。他必须先猜测出最有可能发生的变化种类，然后构造抽象来隔离那些变化。</strong></p>
+</li>
+<li><p><strong>等到变化发生时立即采取行动。</strong></p>
+</li>
+<li><p><strong>在我们最初编写代码时，假设变化不会发生。当变化发生时，我们就创建抽象来隔离以后发生的同类变化。</strong></p>
+</li>
+<li><p><strong>面对需求，对程序的改动是通过增加新代码进行的，而不是更改现有的代码。</strong></p>
+</li>
+<li><p><strong>我们希望的是在开发工作展开不久就知道可能发生的变化。查明可能发生的变化所等待的时间越长，要创建正确的抽象就越困难。</strong></p>
+</li>
+<li><p><strong>开放-封闭原则是面向对象设计的核心所在。遵循这个原则可以带来面向对象技术所声称的巨大好处，也就是可维护、可扩展、可复用、灵活性好。开发人员应该仅对程序中呈现出频繁变化的那些部分做出抽象，然而，对于应用程序中的每个部分都刻意地进行抽象同样不是一个好主意。拒绝不成熟的抽象和抽象本身一样重要</strong></p>
+</li>
+</ol>
+<p><strong>好处</strong>：</p>
+<ul>
+<li>通过扩展已有的软件系统，可以提供新的行为,以满足对软件的新需求，是变化中的软件有一定的适应性和灵活性。</li>
+<li>已有的软件模块，特别是最重要的抽象模块不能再修改，这就使变化中的软件系统有一定的稳定性和延续性</li>
+</ul>
+<hr>
+<h4 id="③-依赖倒转原则"><a href="#③-依赖倒转原则" class="headerlink" title="③ 依赖倒转原则"></a>③ 依赖倒转原则</h4><p><strong>定义：</strong></p>
+<blockquote>
+<p>A．高层模块不应该依赖低层模块。两个都应该依赖抽象。</p>
+<p>B．抽象不应该依赖细节。细节应该依赖抽象。</p>
+<p>C.   要针对接口编程、不要对实现编程</p>
+</blockquote>
+<p><strong>好处：</strong></p>
+<p>​		<strong>依赖倒置原则可以提高程序的可扩展性，也可有效的降低程序耦合；依赖倒置原则避免了修改负责复杂逻辑的高层模块，大大提高了程序的稳定性。</strong></p>
+<hr>
+<h4 id="④-里氏转换原则"><a href="#④-里氏转换原则" class="headerlink" title="④ 里氏转换原则"></a>④ 里氏转换原则</h4><p><strong>定义：</strong></p>
+<blockquote>
+<p>里氏代换原则（LSP):子类型必须能够替换掉它们的父类型。</p>
+</blockquote>
+<ol>
+<li><strong>一个软件实体如果使用的是一个父类的话，那么一定适用于其子类，而且它察觉不出父类对象和子类对象的区别。也就是说，在软件里面，把父类都替换成它的子类，程序的行为没有变化，简单地说，子类型必须能够替换掉它们的父类型。</strong></li>
+<li><strong>只有当子类可以替换掉父类，软件单位的功能不受到影响时，父类才能真正被复用，而子类也能够在父类的基础上增加新的行为。</strong></li>
+<li><strong>由于子类型的可替换性才使得使用父类类型的模块在无需修改的情况下就可以扩展。</strong></li>
+</ol>
+<p><strong>好处：</strong></p>
+<ul>
+<li><p>约束继承泛滥，它也是开闭原则的一种很好的体现。</p>
+</li>
+<li><p>提高了代码的重用性。</p>
+</li>
+<li><p>降低了系统的出错率。类的扩展不会给原类造成影响，降低了代码出错的范围和系统出错的概率。</p>
+</li>
+<li><p>加强程序的健壮性，同时变更时可以做到非常好的兼容性，提高程序的维护性、可扩展性，降低需求变更时引入的风险。</p>
+</li>
+</ul>
+<hr>
+<h4 id="⑤-迪米特法则"><a href="#⑤-迪米特法则" class="headerlink" title="⑤ 迪米特法则"></a>⑤ 迪米特法则</h4><p><strong>定义：</strong></p>
+<blockquote>
+<p>迪米特法则(LoD)，如果两个类不必彼此直接通信，那么这两个类就不应当发生直接的相互作用。如果其中一个类需要调用另一个类的某一个方法的话，可以通过第三者转发这个调用。</p>
+</blockquote>
+<ol>
+<li><strong>在类的结构设计上，每一个类都应当尽量降低成员的访问权限</strong></li>
+<li><strong>迪米特法则其根本思想，是强调了类之间的松耦合。</strong></li>
+<li><strong>类之间的耦合越弱，越有利于复用，一个处在弱耦合的类被修改，不会对有关系的类造成波及。</strong></li>
+</ol>
+<p><strong>好处：</strong></p>
+<ul>
+<li><p>降低了类之间耦合度，提高了模块的相对独立性。</p>
+</li>
+<li><p>亲和度降低，提高了类的可复用率和系统的扩展性。</p>
+</li>
+</ul>
+<hr>
+<h4 id="⑥-接口隔离原则"><a href="#⑥-接口隔离原则" class="headerlink" title="⑥ 接口隔离原则"></a>⑥ 接口隔离原则</h4><p><strong>定义：</strong></p>
+<blockquote>
+<p>接口隔离原则(Interface Segregation Principle, ISP)：使用多个专门的接口，而不使用单一的总接口，即客户端不应该依赖那些它不需要的接口。</p>
+</blockquote>
+<ol>
+<li><strong>每一个接口应该承担一种相对独立的角色，不干不该干的事情，干该干的事请</strong>。</li>
+<li><strong>接口仅仅提供客户端需要的行为，客户端不需要的行为则隐藏起来，应当为客户端提供尽可能小的接口，而不要提供大的总接口</strong></li>
+<li><strong>在使用接口隔离原则时我们要控制接口的颗粒度，颗粒度不能太大，也不能太小。如果太小就会造成接口泛滥，不利于维护；接口入如果太大就会违背接口隔离原则，灵活性较差，使用起来不方便</strong>。</li>
+</ol>
+<p><strong>好处：</strong></p>
+<ul>
+<li><p>接口隔离原则是为了约束接口降低类对接口的依赖性</p>
+</li>
+<li><p>接口隔离提高了系统的内聚性,减少了对外交互,降低了系统的耦合性</p>
+</li>
+<li><p>能减少项目工程中的代码冗余。过大的大接口里面通常放置许多不用的方法,当实现这个接口的时候,被迫设计冗余的代码。</p>
+</li>
+</ul>
 <hr>
 <h2 id="一、创建型设计模式"><a href="#一、创建型设计模式" class="headerlink" title="一、创建型设计模式"></a>一、创建型设计模式</h2><h3 id="1、简单工厂模式"><a href="#1、简单工厂模式" class="headerlink" title="1、简单工厂模式"></a>1、简单工厂模式</h3><h4 id="①-引言"><a href="#①-引言" class="headerlink" title="① 引言"></a>① 引言</h4><p>　　这个系列也是自己对设计模式的一些学习笔记,希望对一些初学设计模式的人有所帮助的,在上一个专题中介绍了单例模式,在这个专题中继续为大家介绍一个比较容易理解的模式——简单工厂模式。</p>
 <h4 id="②-简单工厂模式的介绍"><a href="#②-简单工厂模式的介绍" class="headerlink" title="② 简单工厂模式的介绍"></a>② 简单工厂模式的介绍</h4><p>　　说到简单工厂，自然的第一个疑问当然就是什么是简单工厂模式了？ 在现实生活中工厂是负责生产产品的,同样在设计模式中,简单工厂模式我们也可以理解为负责<strong>生产对象的一个类</strong>, 我们平常编程中，当使用”new”关键字创建一个对象时，此时该类就依赖与这个对象，也就是他们之间的耦合度高，当需求变化时，我们就不得不去修改此类的源码，此时我们可以运用面向对象（OO）的很重要的原则去解决这一的问题，该原则就是——<font color="#FF0000">封装改变，既然要封装改变，自然也就要找到改变的代码，然后把改变的代码用类来封装</font>，这样的一种思路也就是我们简单工厂模式的实现方式了。下面通过一个现实生活中的例子来引出简单工厂模式。</p>

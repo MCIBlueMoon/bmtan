@@ -1,0 +1,765 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Bmtan">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="AssetBundle 同步与异步加载AssetBundle相关ApiAssetBundle.LoadAssetpublic Object LoadAsset (string name); 描述从捆绑包中加载名为 name 的资源。 您应该准确指定 AssetBundleBuild 对象中的名称，即对象的相对路径加文件扩展名。 在版本 5.0 之前，用户可以使用 Load 直接获取单个组件。该函数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C# 设计模式">
+<meta property="og:url" content="http://bmtan.cc/2022/07/30/AssetBundle%20%E5%90%8C%E6%AD%A5%E4%B8%8E%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD/index.html">
+<meta property="og:site_name" content="Bmtan">
+<meta property="og:description" content="AssetBundle 同步与异步加载AssetBundle相关ApiAssetBundle.LoadAssetpublic Object LoadAsset (string name); 描述从捆绑包中加载名为 name 的资源。 您应该准确指定 AssetBundleBuild 对象中的名称，即对象的相对路径加文件扩展名。 在版本 5.0 之前，用户可以使用 Load 直接获取单个组件。该函数">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-30T09:19:47.000Z">
+<meta property="article:modified_time" content="2022-07-30T09:20:50.232Z">
+<meta property="article:author" content="Bmtan">
+<meta property="article:tag" content="AssetBundle">
+<meta property="article:tag" content="Unity">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>C# 设计模式 - Bmtan</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"bmtan.cc","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Bmtan blog&#39;s</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="C# 设计模式"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-07-30 17:19" pubdate>
+          2022年7月30日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          49 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">C# 设计模式</h1>
+            
+            <div class="markdown-body">
+              
+              <h1 id="AssetBundle-同步与异步加载"><a href="#AssetBundle-同步与异步加载" class="headerlink" title="AssetBundle 同步与异步加载"></a>AssetBundle 同步与异步加载</h1><h2 id="AssetBundle相关Api"><a href="#AssetBundle相关Api" class="headerlink" title="AssetBundle相关Api"></a>AssetBundle相关Api</h2><h3 id="AssetBundle-LoadAsset"><a href="#AssetBundle-LoadAsset" class="headerlink" title="AssetBundle.LoadAsset"></a><a target="_blank" rel="noopener" href="https://docs.unity.cn/cn/2022.1/ScriptReference/AssetBundle.html">AssetBundle</a>.LoadAsset</h3><p>public Object <strong>LoadAsset</strong> (string <strong>name</strong>);</p>
+<h4 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h4><p>从捆绑包中加载名为 <code>name</code> 的资源。</p>
+<p>您应该准确指定 AssetBundleBuild 对象中的名称，即对象的相对路径加文件扩展名。</p>
+<p>在版本 5.0 之前，用户可以使用 Load 直接获取单个组件。该函数现已弃用。请改为使用 LoadAsset 加载游戏对象，然后在对象上查找组件。</p>
+<hr>
+<p>public Object <strong>LoadAsset</strong> (string <strong>name</strong>, Type <strong>type</strong>);</p>
+<hr>
+<h3 id="AssetBundleManifest-GetAllDependencies"><a href="#AssetBundleManifest-GetAllDependencies" class="headerlink" title="AssetBundleManifest.GetAllDependencies"></a><a target="_blank" rel="noopener" href="https://docs.unity.cn/cn/2022.1/ScriptReference/AssetBundleManifest.html">AssetBundleManifest</a>.GetAllDependencies</h3><p>public string[] <strong>GetAllDependencies</strong> (string <strong>assetBundleName</strong>);</p>
+<h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><table>
+<thead>
+<tr>
+<th>assetBundleName</th>
+<th>资源捆绑包的名称。</th>
+</tr>
+</thead>
+</table>
+<h4 id="描述-1"><a href="#描述-1" class="headerlink" title="描述"></a>描述</h4><p>获取给定 AssetBundle 的所有依赖 AssetBundle。</p>
+<hr>
+<h3 id="AssetBundle-Unload"><a href="#AssetBundle-Unload" class="headerlink" title="AssetBundle.Unload"></a><a target="_blank" rel="noopener" href="https://docs.unity.cn/cn/2022.1/ScriptReference/AssetBundle.html">AssetBundle</a>.Unload</h3><p>public void <strong>Unload</strong> (bool <strong>unloadAllLoadedObjects</strong>);</p>
+<h4 id="参数-1"><a href="#参数-1" class="headerlink" title="参数"></a>参数</h4><table>
+<thead>
+<tr>
+<th>unloadAllLoadedObjects</th>
+<th>确定是否还将卸载从 AssetBundle 加载的对象的当前实例。</th>
+</tr>
+</thead>
+</table>
+<h4 id="描述-2"><a href="#描述-2" class="headerlink" title="描述"></a>描述</h4><p>卸载 AssetBundle 释放其数据。</p>
+<p>When <code>unloadAllLoadedObjects</code> is false, compressed file data inside the bundle itself will be freed, but any instances of objects loaded from this bundle will remain intact. After calling UnloadAsync on an AssetBundle, you cannot load any more objects from that bundle and other operations on the bundle will throw InvalidOperationException.After calling UnloadAsync on an AssetBundle, you cannot load any more objects from that bundle and other operations on the bundle will throw InvalidOperationException.</p>
+<p>当 <code>unloadAllLoadedObjects</code> 为 true 时，也将销毁从该捆绑包加载的所有对象。如果场景中有 GameObjects 引用这些资源，则对它们的引用将丢失。</p>
+<p>不管是哪种情况，除非重新加载该捆绑包，否则将无法再从它加载任何其他对象。</p>
+<p>有关所使用的不同压缩格式及其在加载时对内存的影响的说明，请参阅<a target="_blank" rel="noopener" href="https://docs.unity.cn/cn/2022.1/Manual/AssetBundles-Building.html">构建 AssetBundle</a>。</p>
+<p>另请参阅：<a target="_blank" rel="noopener" href="https://docs.unity.cn/cn/2022.1/ScriptReference/AssetBundle.UnloadAllAssetBundles.html">AssetBundle.UnloadAllAssetBundles</a>。</p>
+<hr>
+<h3 id="AssetBundle-UnloadAllAssetBundles"><a href="#AssetBundle-UnloadAllAssetBundles" class="headerlink" title="AssetBundle.UnloadAllAssetBundles"></a><a target="_blank" rel="noopener" href="https://docs.unity.cn/cn/2022.1/ScriptReference/AssetBundle.html">AssetBundle</a>.UnloadAllAssetBundles</h3><p>public static void <strong>UnloadAllAssetBundles</strong> (bool <strong>unloadAllObjects</strong>);</p>
+<h4 id="参数-2"><a href="#参数-2" class="headerlink" title="参数"></a>参数</h4><table>
+<thead>
+<tr>
+<th>unloadAllObjects</th>
+<th>确定是否还将卸载从 AssetBundle 加载的对象的当前实例。</th>
+</tr>
+</thead>
+</table>
+<h4 id="描述-3"><a href="#描述-3" class="headerlink" title="描述"></a>描述</h4><p>卸载当前已加载的所有 AssetBundle。</p>
+<p>当 <code>unloadAllObjects</code> 为 false 时，将释放当前加载的捆绑包中的压缩文件数据，但已从捆绑包中加载的任何对象实例将保持不变。</p>
+<p>当 <code>unloadAllObjects</code> 为 true 时，也将销毁从当前已加载的捆绑包加载的所有对象。如果场景中有 GameObject 引用这些资源，则对它们的引用将丢失。</p>
+<p>不管是哪种情况，除非重新加载当前已加载的捆绑包，否则无法再从它们加载任何其他对象。</p>
+<p>有关所使用的不同压缩格式及其在加载时对内存的影响的说明，请参阅<a target="_blank" rel="noopener" href="https://docs.unity.cn/cn/2022.1/Manual/AssetBundles-Building.html">构建 AssetBundle</a>。</p>
+<p>另请参阅：<a target="_blank" rel="noopener" href="https://docs.unity.cn/cn/2022.1/ScriptReference/AssetBundle.Unload.html">AssetBundle.Unload</a>。</p>
+<hr>
+<h2 id="AB包管理器"><a href="#AB包管理器" class="headerlink" title="AB包管理器"></a>AB包管理器</h2><p><strong>目的</strong>：让外部更方便的进行资源加载</p>
+<blockquote>
+<p>声明AssetBundle、AssetBundleManifest和字典存储加载过的ab包</p>
+</blockquote>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs C#">	<span class="hljs-comment">//主包</span><br>   <span class="hljs-keyword">private</span> AssetBundle mainAB = <span class="hljs-literal">null</span>;<br>   <span class="hljs-comment">//依赖包获取用的配置文件</span><br>   <span class="hljs-keyword">private</span> AssetBundleManifest manifest = <span class="hljs-literal">null</span>;<br>	<br><span class="hljs-comment">//AB包不能重复加载 重复会报错</span><br>   <span class="hljs-comment">//字典 用字典来存储 加载过的ab包</span><br>   <span class="hljs-keyword">private</span> Dictionary&lt;<span class="hljs-built_in">string</span>, AssetBundle&gt; abDic = <span class="hljs-keyword">new</span> Dictionary&lt;<span class="hljs-built_in">string</span>, AssetBundle&gt;();<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>PathUrl 和 MainABName 属性 方便获取路径和主包名</p>
+</blockquote>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-keyword">private</span> <span class="hljs-built_in">string</span> PathUrl<br>    &#123;<br>        <span class="hljs-keyword">get</span><br>        &#123;<br>            <span class="hljs-keyword">return</span> Application.streamingAssetsPath + <span class="hljs-string">&quot;/&quot;</span>;<br>        &#125;<br>    &#125;<br><br>	<span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> 主包名 方便修改</span><br>    <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span><br>    <span class="hljs-keyword">private</span> <span class="hljs-built_in">string</span> MainABName<br>    &#123;<br>        <span class="hljs-keyword">get</span><br>        &#123;<br><span class="hljs-meta">#<span class="hljs-keyword">if</span> UNITY_IOS</span><br>            <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;IOS&quot;</span><br><span class="hljs-meta">#<span class="hljs-keyword">elif</span> UNITY_ANDROID</span><br>            <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Android&quot;</span>;<br><span class="hljs-meta">#<span class="hljs-keyword">else</span></span><br>            <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;PC&quot;</span>;<br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br>        &#125;<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>LoadAB 用于加载AB包、获取依赖包相关信息、加载资源来源包等共同操作</p>
+</blockquote>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">LoadAB</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> abName</span>)</span><br>    &#123;<br>        <span class="hljs-comment">//加载AB包</span><br>        <span class="hljs-keyword">if</span> (mainAB == <span class="hljs-literal">null</span>)<br>        &#123;<br>            mainAB = AssetBundle.LoadFromFile(PathUrl + MainABName);<br>            manifest = mainAB.LoadAsset&lt;AssetBundleManifest&gt;(<span class="hljs-string">&quot;AssetBundleManifest&quot;</span>);<br>        &#125;<br>        <span class="hljs-comment">//我们获取依赖包的相关信息</span><br>        <span class="hljs-built_in">string</span>[] strs = manifest.GetAllDependencies(abName);<br>        AssetBundle ab = <span class="hljs-literal">null</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; strs.Length; i++)<br>        &#123;<br>            <span class="hljs-comment">//判断包是否加载过</span><br>            <span class="hljs-keyword">if</span> (!abDic.ContainsKey(strs[i]))<br>            &#123;<br>                ab = AssetBundle.LoadFromFile(PathUrl + strs[i]);<br>                abDic.Add(strs[i], ab);<br>            &#125;<br>        &#125;<br>        <span class="hljs-comment">//加载资源来源包</span><br>        <span class="hljs-comment">//如果没有加载过 再加载</span><br>        <span class="hljs-keyword">if</span> (!abDic.ContainsKey(abName))<br>        &#123;<br>            ab = AssetBundle.LoadFromFile(PathUrl + abName);<br>            abDic.Add(abName, ab);<br>        &#125;<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="同步加载"><a href="#同步加载" class="headerlink" title="同步加载"></a>同步加载</h2><h3 id="同步加载-1"><a href="#同步加载-1" class="headerlink" title="同步加载"></a>同步加载</h3><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-comment">//同步加载</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">LoadRes</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> abName, <span class="hljs-built_in">string</span> resName</span>)</span><br>    &#123;<br>        <span class="hljs-comment">//加载AB包</span><br>        LoadAB(abName);<br><br>        <span class="hljs-comment">//为了外面方便 在加载资源时 判断一下 资源是不是GameObject</span><br>        <span class="hljs-comment">//如果是 直接实例化 再返回给外部</span><br><br><br>        Object obj = abDic[abName].LoadAsset(resName);<br>        <span class="hljs-keyword">if</span> (obj <span class="hljs-keyword">is</span> GameObject)<br>            <span class="hljs-keyword">return</span> Instantiate(obj);<br>        <span class="hljs-keyword">else</span><br>            <span class="hljs-keyword">return</span> obj;<br>        <br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="同步加载-通过type指定类型"><a href="#同步加载-通过type指定类型" class="headerlink" title="同步加载 通过type指定类型"></a>同步加载 通过type指定类型</h3><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">LoadRes</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> abName, <span class="hljs-built_in">string</span> resName,System.Type type</span>)</span><br>    &#123;<br>        <span class="hljs-comment">//加载AB包</span><br>        LoadAB(abName);<br><br>        <span class="hljs-comment">//为了外面方便 在加载资源时 判断一下 资源是不是GameObject</span><br>        <span class="hljs-comment">//如果是 直接实例化 再返回给外部</span><br><br><br>        Object obj = abDic[abName].LoadAsset(resName,type);<br>        <span class="hljs-keyword">if</span> (obj <span class="hljs-keyword">is</span> GameObject)<br>            <span class="hljs-keyword">return</span> Instantiate(obj);<br>        <span class="hljs-keyword">else</span><br>            <span class="hljs-keyword">return</span> obj;<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="同步加载，根据泛型指定类型"><a href="#同步加载，根据泛型指定类型" class="headerlink" title="同步加载，根据泛型指定类型"></a>同步加载，根据泛型指定类型</h3><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-comment">//同步加载，根据泛型指定类型</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> T <span class="hljs-title">LoadRes</span>&lt;<span class="hljs-title">T</span>&gt;(<span class="hljs-params"><span class="hljs-built_in">string</span> abName, <span class="hljs-built_in">string</span> resName</span>) <span class="hljs-keyword">where</span> T:Object</span><br>    &#123;<br>        <span class="hljs-comment">//加载AB包</span><br>        LoadAB(abName);<br><br>        <span class="hljs-comment">//为了外面方便 在加载资源时 判断一下 资源是不是GameObject</span><br>        <span class="hljs-comment">//如果是 直接实例化 再返回给外部</span><br><br><br>        T obj = abDic[abName].LoadAsset&lt;T&gt;(resName);<br>        <span class="hljs-keyword">if</span> (obj <span class="hljs-keyword">is</span> GameObject)<br>            <span class="hljs-keyword">return</span> Instantiate(obj);<br>        <span class="hljs-keyword">else</span><br>            <span class="hljs-keyword">return</span> obj;<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="异步加载"><a href="#异步加载" class="headerlink" title="异步加载"></a>异步加载</h2><p><font color="FF0000"><b>！！！ 这里的异步加载 AB包并没有使用异步加载，只是从AB包中 加载资源时 使用异步</b></font></p>
+<h3 id="根据名字异步加载"><a href="#根据名字异步加载" class="headerlink" title="根据名字异步加载"></a>根据名字异步加载</h3><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">LoadResAsync</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> abName,<span class="hljs-built_in">string</span> resName,UnityAction&lt;Object&gt; callBack</span>)</span><br>    &#123;<br>        StartCoroutine(ReallyLoadResAsync(abName, resName, callBack));<br>    &#125;  <br>    <span class="hljs-function"><span class="hljs-keyword">private</span> IEnumerator <span class="hljs-title">ReallyLoadResAsync</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> abName, <span class="hljs-built_in">string</span> resName, UnityAction&lt;Object&gt; callBack</span>)</span><br>    &#123;<br>        <span class="hljs-comment">//加载AB包</span><br>        LoadAB(abName);<br><br>        <span class="hljs-comment">//为了外面方便 在加载资源时 判断一下 资源是不是GameObject</span><br>        <span class="hljs-comment">//如果是 直接实例化 再返回给外部</span><br>        AssetBundleRequest abr = abDic[abName].LoadAssetAsync(resName);<br>        <span class="hljs-keyword">yield</span> <span class="hljs-keyword">return</span> abr;<br>        <span class="hljs-comment">//异步加载结束后 通过委托 传递给外部 外部来使用</span><br>        <span class="hljs-keyword">if</span> (abr.asset <span class="hljs-keyword">is</span> GameObject)<br>            callBack(Instantiate(abr.asset));<br>        <span class="hljs-keyword">else</span><br>            callBack(abr.asset);<br>        <br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="根据Type异步加载"><a href="#根据Type异步加载" class="headerlink" title="根据Type异步加载"></a>根据Type异步加载</h3><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-comment">//根据Type异步加载</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">LoadResAsync</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> abName, <span class="hljs-built_in">string</span> resName,System.Type type, UnityAction&lt;Object&gt; callBack</span>)</span><br>    &#123;<br>        StartCoroutine(ReallyLoadResAsync(abName, resName, callBack));<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">private</span> IEnumerator <span class="hljs-title">ReallyLoadResAsync</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> abName, <span class="hljs-built_in">string</span> resName,System.Type type, UnityAction&lt;Object&gt; callBack</span>)</span><br>    &#123;<br>        <span class="hljs-comment">//加载AB包</span><br>        LoadAB(abName);<br><br>        <span class="hljs-comment">//为了外面方便 在加载资源时 判断一下 资源是不是GameObject</span><br>        <span class="hljs-comment">//如果是 直接实例化 再返回给外部</span><br>        AssetBundleRequest abr = abDic[abName].LoadAssetAsync(resName,type);<br>        <span class="hljs-keyword">yield</span> <span class="hljs-keyword">return</span> abr;<br>        <span class="hljs-comment">//异步加载结束后 通过委托 传递给外部 外部来使用</span><br>        <span class="hljs-keyword">if</span> (abr.asset <span class="hljs-keyword">is</span> GameObject)<br>            callBack(Instantiate(abr.asset));<br>        <span class="hljs-keyword">else</span><br>            callBack(abr.asset);<br><br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="根据泛型异步加载"><a href="#根据泛型异步加载" class="headerlink" title="根据泛型异步加载"></a>根据泛型异步加载</h3><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">LoadResAsync</span>&lt;<span class="hljs-title">T</span>&gt;(<span class="hljs-params"><span class="hljs-built_in">string</span> abName, <span class="hljs-built_in">string</span> resName, UnityAction&lt;T&gt; callBack</span>) <span class="hljs-keyword">where</span> T:Object</span><br>    &#123;<br>        StartCoroutine(ReallyLoadResAsync(abName, resName, callBack));<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">private</span> IEnumerator <span class="hljs-title">ReallyLoadResAsync</span>&lt;<span class="hljs-title">T</span>&gt;(<span class="hljs-params"><span class="hljs-built_in">string</span> abName, <span class="hljs-built_in">string</span> resName, UnityAction&lt;T&gt; callBack</span>) <span class="hljs-keyword">where</span> T : Object</span><br>    &#123;<br>        <span class="hljs-comment">//加载AB包</span><br>        LoadAB(abName);<br><br>        <span class="hljs-comment">//为了外面方便 在加载资源时 判断一下 资源是不是GameObject</span><br>        <span class="hljs-comment">//如果是 直接实例化 再返回给外部</span><br>        AssetBundleRequest abr = abDic[abName].LoadAssetAsync&lt;T&gt;(resName);<br>        <span class="hljs-keyword">yield</span> <span class="hljs-keyword">return</span> abr;<br>        <span class="hljs-comment">//异步加载结束后 通过委托 传递给外部 外部来使用</span><br>        <span class="hljs-keyword">if</span> (abr.asset <span class="hljs-keyword">is</span> GameObject)<br>            callBack(Instantiate(abr.asset) <span class="hljs-keyword">as</span> T);<br>        <span class="hljs-keyword">else</span><br>            callBack(abr.asset <span class="hljs-keyword">as</span> T);<br><br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="包卸载"><a href="#包卸载" class="headerlink" title="包卸载"></a>包卸载</h2><h3 id="单个包卸载"><a href="#单个包卸载" class="headerlink" title="单个包卸载"></a>单个包卸载</h3><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">UnLoad</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> abName</span>)</span><br>    &#123;<br>        <span class="hljs-keyword">if</span>(abDic.ContainsKey(abName))<br>        &#123;<br>            abDic[abName].Unload(<span class="hljs-literal">false</span>);<br>            abDic.Remove(abName);<br>        &#125;<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="所有包卸载"><a href="#所有包卸载" class="headerlink" title="所有包卸载"></a>所有包卸载</h3><pre><code class="C#">public void ClearAB()
+    &#123;
+        AssetBundle.UnloadAllAssetBundles(false);
+        abDic.Clear();
+        mainAB = null;
+    &#125;
+</code></pre>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%83%AD%E6%9B%B4%E6%96%B0/" class="category-chain-item">热更新</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/AssetBundle/">#AssetBundle</a>
+      
+        <a href="/tags/Unity/">#Unity</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>C# 设计模式</div>
+      <div>http://bmtan.cc/2022/07/30/AssetBundle 同步与异步加载/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Bmtan</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年7月30日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/06/30/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="C# 设计模式">
+                        <span class="hidden-mobile">C# 设计模式</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

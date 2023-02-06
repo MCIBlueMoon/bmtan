@@ -63,7 +63,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/49a4114d2323450792d15706511acdf4.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/842750f7516f4a62aa62e32a07190c1d.png">
 <meta property="article:published_time" content="2023-02-01T14:44:00.000Z">
-<meta property="article:modified_time" content="2023-02-06T08:55:48.093Z">
+<meta property="article:modified_time" content="2023-02-06T09:09:29.631Z">
 <meta property="article:author" content="Bmtan">
 <meta property="article:tag" content="Unity">
 <meta property="article:tag" content="C#">
@@ -274,7 +274,7 @@
         
         
         
-          287 分钟
+          286 分钟
         
       </span>
     
@@ -661,46 +661,13 @@
 <p><em><strong>继承</strong></em>：重用现有代码</p>
 <p><em><strong>多态</strong></em>：静态多态重载，动态多态重写。<br>父类行为由子类具体实现，包含virtual虚方法，abstract抽象方法，interface接口<br><code>可以涉及题目虚方法、抽象方法、接口的区别</code></p>
 <p><em><strong>重载和重写区别</strong></em><br>静态重载：返回值无关，与参数个数，类型相关。编译阶段。便于扩展和维护<br>动态重写override（运行时，改写了方法表的新地址）。<br>抽象方法的父类必须是抽象类，子类是抽象类可以不重写，抽象类不可以被实例化。</p>
-<h3 id="C-Array、ArrayList和List的区别"><a href="#C-Array、ArrayList和List的区别" class="headerlink" title="C#Array、ArrayList和List的区别"></a>C#Array、ArrayList和List的区别</h3><blockquote>
-<p>Array</p>
-</blockquote>
-<p><strong>Array</strong> 类是 C# 中所有数组的基类，它是在 System 命名空间中定义。Array 类提供了各种⽤于数组的属性和⽅法。 </p>
-<p>使⽤⽅法如下：</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-built_in">int</span>[] nums = &#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span> &#125;;<br>Array.Sort(nums);<br></code></pre></td></tr></table></figure>
-
-
-
-<blockquote>
-<p>ArrayList</p>
-</blockquote>
-<p><strong>ArrayList</strong>动态数组，是.Net Framework提供的⽤于数据存储和检索的专⽤类，它是命名空间System.Collections下的⼀部分。它的大小是按照其中存储的数据来动态扩充与收缩的。所以，我们在声明ArrayList对象时并不需要指定它的长度。ArrayList继承了IList接⼝，所以它可以很⽅便的进行数据的添加，插⼊和移除.</p>
-<p>比如：</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs C#">ArrayList al = <span class="hljs-keyword">new</span> ArrayList();<br><span class="hljs-comment">//新增数据</span><br>al.Add(<span class="hljs-string">&quot;abc&quot;</span>); al.Add(<span class="hljs-number">123</span>);<br><span class="hljs-comment">//修改数据</span><br>al[<span class="hljs-number">2</span>] = <span class="hljs-number">345</span>;<br><span class="hljs-comment">//移除数据</span><br>al.RemoveAt(<span class="hljs-number">0</span>);<br><span class="hljs-comment">//插⼊数据</span><br>al.Insert(<span class="hljs-number">0</span>, <span class="hljs-string">&quot;hello world&quot;</span>);<br></code></pre></td></tr></table></figure>
-
-
-
-<blockquote>
-<p>List</p>
-</blockquote>
-<p><strong>List</strong>类是ArrayList类的泛型等效类。它的⼤部分⽤法都与ArrayList相似，因为List类也继承了IList接⼝。最关键的区别在于，在声明List集合时，我们同时需要为其声明List集合内数据的对象类型。</p>
-<p> 比如：</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs C#">List&lt;<span class="hljs-built_in">int</span>&gt; list = <span class="hljs-keyword">new</span> List&lt;<span class="hljs-built_in">int</span>&gt;();<br><span class="hljs-comment">//新增数据</span><br> list.Add(<span class="hljs-number">123</span>);<br><span class="hljs-comment">//修改数据</span><br>list[<span class="hljs-number">0</span>] = <span class="hljs-number">345</span>;<br><span class="hljs-comment">//移除数据</span><br>list.RemoveAt(<span class="hljs-number">0</span>);<br></code></pre></td></tr></table></figure>
-
-<p>​		上例中，如果我们往List泛型集合中插⼊string字符”hello world”，IDE就会报错，且不能通过编译。这样就避免了前⾯讲的类型安全问题与装箱拆箱的性能问题了。</p>
-<p><strong>List泛型的好处：</strong><br>　　通过允许指定泛型类或⽅法操作的特定类型，泛型功能将类型安全的任务从您转移给了编译器。不需要编写代码来检测数据类型是否正确，因为会在编译时强制使⽤正确的数据类型。减少了类型强制转换的需要和运⾏时错误的可能性。泛型提供了类型安全但没有增加多个实现的开销。</p>
-<p><font color = "red"><b>总结</b></font></p>
-<ol>
-<li><p>三者都⽤来处理⼀组数据，继承了IEnumerable接⼝，可⽤于for循环处理。都可以通过索引下标进⾏获取和设置元素。</p>
-</li>
-<li><p>Array在内存中是连续的，长度固定，⽆法删除和增加新的元素。⽽ArrayList或List的容量可根据需要⾃动插⼊和删除元素。</p>
-</li>
-<li><p>Array可以具有多个维度，⽽ ArrayList或 List&lt; T&gt; 始终只具有⼀个维度。但是，您可以轻松创建数组列表或列表的列表。</p>
-</li>
-<li><p>特定类型（Object 除外）的数组 的性能优于 ArrayList的性能。 这是因为 ArrayList的元素属于 Object 类型；所以在存储或检索值类型时通常发⽣装箱和拆箱操作。不过，在不需要重新分配时（即最初的容量⼗分接近列表的最⼤容量），List&lt; T&gt; 的性能与同类型的数组⼗分相近。</p>
-</li>
-<li><p>在决定使⽤ List 还是使⽤ArrayList 类（两者具有类似的功能）时，记住List 类在⼤多数情况下执⾏得更好并且是类型安全的。如果对<br>List&lt; T&gt; 类的类型T 使⽤引⽤类型，则两个类的⾏为是完全相同的。但是，如果对类型T使⽤值类型，则需要考虑实现和装箱问题。</p>
-</li>
-</ol>
+<h3 id="字符串三种为空的不同写法的区别"><a href="#字符串三种为空的不同写法的区别" class="headerlink" title="字符串三种为空的不同写法的区别"></a>字符串三种为空的不同写法的区别</h3><p><strong>请说明字符串中三者的区别</strong></p>
+<ul>
+<li>string str &#x3D; null</li>
+<li>string str &#x3D; “”</li>
+<li>string str &#x3D; string.Empty</li>
+</ul>
+<p><strong>str &#x3D; null</strong> 在堆中没有分配内存地址<br><strong>str &#x3D; “”</strong> 和 <strong>string.Empty</strong> 一样都是在堆内存中分配了空间，里面存储的是空字符串<br>而<strong>string.Empty</strong>是一个静态只读变量</p>
 <h3 id="string和stringbuilder和stringBuffer区别"><a href="#string和stringbuilder和stringBuffer区别" class="headerlink" title="string和stringbuilder和stringBuffer区别"></a>string和stringbuilder和stringBuffer区别</h3><ul>
 <li><p><strong>string</strong></p>
 <p>String不变性，字符序列不可变，对原管理中实例对象赋值，会重新开一个新的实例对象赋值，新开的实例对象会等待被GC。<br>string拼接要重新开辟空间，因为string原值不会改变，导致GC频繁，性能消耗大</p>
@@ -722,6 +689,7 @@
 <li>Equals 一般在子类中重写后用于比较两个对象中内容是否相同<br> &#x3D;&#x3D;在没有运算符重载的前提下时<br> 引用类型用于比较地址；值类型用于比较值是否相同</li>
 <li>运算效率不同，一般Equals没有&#x3D;&#x3D;效率高，因为一般Equals比较的内容比&#x3D;&#x3D;多</li>
 </ol>
+<h3 id="C-重载运算符，重载-x3D-x3D-和-x3D-以及Object基类中的虚方法-virtual-bool-Equals-Object-obj-对于我们的意义是什么？"><a href="#C-重载运算符，重载-x3D-x3D-和-x3D-以及Object基类中的虚方法-virtual-bool-Equals-Object-obj-对于我们的意义是什么？" class="headerlink" title="C#重载运算符，重载 &#x3D;&#x3D; 和 !&#x3D; 以及Object基类中的虚方法 virtual bool Equals(Object obj)对于我们的意义是什么？"></a>C#重载运算符，重载 &#x3D;&#x3D; 和 !&#x3D; 以及Object基类中的虚方法 virtual bool Equals(Object obj)对于我们的意义是什么？</h3><p>为了判断两个对象的非引用地址相等<br>我们可以选择 使用 重载运算符 &#x3D;&#x3D; 和 !&#x3D; 或者<br>重写Equals方法，来自定义判断两个对象是否相等<br>如果想保留原有的引用地址相等判断，那么一般我们选择重写Equals方法</p>
 <h3 id="浅拷贝和深拷贝的区别？可以举例说明"><a href="#浅拷贝和深拷贝的区别？可以举例说明" class="headerlink" title="浅拷贝和深拷贝的区别？可以举例说明"></a>浅拷贝和深拷贝的区别？可以举例说明</h3><p><strong>浅拷贝：</strong><br>只复制对象的引用地址<br>两个对象指向同一内存地址，修改其中一个另一个也会随之变化</p>
 <p><strong>深拷贝：</strong><br>将对象和值赋值过来，两个对象修改其中任意值都不会影响对方</p>
 <p>举例：<br>比如引用对象A和引用对象B<br>让A &#x3D; B，就是浅拷贝，此时A、B的引用地址相同，改A中内容，B也变</p>
@@ -756,18 +724,28 @@
 
 
 
-
-
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h3 id="C-容器类、各自特点、性能区别"><a href="#C-容器类、各自特点、性能区别" class="headerlink" title="C#容器类、各自特点、性能区别"></a>C#容器类、各自特点、性能区别</h3><h4 id="Stack栈"><a href="#Stack栈" class="headerlink" title="Stack栈"></a><strong>Stack栈</strong></h4><p><strong>先进后出</strong>，入栈和出栈，底层泛型数组实现，入栈动态扩容2倍</p>
+<h3 id="C-容器类、各自特点、性能区别"><a href="#C-容器类、各自特点、性能区别" class="headerlink" title="C#容器类、各自特点、性能区别"></a>C#容器类、各自特点、性能区别</h3><h4 id="Stack栈"><a href="#Stack栈" class="headerlink" title="Stack栈"></a><strong>Stack栈</strong></h4><p><strong>先进后出</strong>，入栈和出栈，底层泛型数组实现，入栈动态扩容2倍</p>
 <hr>
 <h4 id="Queue队列"><a href="#Queue队列" class="headerlink" title="Queue队列"></a><strong>Queue队列</strong></h4><p><strong>先进先出</strong>，入队和出队，底层泛型数组实现，表头表尾指针，判空还是满通过size比较</p>
 <p><strong>Queue和Stack主要是用来存储临时信息的</strong></p>
 <hr>
-<h4 id="Array数组"><a href="#Array数组" class="headerlink" title="Array数组"></a><strong>Array数组</strong></h4><p>需要声明长度，不安全</p>
+<h4 id="Array数组"><a href="#Array数组" class="headerlink" title="Array数组"></a><strong>Array数组</strong></h4><p><strong>Array</strong> 类是 C# 中所有数组的基类，它是在 System 命名空间中定义。Array 类提供了各种⽤于数组的属性和⽅法。且需要声明长度，不安全</p>
+<p>使⽤⽅法如下：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-built_in">int</span>[] nums = &#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span> &#125;;<br>Array.Sort(nums);<br></code></pre></td></tr></table></figure>
+
 <hr>
-<h4 id="ArrayList数组列表"><a href="#ArrayList数组列表" class="headerlink" title="ArrayList数组列表"></a><strong>ArrayList数组列表</strong></h4><p>动态增加数组，不安全，实现了IList接口（表示可按照索引进行访问的非泛型集合对象），Object数组实现</p>
+<h4 id="ArrayList数组列表"><a href="#ArrayList数组列表" class="headerlink" title="ArrayList数组列表"></a><strong>ArrayList数组列表</strong></h4><p><strong>ArrayList</strong>动态数组，是.Net Framework提供的⽤于数据存储和检索的专⽤类，它是命名空间System.Collections下的⼀部分。它的大小是按照其中存储的数据来动态扩充与收缩的。所以，我们在声明ArrayList对象时并不需要指定它的长度。ArrayList继承了IList接⼝，所以它可以很⽅便的进行数据的添加，插⼊和移除.</p>
+<p>比如：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs C#">ArrayList al = <span class="hljs-keyword">new</span> ArrayList();<br><span class="hljs-comment">//新增数据</span><br>al.Add(<span class="hljs-string">&quot;abc&quot;</span>); al.Add(<span class="hljs-number">123</span>);<br><span class="hljs-comment">//修改数据</span><br>al[<span class="hljs-number">2</span>] = <span class="hljs-number">345</span>;<br><span class="hljs-comment">//移除数据</span><br>al.RemoveAt(<span class="hljs-number">0</span>);<br><span class="hljs-comment">//插⼊数据</span><br>al.Insert(<span class="hljs-number">0</span>, <span class="hljs-string">&quot;hello world&quot;</span>);<br></code></pre></td></tr></table></figure>
+
 <hr>
-<h4 id="List列表"><a href="#List列表" class="headerlink" title="List列表"></a><strong>List列表</strong></h4><p>底层实现是泛型数组，特性，动态扩容，泛型安全<br>将泛型数据（对值类型来说就是数据本身，对引用类型来说就是引用）存储在一个泛型数组中，添加元素时若超过当前泛型数组容量，则以2倍扩容，进而实现List大小动态可变。（注：大小指容量，不是Count）</p>
+<h4 id="List列表"><a href="#List列表" class="headerlink" title="List列表"></a><strong>List列表</strong></h4><p><strong>List</strong>类是ArrayList类的泛型等效类。它的⼤部分⽤法都与ArrayList相似，因为List类也继承了IList接⼝。最关键的区别在于，在声明List集合时，我们同时需要为其声明List集合内数据的对象类型。</p>
+<p>底层实现是泛型数组，特性，动态扩容，泛型安全<br>将泛型数据（对值类型来说就是数据本身，对引用类型来说就是引用）存储在一个泛型数组中，添加元素时若超过当前泛型数组容量，则以2倍扩容，进而实现List大小动态可变。（注：大小指容量，不是Count）</p>
+<p>比如：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs C#">List&lt;<span class="hljs-built_in">int</span>&gt; list = <span class="hljs-keyword">new</span> List&lt;<span class="hljs-built_in">int</span>&gt;();<br><span class="hljs-comment">//新增数据</span><br> list.Add(<span class="hljs-number">123</span>);<br><span class="hljs-comment">//修改数据</span><br>list[<span class="hljs-number">0</span>] = <span class="hljs-number">345</span>;<br><span class="hljs-comment">//移除数据</span><br>list.RemoveAt(<span class="hljs-number">0</span>);<br></code></pre></td></tr></table></figure>
+
+<p> 上例中，如果我们往List泛型集合中插⼊string字符”hello world”，IDE就会报错，且不能通过编译。这样就避免了前⾯讲的类型安全问题与装箱拆箱的性能问题了。</p>
+<p><strong>List泛型的好处：</strong><br>　　通过允许指定泛型类或⽅法操作的特定类型，泛型功能将类型安全的任务从您转移给了编译器。不需要编写代码来检测数据类型是否正确，因为会在编译时强制使⽤正确的数据类型。减少了类型强制转换的需要和运⾏时错误的可能性。泛型提供了类型安全但没有增加多个实现的开销。</p>
 <blockquote>
 <p>请说明C#中的List是如何扩容的</p>
 </blockquote>
@@ -783,6 +761,16 @@
 <li><strong>效率的降低：</strong>从旧数组到新数组的搬家</li>
 <li><strong>垃圾的产生：</strong>每次扩容时，就数组就变成了垃圾</li>
 </ul>
+<blockquote>
+<p>C#Array、ArrayList和List的区别</p>
+</blockquote>
+<ol>
+<li>三者都⽤来处理⼀组数据，继承了IEnumerable接⼝，可⽤于for循环处理。<strong>都可以通过索引下标进⾏获取和设置元素</strong>。</li>
+<li>Array在内存中是连续的，长度固定，⽆法删除和增加新的元素。⽽ArrayList或List的容量可根据需要⾃动插⼊和删除元素。</li>
+<li>Array可以具有多个维度，⽽ ArrayList或 List&lt; T&gt; 始终只具有⼀个维度。但是，您可以轻松创建数组列表或列表的列表。</li>
+<li>特定类型（Object 除外）的数组 的性能优于 ArrayList的性能。 这是因为 ArrayList的元素属于 Object 类型；所以在存储或检索值类型时通常发⽣装箱和拆箱操作。不过，在不需要重新分配时（即最初的容量⼗分接近列表的最⼤容量），List&lt; T&gt; 的性能与同类型的数组⼗分相近。</li>
+<li>在决定使⽤ List 还是使⽤ArrayList 类（两者具有类似的功能）时，记住List 类在⼤多数情况下执⾏得更好并且是类型安全的。如果对<br>List&lt; T&gt; 类的类型T 使⽤引⽤类型，则两个类的⾏为是完全相同的。但是，如果对类型T使⽤值类型，则需要考虑实现和装箱问题。</li>
+</ol>
 <hr>
 <h4 id="LinkList链表"><a href="#LinkList链表" class="headerlink" title="LinkList链表"></a><strong>LinkList链表</strong></h4><ol>
 <li><p>数组和List、ArrayList集合都有一个重大的缺陷，就是从数组的中间位置删除或插入一个元素需要付出很大的代价，其原因是数组中处于被删除元素之后的所有元素都要向数组的前端移动。</p>
@@ -1012,13 +1000,6 @@
 </blockquote>
 <p>我们常见的序列化方式 <strong>xml、Json、2进制等</strong>。就是将内存中的数据按照我们自己定义的规则进行序列化，序列化之后就可以用于存储和传输，当读取和接受数据时，只需要按照对应规则进行反序列化便可得到原始数据</p>
 <p>所谓的存储读取和传输接受，其实一般指的就是<strong>数据持久化和网络通讯</strong><br>所以我们经常会在这两块知识点看到序列化反序列化这两个关键词</p>
-<h3 id="字符串三种为空的不同写法的区别"><a href="#字符串三种为空的不同写法的区别" class="headerlink" title="字符串三种为空的不同写法的区别"></a>字符串三种为空的不同写法的区别</h3><p><strong>请说明字符串中三者的区别</strong></p>
-<ul>
-<li>string str &#x3D; null</li>
-<li>string str &#x3D; “”</li>
-<li>string str &#x3D; string.Empty</li>
-</ul>
-<p><strong>str &#x3D; null</strong> 在堆中没有分配内存地址<br><strong>str &#x3D; “”</strong> 和 <strong>string.Empty</strong> 一样都是在堆内存中分配了空间，里面存储的是空字符串<br>而<strong>string.Empty</strong>是一个静态只读变量</p>
 <h3 id="反射的实现原理"><a href="#反射的实现原理" class="headerlink" title="反射的实现原理"></a>反射的实现原理</h3><p><strong>定义：</strong>运行时，动态获取类型信息,动态创建对象,动态访问成员的过程。<br><strong>另一种定义：</strong>审查元数据并收集元数据的信息。<br>元数据：编译后的最基本数据单元，就是一堆表，反射就是解析这些元数据。<br>反射是在运行期间获取到类、对象、方法、数据的一种手段<br>主要使用类库System.Reflection<br><strong>反射要点：</strong>如何获取类型，根据类型来动态创建对象，反射获取方法以及动态调用方法，动态创建委托</p>
 <h3 id="C-中try-catch-finally的执行顺序"><a href="#C-中try-catch-finally的执行顺序" class="headerlink" title="C#中try catch finally的执行顺序"></a>C#中try catch finally的执行顺序</h3><p>1.首先明确一点，就是不管怎样，finally一定会执行，即使程序有异常，并且在catch中thorw 了 ，finally还是会被执行。</p>
 <p>2.当try和catch中有return时，finally仍然执行。</p>
@@ -1032,7 +1013,6 @@
 
 <p>此时返回的值是：{ “one”, “three” };</p>
 <p>4.finally中不能有return语句，编译都无法通过，提示：控制不能离开finally子句主体</p>
-<h3 id="C-重载运算符，重载-x3D-x3D-和-x3D-以及Object基类中的虚方法-virtual-bool-Equals-Object-obj-对于我们的意义是什么？"><a href="#C-重载运算符，重载-x3D-x3D-和-x3D-以及Object基类中的虚方法-virtual-bool-Equals-Object-obj-对于我们的意义是什么？" class="headerlink" title="C#重载运算符，重载 &#x3D;&#x3D; 和 !&#x3D; 以及Object基类中的虚方法 virtual bool Equals(Object obj)对于我们的意义是什么？"></a>C#重载运算符，重载 &#x3D;&#x3D; 和 !&#x3D; 以及Object基类中的虚方法 virtual bool Equals(Object obj)对于我们的意义是什么？</h3><p>为了判断两个对象的非引用地址相等<br>我们可以选择 使用 重载运算符 &#x3D;&#x3D; 和 !&#x3D; 或者<br>重写Equals方法，来自定义判断两个对象是否相等<br>如果想保留原有的引用地址相等判断，那么一般我们选择重写Equals方法</p>
 <h3 id="请简要说明-Net跨语言原理"><a href="#请简要说明-Net跨语言原理" class="headerlink" title="请简要说明.Net跨语言原理"></a>请简要说明.Net跨语言原理</h3><p><strong>.Net制定了了CLI（公共语言架构）的规则</strong><br>只要是按照该规则设计的语言在进行.Net相关开发时<br><strong>编译器会将源代码（C#、VB等等）编译为CIL（公共中间语言）通用中间代码</strong>。<br>也就是说不管什么语言进行开发，最终都会统一规范变为中间代码<br>最终通过<strong>CLR（公共语言运行时或者称为.Net虚拟）将中间代码翻译为对应操作系统的原生代码（机器码）</strong>在操作系统（Windows）上运行</p>
 <p><img src="https://img-blog.csdn.net/20160528132344296" srcset="/img/loading.gif" lazyload alt="img"></p>
 <h3 id="网络游戏开发中，网络传输数据的基本流程是什么？"><a href="#网络游戏开发中，网络传输数据的基本流程是什么？" class="headerlink" title="网络游戏开发中，网络传输数据的基本流程是什么？"></a>网络游戏开发中，网络传输数据的基本流程是什么？</h3><p>客户端将自定义类对象数据序列化为2进制数据发送给服务端</p>

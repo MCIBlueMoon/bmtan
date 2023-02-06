@@ -16,19 +16,20 @@
   <meta name="author" content="Bmtan">
   <meta name="keywords" content="">
   
-    <meta name="description" content="面试🌙UnityDrawCall问题 什么是DrawCall?   DrawCall 是 Cpu准备好渲染的数据后告知GPU渲染的命令   DrawCall过高影响什么性能？   会造成很多额外的性能开销，且CPU会把大量时间花费再Draw Call 上，造成CPU过载。   如何降低DrawCall   小图合成大图，即多个小DrawCall变一次大DrawCall  拼面板时严格控制不同图集">
+    <meta name="description" content="面试🌙Unity生命周期问题 Awake 当一个脚本实例被载入时Awake被调用。我们大多在这个类中完成成员变量的初始化  OnEnable 当对象变为可用或激活状态时此函数被调用。  Start 仅在Update函数第一次被调用前调用。因为它是在Awake之后被调用的，我们可以把一些需要依赖Awake的变量放在Start里面初始化。 同时我们还大多在这个类中执行StartCoroutine进行">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Unity 客户端面试">
 <meta property="og:url" content="http://bmtan.cc/2023/02/01/Unity%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%9D%A2%E8%AF%95/index.html">
 <meta property="og:site_name" content="Bmtan">
-<meta property="og:description" content="面试🌙UnityDrawCall问题 什么是DrawCall?   DrawCall 是 Cpu准备好渲染的数据后告知GPU渲染的命令   DrawCall过高影响什么性能？   会造成很多额外的性能开销，且CPU会把大量时间花费再Draw Call 上，造成CPU过载。   如何降低DrawCall   小图合成大图，即多个小DrawCall变一次大DrawCall  拼面板时严格控制不同图集">
+<meta property="og:description" content="面试🌙Unity生命周期问题 Awake 当一个脚本实例被载入时Awake被调用。我们大多在这个类中完成成员变量的初始化  OnEnable 当对象变为可用或激活状态时此函数被调用。  Start 仅在Update函数第一次被调用前调用。因为它是在Awake之后被调用的，我们可以把一些需要依赖Awake的变量放在Start里面初始化。 同时我们还大多在这个类中执行StartCoroutine进行">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/06-05/Unity%E8%84%9A%E6%9C%AC%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20201202110747790.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xMTExMX18=,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20201201161048150.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xMTExMX18=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/image-20230201222507758.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/image-20230201222538994.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/DrawCallProblem1.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/DrawCallProblem2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/image-20230201222507758.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/image-20230201222538994.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/AwakeOrder.png">
 <meta property="og:image" content="https://pic2.zhimg.com/v2-35da80e428ca5750491ffd2770e187e1_b.webp">
 <meta property="og:image" content="https://pic1.zhimg.com/80/v2-6a4e77fe8ead57f7384a1491d1c73ab0_720w.webp">
@@ -63,14 +64,14 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/49a4114d2323450792d15706511acdf4.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/842750f7516f4a62aa62e32a07190c1d.png">
 <meta property="article:published_time" content="2023-02-01T14:44:00.000Z">
-<meta property="article:modified_time" content="2023-02-06T09:09:29.631Z">
+<meta property="article:modified_time" content="2023-02-06T10:44:12.885Z">
 <meta property="article:author" content="Bmtan">
 <meta property="article:tag" content="Unity">
 <meta property="article:tag" content="C#">
 <meta property="article:tag" content="计算机网络">
 <meta property="article:tag" content="Lua">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20201202110747790.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xMTExMX18=,size_16,color_FFFFFF,t_70">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/06-05/Unity%E8%84%9A%E6%9C%AC%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png">
   
   
   
@@ -263,7 +264,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          34k 字
+          40k 字
         
       </span>
     
@@ -274,7 +275,7 @@
         
         
         
-          286 分钟
+          337 分钟
         
       </span>
     
@@ -317,7 +318,57 @@
             
               <div class="markdown-body">
                 
-                <h1 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h1><h2 id="🌙Unity"><a href="#🌙Unity" class="headerlink" title="🌙Unity"></a>🌙Unity</h2><h3 id="DrawCall问题"><a href="#DrawCall问题" class="headerlink" title="DrawCall问题"></a>DrawCall问题</h3><blockquote>
+                <h1 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h1><h2 id="🌙Unity"><a href="#🌙Unity" class="headerlink" title="🌙Unity"></a>🌙Unity</h2><h3 id="生命周期问题"><a href="#生命周期问题" class="headerlink" title="生命周期问题"></a>生命周期问题</h3><ul>
+<li><p><strong>Awake</strong></p>
+<p>当一个脚本实例被载入时Awake被调用。我们大多在这个类中完成成员变量的初始化</p>
+</li>
+<li><p><strong>OnEnable</strong></p>
+<p>当对象变为可用或激活状态时此函数被调用。</p>
+</li>
+<li><p><strong>Start</strong></p>
+<p>仅在Update函数第一次被调用前调用。因为它是在Awake之后被调用的，我们可以把一些需要依赖Awake的变量放在Start里面初始化。 同时我们还大多在这个类中执行StartCoroutine进行一些协程的触发。要注意在用C#写脚本时，必须使用StartCoroutine开始一个协程，但是如果使用的是JavaScript，则不需要这么做。</p>
+</li>
+<li><p><strong>Update</strong></p>
+<p>当MonoBehaviour启用时，其Update在每一帧被调用。</p>
+</li>
+<li><p><strong>FixedUpdate</strong></p>
+<p>当MonoBehaviour启用时，其 FixedUpdate 在每一固定帧被调用。</p>
+</li>
+<li><p><strong>LateUpdate</strong> </p>
+<p>是在所有Update函数调用后被调用。这可用于调整脚本执行顺序。例如:当物体在Update里移动时，跟随物体的相机可以在LateUpdate里实现</p>
+</li>
+<li><p><strong>OnGUI</strong> </p>
+<p>渲染和处理GUI事件时调用 这里不是 没帧都调用哦</p>
+</li>
+<li><p><strong>OnDisable</strong></p>
+<p>当对象变为不可用或非激活状态时此函数被调用。</p>
+</li>
+<li><p><strong>OnDestroy</strong></p>
+<p>当MonoBehaviour将被销毁时，这个函数被调用。</p>
+</li>
+</ul>
+<blockquote>
+<p>物理更新一般放在哪个系统函数里？</p>
+</blockquote>
+<p><strong>FixedUpdate</strong>，每固定帧绘制时执行一次，和Update不同的是FixedUpdate是渲染帧执行，如果你的渲染效率低下的时候FixedUpdate调用次数就会跟着下降。<strong>FixedUpdate比较适用于物理引擎的计算，因为是跟每帧渲染有关。Update就比较适合做控制。</strong></p>
+<blockquote>
+<p>Unity中Awake和Start两个生命周期函数，分别在什么时候被调用？</p>
+</blockquote>
+<ul>
+<li><strong>Awake：</strong>运行时<ol>
+<li>当脚本被动态添加到对象上时立即被调用。</li>
+<li>当对象被实例化时，依附它的脚本会立即调用Awake</li>
+<li>它类似构造函数</li>
+</ol>
+</li>
+<li><strong>Start：</strong>第一次Update之前被调用</li>
+</ul>
+<blockquote>
+<p>Unity3d脚本从唤醒到销毁有着一套比较完整的生命周期，请列出系统自带的几个重要的方法。</p>
+</blockquote>
+<p>Awake——&gt;OnEnable–&gt;Start——&gt;Update——&gt;FixedUpdate——&gt;LateUpdate——&gt;OnGUI——&gt;OnDisable——&gt;OnDestroy</p>
+<p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/06-05/Unity%E8%84%9A%E6%9C%AC%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h3 id="DrawCall问题"><a href="#DrawCall问题" class="headerlink" title="DrawCall问题"></a>DrawCall问题</h3><blockquote>
 <p>什么是DrawCall?</p>
 </blockquote>
 <ul>
@@ -345,52 +396,135 @@
 <blockquote>
 <p>静态批处理</p>
 </blockquote>
-<ul>
-<li><p><img src="https://img-blog.csdnimg.cn/20201202110747790.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xMTExMX18=,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="img"></p>
-<p> 只要勾选上Static并拥有相同材质的物体即可在运行时进行静态批处理<br> <strong>但是静态批处理会为每一个物体创建一个合并后的Combined Mesh，需要额外的内存空间来存储合并后的Combined Mesh，所以使用时要慎用(例如一片浓密的草地，如果使用静态批处理则会造成严重的内存开销)</strong></p>
-</li>
-</ul>
+<p><img src="https://img-blog.csdnimg.cn/20201202110747790.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xMTExMX18=,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><strong>静态批处理自由度很高，限制很少，缺点可能会占用更多的内存，而且经过静态批处理后的所有物体都不可以再移动了</strong></p>
+<p>只要勾选上Static并拥有相同材质的物体即可在运行时进行静态批处理<br><strong>但是静态批处理会为每一个物体创建一个合并后的Combined Mesh，需要额外的内存空间来存储合并后的Combined Mesh，所以使用时要慎用(例如一片浓密的草地，如果使用静态批处理则会造成严重的内存开销)</strong></p>
 <blockquote>
 <p>动态批处理 </p>
 </blockquote>
-<ul>
-<li><p><img src="https://img-blog.csdnimg.cn/20201201161048150.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xMTExMX18=,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="img"></p>
-<p> 动态批处理默认是关闭的，需要手动开启：Project Setting—Player—勾上Dynamic Batching（动态批处理）</p>
-</li>
-</ul>
+<p><img src="https://img-blog.csdnimg.cn/20201201161048150.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0xMTExMX18=,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><strong>动态批处理一切都是自动的，不需要做任何操作，而且物体是可以移动的，但是限制很多。</strong></p>
+<p>动态批处理默认是关闭的，需要手动开启：Project Setting—Player—勾上Dynamic Batching（动态批处理）</p>
 <p><font color = "red"><b>总结</b></font></p>
 <p><font color = "red"><b>——静态批处理和动态批处理都能降低DrawCall，最主要的前提是物体使用同一个材质</b></font><br><font color = "red"><b>——静态批处理适用于场景中位置不会改变并且单对象不能太多的物体，像树林，草地这种用动态批处理更适合</b></font><br><font color = "red"><b>——动态批处理限制较多，顶点数要求，材质要求等等。静态批处理限制较少，是用内存换性能的方法，具体情况具体分析</b></font></p>
-<h3 id="请简述一下Prefab（预制体）的本质是什么？"><a href="#请简述一下Prefab（预制体）的本质是什么？" class="headerlink" title="请简述一下Prefab（预制体）的本质是什么？"></a>请简述一下Prefab（预制体）的本质是什么？</h3><p>Prefab的本质就是一个配置文件<br>其中记录了一个GameObject对象上挂载的脚本信息<br>并且记录了脚本信息中的可配置的属性信息</p>
-<h3 id="Unity是否支持写成多线程程序？如果支持的话需要注意什么？"><a href="#Unity是否支持写成多线程程序？如果支持的话需要注意什么？" class="headerlink" title="Unity是否支持写成多线程程序？如果支持的话需要注意什么？"></a>Unity是否支持写成多线程程序？如果支持的话需要注意什么？</h3><p>1.只能从主线程访问Unity相关组件、对象以及<br>UnityEngine命名空间中的绝大部分内容<br>2.如果多线程中要和Unity主线程同时修改一些数据<br>可以通过lock关键词加锁</p>
-<h3 id="请简述一下对象池，在游戏开发中我们什么时候会用到它？"><a href="#请简述一下对象池，在游戏开发中我们什么时候会用到它？" class="headerlink" title="请简述一下对象池，在游戏开发中我们什么时候会用到它？"></a>请简述一下对象池，在游戏开发中我们什么时候会用到它？</h3><ol>
-<li><p>对象池的主要作用是 <strong>避免大量创建对象再释放对象时造成的内存消耗，可以有效降低GC发生的频率</strong>。我们把不用的对象放入对象池中而不是让它直接变为垃圾，下次需要用到对象时再从对象池中获取，我们通过占用内存来避免更多的内存消耗和GC的发生</p>
+<h4 id="DrawCall渲染问题"><a href="#DrawCall渲染问题" class="headerlink" title="DrawCall渲染问题"></a><strong>DrawCall渲染问题</strong></h4><blockquote>
+<p>图中的小球是否被渲染了？是否会产生DrawCall？</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/DrawCallProblem1.png" srcset="/img/loading.gif" lazyload></p>
+<p>不会被渲染，不会产生DrawCall</p>
+<p>Unity本身有摄像机视锥体剔除，也就是不会显示完全位于视锥体之外的游戏对象<br>那么小球就不会进行渲染，也不会提交数据给GPU，也就不会产生DrawCall</p>
+<blockquote>
+<p>在没有使用遮挡剔除的情况下，图中A和B都是默认标准材质，图中的小球最终是否会被渲染，是否会产生DrawCall</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/DrawCallProblem2.png" srcset="/img/loading.gif" lazyload></p>
+<p>最终不会被渲染，标准材质存在深度测试，小球在立方体后方，不会通过深度测试，所以不会被渲染</p>
+<p>会产生DrawCall，既然都深度测试了，那么肯定是存在DrawCall的<br>深度测试发生在片元着色器处理之后，GPU会对每个片元执行深度测试来决定遮挡关系，决定是否被渲染</p>
+<h3 id="Prebab-预设体问题"><a href="#Prebab-预设体问题" class="headerlink" title="Prebab 预设体问题"></a>Prebab 预设体问题</h3><blockquote>
+<p>简述prefab的用处</p>
+</blockquote>
+<p>在游戏运行时实例化，prefab相当于一个模板，对你已经有的素材、脚本、参数做一个默认的配置，以便于以后的修改，同时prefab打包的内容简化了导出的操作，便于团队的交流。</p>
+<blockquote>
+<p> 请简述一下Prefab（预制体）的本质是什么？</p>
+</blockquote>
+<p>Prefab的本质就是一个配置文件<br>其中记录了一个GameObject对象上挂载的脚本信息<br>并且记录了脚本信息中的可配置的属性信息</p>
+<h3 id="Unity-协同程序和线程-进程问题"><a href="#Unity-协同程序和线程-进程问题" class="headerlink" title="Unity 协同程序和线程,进程问题"></a>Unity 协同程序和线程,进程问题</h3><blockquote>
+<p>Unity 协程和线程,进程的区别</p>
+</blockquote>
+<ul>
+<li><p><strong>进程</strong>是Windows系统中的一个基本概念，他包含着运行一个程序所需要的基本资源。<strong>一个正在运行的应用程序在操作系统中被视为一个进程，进程可以包括一个或多个线程。</strong>　　　</p>
 </li>
-<li><p>在游戏中频繁创建对象、实例化对象的地方，都可以用到对象池。<br>比如前端开发中，游戏中的子弹、伤害字体、特效等等<br>比如后端开发中线程池等等</p>
-</li>
-</ol>
-<h3 id="Unity中点乘和叉乘对于我们来说的作用是什么？"><a href="#Unity中点乘和叉乘对于我们来说的作用是什么？" class="headerlink" title="Unity中点乘和叉乘对于我们来说的作用是什么？"></a>Unity中点乘和叉乘对于我们来说的作用是什么？</h3><p><strong>点乘作用</strong></p>
+<li><p><strong>协程</strong>。</p>
+<p><strong>一般应用一个应用程序只使用线程这一“资源”</strong>。</p>
+<p>Unity只使用了一个线程，<strong>协程是一种”伪线程</strong>“。 </p>
 <ol>
-<li><p>判断对象的方位</p>
-</li>
-<li><p>计算两向量之间的夹角</p>
-</li>
+<li>协同程序（coroutine）,即协作式程序，一系列互相依赖的协程间依次使用CPU，每次只有一个协程工作，而其他协成处于休眠状态。协程实际上是在一个线程中，只不过每个协程对CPU进行分时，协程可以访问和使用unity的所有方法和component。　　　　</li>
+<li>同一时间只能执行某个协程，协程适合对某个任务进行分时处理。</li>
+<li>控制代码在特定的时间执行。　　　　</li>
+<li><strong>协程不是线程，也不是异步执行，跟Update一样，在主线程中执行</strong>。不用考虑同步和锁的问题。　　　　</li>
+<li>协程是一个分部组件，遇到条件（yield return）会挂起,直到条件满足才会被唤起执行后面的语句。</li>
 </ol>
-<p><strong>叉乘作用</strong></p>
-<ol>
-<li><p>获取一个平面的法向量</p>
 </li>
-<li><p>得到两向量之间的左右位置关系</p>
-</li>
-</ol>
-<h3 id="Application-streamingAssetsPath-和-Application-persistentDataPath两个路径有何区别？对于我们的意义是什么？"><a href="#Application-streamingAssetsPath-和-Application-persistentDataPath两个路径有何区别？对于我们的意义是什么？" class="headerlink" title="Application.streamingAssetsPath 和 Application.persistentDataPath两个路径有何区别？对于我们的意义是什么？"></a>Application.streamingAssetsPath 和 Application.persistentDataPath两个路径有何区别？对于我们的意义是什么？</h3><p>Application.streamingAssetsPath   只读<br>Application.persistentDataPath      可读可写</p>
-<p>Application.streamingAssetsPath   适合放置一些默认2进制配置文件<br>Application.persistentDataPath      用于处理数据持久化，或作为热更新下载内容的存放目录，因为它可读可写</p>
-<h3 id="请简述Unity中协程的原理"><a href="#请简述Unity中协程的原理" class="headerlink" title="请简述Unity中协程的原理"></a>请简述Unity中协程的原理</h3><p>Unity中的协同程序分为<strong>两部分</strong></p>
+</ul>
+<blockquote>
+<p>什么是协同程序？</p>
+</blockquote>
+<p>在主线程运行的同时开启另一段逻辑处理，来协助当前程序的执行，协程很像多线程，但是不是多线程，Unity的协程实在每帧结束之后去检测yield的条件是否满足。</p>
+<blockquote>
+<p>请简述Unity中协程的原理</p>
+</blockquote>
+<p>Unity中的协同程序分为<strong>两部分</strong></p>
 <ol>
 <li>协程函数本体（<strong>迭代器函数</strong>）</li>
 <li>协程调度器（<strong>协程管理器</strong>）</li>
 </ol>
 <p>协程利用迭代器函数的分步执行的特点<br>加上<br>协程调度器对迭代器函数们进行统一管理<br>根据迭代器函数的返回值来决定下一次执行函数逻辑的时间点<br>从而实现逻辑分时分步执行的目的</p>
-<h3 id="Unity中当一个细小高速物体撞击另一个较大物体时会出现什么情况？如何避免？"><a href="#Unity中当一个细小高速物体撞击另一个较大物体时会出现什么情况？如何避免？" class="headerlink" title="Unity中当一个细小高速物体撞击另一个较大物体时会出现什么情况？如何避免？"></a>Unity中当一个细小高速物体撞击另一个较大物体时会出现什么情况？如何避免？</h3><ol>
+<blockquote>
+<p>Unity中的协同程序中yield return不同的内容，代表的含义不同</p>
+<p>请说明下面这些yield return的含义</p>
+</blockquote>
+<ol>
+<li>yield return 数字;</li>
+<li>yield return null;</li>
+<li>yield return new WaitForSeconds(数字);</li>
+<li>yield return new WaitForFixedUpdate();</li>
+<li>yield return new WaitForEndOfFrame();</li>
+<li>yield break;</li>
+</ol>
+<p><strong>答案：</strong></p>
+<ol>
+<li>yield return 数字; 下一帧执行</li>
+<li>yield return null;  下一帧执行</li>
+<li>yield return new WaitForSeconds(数字); 等待指定秒后执行</li>
+<li>yield return new WaitForFixedUpdate(); 等待下一个固定物理帧更新时执行</li>
+<li>yield return new WaitForEndOfFrame(); 等待摄像机和GUI渲染完成后执行</li>
+<li>yield break; 跳出协程</li>
+</ol>
+<blockquote>
+<p> 使用Unity协同程序进行异步加载时，底层是否会使用多线程？</p>
+</blockquote>
+<p>可能会<br>协同程序的原理是分时分步完成指定逻辑<br>在其中的某一步骤中，是可以使用多线程来完成某些加载操作的，多线程加载完成后，再进入协同程序的下一步继续执行</p>
+<blockquote>
+<p>Unity是否支持写成多线程程序？如果支持的话需要注意什么？</p>
+</blockquote>
+<p>1.只能从主线程访问Unity相关组件、对象以及<br>UnityEngine命名空间中的绝大部分内容<br>2.如果多线程中要和Unity主线程同时修改一些数据<br>可以通过lock关键词加锁</p>
+<h3 id="Unity坐标系问题"><a href="#Unity坐标系问题" class="headerlink" title="Unity坐标系问题"></a>Unity坐标系问题</h3><blockquote>
+<p>本地坐标系 世界坐标系</p>
+</blockquote>
+<ul>
+<li><strong>世界坐标系</strong>：世界坐标是指物体在场景中的坐标，当某个物体没有父物体时，它的position即为世界坐标的position，rotation同理；本地坐标是物体相对于它的父物体的坐标而言，这个相对坐标是以父物体本身为坐标轴进行计算的，与世界坐标没有必然联系。而对于没有父物体的物体，可以认为不存在本地坐标这种说法。</li>
+<li><strong>本地坐标系</strong>：当某个物体有父物体时，它的inspector栏transform中的position实际是localposition，即本地坐标。</li>
+<li><strong>使用TransformPoint方法将本地坐标系转为世界坐标系</strong></li>
+</ul>
+<blockquote>
+<p>transform.forward和Vector3.forword的区别</p>
+</blockquote>
+<p>Vector3.forword始终时(0,0,1)<br>可以认为是世界坐标系的Z轴朝向</p>
+<p>transform.forword是当前物体的局部坐标系的Z轴在世界坐标系下的朝向<br>可以认为是物体自己的Z轴朝向</p>
+<h3 id="Unity碰撞器问题"><a href="#Unity碰撞器问题" class="headerlink" title="Unity碰撞器问题"></a>Unity碰撞器问题</h3><blockquote>
+<p>Unity3d中的碰撞器和触发器的区别？</p>
+</blockquote>
+<p><strong>碰撞器</strong>是<em>触发器的载体</em>，而<strong>触发器</strong>只是<em>碰撞器身上的一个属性</em>。</p>
+<p>当<strong>Is Trigger&#x3D;false</strong>时，碰撞器根据物理引擎引发碰撞，产生碰撞的效果，可以调用OnCollisionEnter&#x2F;Stay&#x2F;Exit函数；</p>
+<p>当<strong>Is Trigger&#x3D;true</strong>时，碰撞器被物理引擎所忽略，没有碰撞效果，可以调用OnTriggerEnter&#x2F;Stay&#x2F;Exit函数。</p>
+<p>如果既要检测到物体的接触又不想让碰撞检测影响物体移动或要检测一个物件是否经过空间中的某个区域这时就可以用到触发器</p>
+<blockquote>
+<p>物体发生碰撞的必要条件</p>
+</blockquote>
+<p><strong>两个物体都必须带有碰撞器</strong>（Collider），<strong>其中一个物体还必须带有Rigidbody刚体</strong>，而且必须是运动的物体带有Rigidbody脚本才能检测到碰撞。</p>
+<blockquote>
+<p>在物体发生碰撞的整个过程中，有几个阶段，分别列出对应的函数</p>
+</blockquote>
+<p><strong>三个阶段:</strong></p>
+<ol>
+<li>OnCollisionEnter </li>
+<li>OnCollisionStay </li>
+<li>OnCollisionExit</li>
+</ol>
+<blockquote>
+<p>Unity中当一个细小高速物体撞击另一个较大物体时会出现什么情况？如何避免？</p>
+</blockquote>
+<p><strong>穿透</strong></p>
+<ol>
 <li>我们可以尽量用射线检测来替代细小物体的物理系统碰撞<br>因为传统的FPS游戏都是通过射线检测加模拟计算来判断伤害的</li>
 <li>修改Rigidbody刚体中的<strong>Interpolate（插值）</strong>和<strong>CollisionDetection（碰撞检测）</strong>两个参数，来提高碰撞检测的准确性</li>
 </ol>
@@ -434,6 +568,246 @@
 <td>对刚体和碰撞体使用推测性连续碰撞检测。这也是可以设置运动物体的唯一 CCD 模式。该方法通常比基于扫掠的连续碰撞检测的成本更低。</td>
 </tr>
 </tbody></table>
+<h3 id="Unity-Camera问题"><a href="#Unity-Camera问题" class="headerlink" title="Unity Camera问题"></a>Unity Camera问题</h3><blockquote>
+<p>在场景中放置多个Camera并同时处于活动状态会发生什么？</p>
+</blockquote>
+<p>游戏界面可以看到很多摄像机的混合。</p>
+<blockquote>
+<p>Unity中，照相机的Clipping Planes(剪裁屏幕)的作用是什么？调整Near、Fare两个值时，应该注意什么？</p>
+</blockquote>
+<p>剪裁平面 。从相机到开始渲染和停止渲染之间的距离。</p>
+<blockquote>
+<p>移动相机动作在哪个函数里，为什么在这个函数里？</p>
+</blockquote>
+<p>LateUpdate，是在所有的update结束后才调用，比较适合用于命令脚本的执行。官网上例子是摄像机的跟随，都是所有的update操作完才进行摄像机的跟进，不然就有可能出现摄像机已经推进了，但是视角里还未有角色的空帧出现。</p>
+<blockquote>
+<p>将Camera组件的ClearFlags选项选成Depth only是什么意思？有何用处？</p>
+</blockquote>
+<p>如果把摄像机的ClearFlags勾选为Deapth Only,那么摄像机就会只渲染看得见的对象，把背景会完全透明，这种情况一般用在两个摄像机以上的场景中</p>
+<h3 id="Unity-动画问题"><a href="#Unity-动画问题" class="headerlink" title="Unity 动画问题"></a>Unity 动画问题</h3><blockquote>
+<p>请描述游戏动画有哪几种，以及其原理？</p>
+</blockquote>
+<p>主要有关节动画、骨骼动画、单一网格模型动画(关键帧动画)。</p>
+<ul>
+<li><p><strong>关节动画</strong></p>
+<p>把角色分成若干独立部分，一个部分对应一个网格模型，部分的动画连接成一个整体的动画，角色比较灵活，Quake2中使用这种动画；</p>
+</li>
+<li><p><strong>骨骼动画</strong></p>
+<p>广泛应用的动画方式，集成了以上两个方式的优点，骨骼按角色特点组成一定的层次结构，有关节相连，可做相对运动，皮肤作为单一网格蒙在骨骼之外，决定角色的外观；</p>
+</li>
+<li><p><strong>单一网格模型动画</strong></p>
+<p>由一个完整的网格模型构成，在动画序列的关键帧里记录各个顶点的原位置及其改变量，然后插值运算实现动画效果，角色动画较真实。</p>
+</li>
+</ul>
+<h3 id="Unity-光源问题"><a href="#Unity-光源问题" class="headerlink" title="Unity 光源问题"></a>Unity 光源问题</h3><blockquote>
+<p>Unity提供了几种光源，分别是什么</p>
+</blockquote>
+<p>四种</p>
+<ol>
+<li><strong>平行光</strong>：Directional Light</li>
+<li><strong>点光源</strong>：Point Light</li>
+<li><strong>聚光灯</strong>：Spot Light</li>
+<li><strong>区域光源</strong>：Area Light</li>
+</ol>
+<blockquote>
+<p>实时点光源的优缺点是什么？</p>
+</blockquote>
+<p>可以有cookies – 带有 alpha通道的立方图(Cubemap )纹理。点光源是最耗费资源的.</p>
+<blockquote>
+<p>两种阴影判断的方法、工作原理</p>
+</blockquote>
+<p><strong>本影和半影</strong></p>
+<ul>
+<li><p><strong>本影：</strong></p>
+<p>景物表面上那些没有被光源直接照射的区域（全黑的轮廓分明的区域）。</p>
+</li>
+<li><p><strong>半影：</strong></p>
+<p>景物表面上那些被某些特定光源直接照射但并非被所有特定光源直接照射的区域（半明半暗区域）</p>
+</li>
+</ul>
+<h3 id="Unity-UI问题"><a href="#Unity-UI问题" class="headerlink" title="Unity UI问题"></a>Unity UI问题</h3><blockquote>
+<p>UGUI中的Canvas以及三种画布渲染模式</p>
+</blockquote>
+<p>1.<strong>Screen Space-Overlay</strong>模式</p>
+<p><strong>Screen Space-Overlay（屏幕控件-覆盖模式）的画布会填满整个屏幕空间，并将画布下面的所有的UI元素置于屏幕的最上层，</strong>或者说画布的画面永远“覆盖”其他普通的3D画面，如果屏幕尺寸被改变，画布将自动改变尺寸来匹配屏幕　　　　　　　　　　　　　　　　　　　　　　　　　　　　　</p>
+<p>Screen Space-Overlay模式的画布有<strong>Pixel Perfect</strong>和<strong>Sort Layer</strong>两个参数：</p>
+<ol>
+<li><p><strong>Pixel Perfect</strong>：只有RenderMode为Screen类型时才有的选项。使UI元素像素对应，效果就是边缘清晰不模糊。</p>
+</li>
+<li><p><strong>Sort Layer</strong>: Sort Layer是UGUI专用的设置，用来指示画布的深度。</p>
+</li>
+</ol>
+<hr>
+<ol start="2">
+<li><strong>Screen Space-Camera模式</strong></li>
+</ol>
+<p><strong>Screen Space-Camera（屏幕空间-摄影机模式）和Screen Space-Overlay模式类似，画布也是填满整个屏幕空间，如果屏幕尺寸改变，画布也会自动改变尺寸来匹配屏幕</strong>。所不同的是，在该模式下，画布会被放置到摄影机前方。在这种渲染模式下，画布看起来 绘制在一个与摄影机固定距离的平面上。所有的UI元素都由该摄影机渲染，因此摄影机的设置会影响到UI画面。在此模式下，UI元素是由perspective也就是视角设定的，视角广度由Filed of View设置。</p>
+<p>　　<strong>这种模式可以用来实现在UI上显示3D模型的需求</strong>，比如很多MMO游戏中的查看人物装备的界面，可能屏幕的左侧有一个运动的3D人物，左侧是一些UI元素。通过设置Screen Space-Camera模式就可以实现上述的需求.</p>
+<p>　　它比Screen Space-Overlay模式的画布多了下面几个参数：</p>
+<ol>
+<li><p><strong>Render Camera</strong>:渲染摄像机</p>
+</li>
+<li><p><strong>Plane Distance</strong>:画布距离摄像机的距离</p>
+</li>
+<li><p><strong>Sorting Layer</strong>: Sorting Layer是UGUI专用的设置，用来指示画布的深度。</p>
+<p>可以通过点击该栏的选项，在下拉菜单中点击“Add Sorting Layer”按钮进入标签和层的设置界面，或者点击导航菜单-&gt;edit-&gt;Project Settings-&gt;Tags and Layers进入该页面。可以点击“+”添加Layer，或者点击“-”删除Layer。画布所使用的Sorting Layer越排在下面，显示的优先级也就越高。</p>
+</li>
+<li><p><strong>Order in Layer</strong>:在相同的Sort Layer下的画布显示先后顺序。数字越高，显示的优先级也就越高。</p>
+</li>
+</ol>
+<hr>
+<ol start="3">
+<li><strong>World Space</strong></li>
+</ol>
+<p>　　<strong>World Space即世界控件模式</strong>。在此模式下，画布被视为与场景中其他普通游戏对象性质相同的类似于一张面片（Plane）的游戏物体。画布的尺寸可以通过RectTransform设置，所有的UI元素可能位于普通3D物体的前面或者后面显示。当UI为场景的一部分时，可以使用这个模式。</p>
+<p>　　它有一个单独的参数Event Camera，用来指定接受事件的摄像机，可以通过画布上的GraphicRaycaster组件发射射线产生事件。</p>
+<p>　　这种模式可以用来实现跟随人物移动的血条或者名称</p>
+<hr>
+<p><strong>区别：</strong></p>
+<table>
+<thead>
+<tr>
+<th>渲染模式</th>
+<th>画布对应屏幕</th>
+<th>摄像机</th>
+<th>像素对应</th>
+<th>适合类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Screen Space-Overlay</td>
+<td>是</td>
+<td>不需要</td>
+<td>可选</td>
+<td>2D UI</td>
+</tr>
+<tr>
+<td>Screen Space-Camera</td>
+<td>是</td>
+<td>需要</td>
+<td>可选</td>
+<td>2D UI</td>
+</tr>
+<tr>
+<td>World Space</td>
+<td>否</td>
+<td>需要</td>
+<td>不可选</td>
+<td>3D UI</td>
+</tr>
+</tbody></table>
+<h3 id="Unity中点乘和叉乘对于我们来说的作用是什么？"><a href="#Unity中点乘和叉乘对于我们来说的作用是什么？" class="headerlink" title="Unity中点乘和叉乘对于我们来说的作用是什么？"></a>Unity中点乘和叉乘对于我们来说的作用是什么？</h3><p><strong>点乘作用</strong></p>
+<ol>
+<li><p>判断对象的方位</p>
+</li>
+<li><p>计算两向量之间的夹角</p>
+</li>
+</ol>
+<p><strong>叉乘作用</strong></p>
+<ol>
+<li><p>获取一个平面的法向量</p>
+</li>
+<li><p>得到两向量之间的左右位置关系</p>
+</li>
+</ol>
+<h3 id="矩阵相乘的意义及注意点"><a href="#矩阵相乘的意义及注意点" class="headerlink" title="矩阵相乘的意义及注意点"></a>矩阵相乘的意义及注意点</h3><p><strong>意义：</strong>用于表示<strong>线性变换：旋转、缩放、投影、平移、仿射</strong></p>
+<p><strong>注意：</strong>矩阵的蠕变：误差的积累</p>
+<h3 id="动态加载资源的方式？他们之间的区别"><a href="#动态加载资源的方式？他们之间的区别" class="headerlink" title="动态加载资源的方式？他们之间的区别"></a>动态加载资源的方式？他们之间的区别</h3><p>1.<strong>Resources.Load()</strong>;</p>
+<p>Resources是动态内部调用，Resources在编辑环境下是project窗口的一个文件夹，调用里面的资源，可以用Resources类，比如Resources.Load，打包后这个文件夹是不存在的，会统一生成assets资源</p>
+<p>2.<strong>AssetBundle</strong></p>
+<p>ssetBundle 是外部调用，要用AssetBundle 首先要先把资源打包为.assetbundle文件，再动态的去加载这个文件，本地或者网络服务器都可以。</p>
+<p><strong>简单说，Resources资源的加载是动态加载内部的，AssetBundle 是动态加载外部的</strong></p>
+<h3 id="Application-streamingAssetsPath-和-Application-persistentDataPath两个路径有何区别？对于我们的意义是什么？"><a href="#Application-streamingAssetsPath-和-Application-persistentDataPath两个路径有何区别？对于我们的意义是什么？" class="headerlink" title="Application.streamingAssetsPath 和 Application.persistentDataPath两个路径有何区别？对于我们的意义是什么？"></a>Application.streamingAssetsPath 和 Application.persistentDataPath两个路径有何区别？对于我们的意义是什么？</h3><p>Application.streamingAssetsPath   只读<br>Application.persistentDataPath      可读可写</p>
+<p>Application.streamingAssetsPath   适合放置一些默认2进制配置文件<br>Application.persistentDataPath      用于处理数据持久化，或作为热更新下载内容的存放目录，因为它可读可写</p>
+<h3 id="Unity内存优化问题"><a href="#Unity内存优化问题" class="headerlink" title="Unity内存优化问题"></a>Unity内存优化问题</h3><blockquote>
+<p>如何优化内存？</p>
+</blockquote>
+<ol>
+<li><p>压缩自带类库；</p>
+</li>
+<li><p>将暂时不用的以后还需要使用的物体隐藏起来而不是直接Destroy掉；</p>
+</li>
+<li><p>释放AssetBundle占用的资源；</p>
+</li>
+<li><p>降低模型的片面数，降低模型的骨骼数量，降低贴图的大小；</p>
+</li>
+<li><p>使用光照贴图，使用多层次细节(LOD)，使用着色器(Shader)，使用预设(Prefab)。</p>
+</li>
+<li><p>代码中少产生临时变量</p>
+</li>
+</ol>
+<blockquote>
+<p>如何优化UI（基于UGUI）</p>
+</blockquote>
+<p><strong>性能上</strong></p>
+<ol>
+<li>打图集，将同一画面的图片放入一个图集中，目的是减少DrawCall</li>
+<li>面板中的图片和文字尽量不要交叉，因为这样会产生多余的DrawCall</li>
+<li>取消勾选在UI组件上的不必要的射线检测</li>
+<li>减少透明图片的重叠使用<br>等等</li>
+</ol>
+<p><strong>内存上</strong></p>
+<ol>
+<li>大图尽量使用9宫格缩放，让美术设计UI面板底图时不要过于复杂<br>尽量是有规律的纹理和颜色变化</li>
+<li>图片的RGBA通道分离<br>等等</li>
+</ol>
+<blockquote>
+<p>UNITY3d在移动设备上的一些优化资源的方法</p>
+</blockquote>
+<ol>
+<li><p>使用assetbundle，实现资源分离和共享，将内存控制到200m之内，同时也可以实现资源的在线更新</p>
+</li>
+<li><p>顶点数对渲染无论是cpu还是gpu都是压力最大的贡献者，降低顶点数到8万以下，fps稳定到了30帧左右</p>
+</li>
+<li><p>只使用一盏动态光，不是用阴影，不使用光照探头。粒子系统是cpu上的大头</p>
+</li>
+<li><p>剪裁粒子系统</p>
+</li>
+<li><p>合并同时出现的粒子系统</p>
+</li>
+<li><p>自己实现轻量级的粒子系统</p>
+</li>
+</ol>
+<p>​	   animator也是一个效率奇差的地方</p>
+<ol start="7">
+<li><p>把不需要跟骨骼动画和动作过渡的地方全部使用animation，控制骨骼数量在30根以下</p>
+</li>
+<li><p>animator出视野不更新</p>
+</li>
+<li><p>删除无意义的animator</p>
+</li>
+<li><p>animator的初始化很耗时（粒子上能不能尽量不用animator）</p>
+</li>
+<li><p>除主角外都不要跟骨骼运动apply root motion</p>
+</li>
+<li><p>绝对禁止掉那些不带刚体带包围盒的物体（static collider ）运动</p>
+</li>
+<li><p>每帧递归的计算finalalpha改为只有初始化和变动时计算</p>
+</li>
+<li><p>去掉法线计算</p>
+</li>
+<li><p>不要每帧计算viewsize 和windowsize</p>
+</li>
+<li><p>filldrawcall时构建顶点缓存使用array.copy</p>
+</li>
+<li><p>代码剪裁：使用strip level ，使用.net2.0 subset</p>
+</li>
+<li><p>尽量减少smooth group</p>
+</li>
+<li><p>给美术定一个严格的经过科学验证的美术标准，并在U3D里面配以相应的检查工具</p>
+</li>
+</ol>
+<h3 id="Unity中如何解决过多创建和删除对象带来的卡顿问题？"><a href="#Unity中如何解决过多创建和删除对象带来的卡顿问题？" class="headerlink" title="Unity中如何解决过多创建和删除对象带来的卡顿问题？"></a>Unity中如何解决过多创建和删除对象带来的卡顿问题？</h3><p>可以通过协同程序，分时分步创建或删除<br>原理是避免一帧中处理太多对象</p>
+<h3 id="第一次执行GameObject-Instantiate时可能出现明显的卡顿，如何解决该问题？"><a href="#第一次执行GameObject-Instantiate时可能出现明显的卡顿，如何解决该问题？" class="headerlink" title="第一次执行GameObject.Instantiate时可能出现明显的卡顿，如何解决该问题？"></a>第一次执行GameObject.Instantiate时可能出现明显的卡顿，如何解决该问题？</h3><p>我们可以通过<strong>Unity自带的性能分析工具Profiler分析</strong>实例化时造成卡顿的原因<br><strong>程序上</strong>，一般我们可以从以下3个方面去优化它</p>
+<ol>
+<li><p><strong>相关资源加载：</strong>如果是由于资源加载带来的卡顿，我们可以在进入场景时进行资源预加载，总体思路就是<strong>将较大资源提前或者分帧加载</strong></p>
+</li>
+<li><p><strong>脚本初始化：</strong>实例化对象时，会同步执行它身上挂载所有脚本的初始化工作，我们可以策略性的<strong>改变一些初始化逻辑，尽量不要再Awake和Start中做较复杂的逻辑，或者将复杂逻辑提前或者分帧处理</strong></p>
+</li>
+<li><p>对于会频繁使用的对象，我们可以<strong>使用缓存池</strong></p>
+</li>
+</ol>
+<p><strong>美术上</strong><br>不能只追求好的美术效果，而不考虑资源的消耗，要根据项目的实际情况，来设定模型的骨骼数、面数以及贴图的数量和大小上限。<br>在制作粒子特效时，粒子数、粒子面积、贴图等都要尽量少和小。<br>美术上要遵循：用最少的资源做出做好的效果，不能一味的用性能去换效果，最终会得不偿失</p>
 <h3 id="Unity底层如何处理C-代码？"><a href="#Unity底层如何处理C-代码？" class="headerlink" title="Unity底层如何处理C#代码？"></a>Unity底层如何处理C#代码？</h3><p>两种方案<br><font color = "red"><b>Mono和IL2CPP</b></font></p>
 <blockquote>
 <p>Mono</p>
@@ -458,43 +832,6 @@
 <li><strong>通过xml文件配置明确规定哪些内容不裁剪</strong></li>
 <li><strong>在静态方法中显示调用不想被裁剪的内容</strong></li>
 </ol>
-<h3 id="transform-forward和Vector3-forword的区别"><a href="#transform-forward和Vector3-forword的区别" class="headerlink" title="transform.forward和Vector3.forword的区别"></a>transform.forward和Vector3.forword的区别</h3><p>Vector3.forword始终时(0,0,1)<br>可以认为是世界坐标系的Z轴朝向</p>
-<p>transform.forword是当前物体的局部坐标系的Z轴在世界坐标系下的朝向<br>可以认为是物体自己的Z轴朝向</p>
-<h3 id="Unity中如何解决过多创建和删除对象带来的卡顿问题？"><a href="#Unity中如何解决过多创建和删除对象带来的卡顿问题？" class="headerlink" title="Unity中如何解决过多创建和删除对象带来的卡顿问题？"></a>Unity中如何解决过多创建和删除对象带来的卡顿问题？</h3><p>可以通过协同程序，分时分步创建或删除<br>原理是避免一帧中处理太多对象</p>
-<h3 id="我们应该如何优化UI（基于UGUI）"><a href="#我们应该如何优化UI（基于UGUI）" class="headerlink" title="我们应该如何优化UI（基于UGUI）"></a>我们应该如何优化UI（基于UGUI）</h3><p><strong>性能上</strong></p>
-<ol>
-<li>打图集，将同一画面的图片放入一个图集中，目的是减少DrawCall</li>
-<li>面板中的图片和文字尽量不要交叉，因为这样会产生多余的DrawCall</li>
-<li>取消勾选在UI组件上的不必要的射线检测</li>
-<li>减少透明图片的重叠使用<br>等等</li>
-</ol>
-<p><strong>内存上</strong></p>
-<ol>
-<li>大图尽量使用9宫格缩放，让美术设计UI面板底图时不要过于复杂<br>尽量是有规律的纹理和颜色变化</li>
-<li>图片的RGBA通道分离<br>等等</li>
-</ol>
-<h3 id="第一次执行GameObject-Instantiate时可能出现明显的卡顿，如何解决该问题？"><a href="#第一次执行GameObject-Instantiate时可能出现明显的卡顿，如何解决该问题？" class="headerlink" title="第一次执行GameObject.Instantiate时可能出现明显的卡顿，如何解决该问题？"></a>第一次执行GameObject.Instantiate时可能出现明显的卡顿，如何解决该问题？</h3><p>我们可以通过<strong>Unity自带的性能分析工具Profiler分析</strong>实例化时造成卡顿的原因<br><strong>程序上</strong>，一般我们可以从以下3个方面去优化它</p>
-<ol>
-<li><p><strong>相关资源加载：</strong>如果是由于资源加载带来的卡顿，我们可以在进入场景时进行资源预加载，总体思路就是<strong>将较大资源提前或者分帧加载</strong></p>
-</li>
-<li><p><strong>脚本初始化：</strong>实例化对象时，会同步执行它身上挂载所有脚本的初始化工作，我们可以策略性的<strong>改变一些初始化逻辑，尽量不要再Awake和Start中做较复杂的逻辑，或者将复杂逻辑提前或者分帧处理</strong></p>
-</li>
-<li><p>对于会频繁使用的对象，我们可以<strong>使用缓存池</strong></p>
-</li>
-</ol>
-<p><strong>美术上</strong><br>不能只追求好的美术效果，而不考虑资源的消耗，要根据项目的实际情况，来设定模型的骨骼数、面数以及贴图的数量和大小上限。<br>在制作粒子特效时，粒子数、粒子面积、贴图等都要尽量少和小。<br>美术上要遵循：用最少的资源做出做好的效果，不能一味的用性能去换效果，最终会得不偿失</p>
-<h3 id="DrawCall渲染问题"><a href="#DrawCall渲染问题" class="headerlink" title="DrawCall渲染问题"></a>DrawCall渲染问题</h3><blockquote>
-<p>图中的小球是否被渲染了？是否会产生DrawCall？</p>
-</blockquote>
-<p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/DrawCallProblem1.png" srcset="/img/loading.gif" lazyload></p>
-<p>不会被渲染，不会产生DrawCall</p>
-<p>Unity本身有摄像机视锥体剔除，也就是不会显示完全位于视锥体之外的游戏对象<br>那么小球就不会进行渲染，也不会提交数据给GPU，也就不会产生DrawCall</p>
-<blockquote>
-<p>在没有使用遮挡剔除的情况下，图中A和B都是默认标准材质，图中的小球最终是否会被渲染，是否会产生DrawCall</p>
-</blockquote>
-<p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/DrawCallProblem2.png" srcset="/img/loading.gif" lazyload></p>
-<p>最终不会被渲染，标准材质存在深度测试，小球在立方体后方，不会通过深度测试，所以不会被渲染</p>
-<p>会产生DrawCall，既然都深度测试了，那么肯定是存在DrawCall的<br>深度测试发生在片元着色器处理之后，GPU会对每个片元执行深度测试来决定遮挡关系，决定是否被渲染</p>
 <h3 id="Unity引擎中哪些功能使用了C-的反射功能？至少说出一点"><a href="#Unity引擎中哪些功能使用了C-的反射功能？至少说出一点" class="headerlink" title="Unity引擎中哪些功能使用了C#的反射功能？至少说出一点"></a>Unity引擎中哪些功能使用了C#的反射功能？至少说出一点</h3><ol>
 <li><p>Inspector窗口中显示的内容</p>
 </li>
@@ -514,15 +851,6 @@
 <li><p><strong>如果需要获取设备输入信息</strong><br>可以利用Unity Remote来测试移动设备的输入相关逻辑</p>
 </li>
 </ol>
-<h3 id="Unity中Awake和Start两个生命周期函数，分别在什么时候被调用？"><a href="#Unity中Awake和Start两个生命周期函数，分别在什么时候被调用？" class="headerlink" title="Unity中Awake和Start两个生命周期函数，分别在什么时候被调用？"></a>Unity中Awake和Start两个生命周期函数，分别在什么时候被调用？</h3><ul>
-<li><strong>Awake：</strong>运行时<ol>
-<li>当脚本被动态添加到对象上时立即被调用。</li>
-<li>当对象被实例化时，依附它的脚本会立即调用Awake</li>
-<li>它类似构造函数</li>
-</ol>
-</li>
-<li><strong>Start：</strong>第一次Update之前被调用</li>
-</ul>
 <h3 id="Unity场景上有多个对象，都分别挂载了n个脚本。我们如何控制不同脚本间生命周期函数Awake的执行先后顺序？"><a href="#Unity场景上有多个对象，都分别挂载了n个脚本。我们如何控制不同脚本间生命周期函数Awake的执行先后顺序？" class="headerlink" title="Unity场景上有多个对象，都分别挂载了n个脚本。我们如何控制不同脚本间生命周期函数Awake的执行先后顺序？"></a>Unity场景上有多个对象，都分别挂载了n个脚本。我们如何控制不同脚本间生命周期函数Awake的执行先后顺序？</h3><p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/AwakeOrder.png" srcset="/img/loading.gif" lazyload></p>
 <ol>
 <li>可以通过选中脚本文件，点击Inspector窗口右上角的Execution Order（执行顺序）按钮 </li>
@@ -533,27 +861,15 @@
 <li>需要在PlayerSetting中的OtherSettings中勾选  Allow ‘unsafe’ code 选项</li>
 <li>使用指针时必须在unsafe修饰的代码块中</li>
 </ol>
-<h3 id="Unity中的协同程序中yield-return不同的内容，代表的含义不同"><a href="#Unity中的协同程序中yield-return不同的内容，代表的含义不同" class="headerlink" title="Unity中的协同程序中yield return不同的内容，代表的含义不同"></a>Unity中的协同程序中yield return不同的内容，代表的含义不同</h3><blockquote>
-<p>请说明下面这些yield return的含义</p>
-</blockquote>
-<ol>
-<li>yield return 数字;</li>
-<li>yield return null;</li>
-<li>yield return new WaitForSeconds(数字);</li>
-<li>yield return new WaitForFixedUpdate();</li>
-<li>yield return new WaitForEndOfFrame();</li>
-<li>yield break;</li>
+<h3 id="LOD是什么，优缺点是什么？"><a href="#LOD是什么，优缺点是什么？" class="headerlink" title="LOD是什么，优缺点是什么？"></a>LOD是什么，优缺点是什么？</h3><p>LOD(Level of detail)多层次细节，是最常用的游戏优化技术。它按照模型的位置和重要程度决定物体渲染的资源分配，降低非重要物体的面数和细节度，从而获得高效率的渲染运算。缺点是增加了内存。</p>
+<h3 id="请简述一下对象池，在游戏开发中我们什么时候会用到它？"><a href="#请简述一下对象池，在游戏开发中我们什么时候会用到它？" class="headerlink" title="请简述一下对象池，在游戏开发中我们什么时候会用到它？"></a>请简述一下对象池，在游戏开发中我们什么时候会用到它？</h3><ol>
+<li><p>对象池的主要作用是 <strong>避免大量创建对象再释放对象时造成的内存消耗，可以有效降低GC发生的频率</strong>。我们把不用的对象放入对象池中而不是让它直接变为垃圾，下次需要用到对象时再从对象池中获取，我们通过占用内存来避免更多的内存消耗和GC的发生</p>
+</li>
+<li><p>在游戏中频繁创建对象、实例化对象的地方，都可以用到对象池。<br>比如前端开发中，游戏中的子弹、伤害字体、特效等等<br>比如后端开发中线程池等等</p>
+</li>
 </ol>
-<p><strong>答案：</strong></p>
-<ol>
-<li>yield return 数字; 下一帧执行</li>
-<li>yield return null;  下一帧执行</li>
-<li>yield return new WaitForSeconds(数字); 等待指定秒后执行</li>
-<li>yield return new WaitForFixedUpdate(); 等待下一个固定物理帧更新时执行</li>
-<li>yield return new WaitForEndOfFrame(); 等待摄像机和GUI渲染完成后执行</li>
-<li>yield break; 跳出协程</li>
-</ol>
-<h3 id="使用Unity协同程序进行异步加载时，底层是否会使用多线程？"><a href="#使用Unity协同程序进行异步加载时，底层是否会使用多线程？" class="headerlink" title="使用Unity协同程序进行异步加载时，底层是否会使用多线程？"></a>使用Unity协同程序进行异步加载时，底层是否会使用多线程？</h3><p>可能会<br>协同程序的原理是分时分步完成指定逻辑<br>在其中的某一步骤中，是可以使用多线程来完成某些加载操作的，多线程加载完成后，再进入协同程序的下一步继续执行</p>
+<h3 id="Unity客户端与服务器交互方式有几种？"><a href="#Unity客户端与服务器交互方式有几种？" class="headerlink" title="Unity客户端与服务器交互方式有几种？"></a>Unity客户端与服务器交互方式有几种？</h3><p><strong>socket</strong>通常也称作”套接字”,实现服务器和客户端之间的物理连接，并进行数据传输，主要有UDP和TCP两个协议。<strong>Socket处于网络协议的传输层</strong>。</p>
+<p>http协议传输的主要有http协议 和基于http协议的Soap协议（web service）,常见的方式是 http 的post 和get 请求，web 服务。</p>
 <h3 id="四元数与旋转和欧拉角与万向节死锁问题"><a href="#四元数与旋转和欧拉角与万向节死锁问题" class="headerlink" title="四元数与旋转和欧拉角与万向节死锁问题"></a>四元数与旋转和欧拉角与万向节死锁问题</h3><blockquote>
 <p>两个四元数相乘有什么作用？</p>
 </blockquote>
@@ -661,6 +977,10 @@
 <p><em><strong>继承</strong></em>：重用现有代码</p>
 <p><em><strong>多态</strong></em>：静态多态重载，动态多态重写。<br>父类行为由子类具体实现，包含virtual虚方法，abstract抽象方法，interface接口<br><code>可以涉及题目虚方法、抽象方法、接口的区别</code></p>
 <p><em><strong>重载和重写区别</strong></em><br>静态重载：返回值无关，与参数个数，类型相关。编译阶段。便于扩展和维护<br>动态重写override（运行时，改写了方法表的新地址）。<br>抽象方法的父类必须是抽象类，子类是抽象类可以不重写，抽象类不可以被实例化。</p>
+<h3 id="请简述private，public，protected，internal的区别"><a href="#请简述private，public，protected，internal的区别" class="headerlink" title="请简述private，public，protected，internal的区别"></a>请简述private，public，protected，internal的区别</h3><p><strong>public</strong>：对任何类和成员都公开，无限制访问</p>
+<p><strong>private</strong>：仅对该类公开</p>
+<p><strong>protected</strong>：对该类和其派生类公开</p>
+<p><strong>internal</strong>：只能在包含该类的程序集中访问该类</p>
 <h3 id="字符串三种为空的不同写法的区别"><a href="#字符串三种为空的不同写法的区别" class="headerlink" title="字符串三种为空的不同写法的区别"></a>字符串三种为空的不同写法的区别</h3><p><strong>请说明字符串中三者的区别</strong></p>
 <ul>
 <li>string str &#x3D; null</li>
@@ -1147,6 +1467,7 @@
 <h2 id="🌙算法"><a href="#🌙算法" class="headerlink" title="🌙算法"></a>🌙算法</h2><h3 id="Leetcode"><a href="#Leetcode" class="headerlink" title="Leetcode"></a>Leetcode</h3><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problemset/all/">题库 - 力扣 (LeetCode) 全球极客挚爱的技术成长平台</a></p>
 <p><strong>每日一题</strong></p>
 <p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/V2QJXN%25LGY17_GWQIJ%24%7D1W1.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="代码随想录"><a href="#代码随想录" class="headerlink" title="代码随想录"></a>代码随想录</h3><p><a target="_blank" rel="noopener" href="https://programmercarl.com/">代码随想录 (programmercarl.com)</a></p>
 <h3 id="十大排序算法"><a href="#十大排序算法" class="headerlink" title="十大排序算法"></a>十大排序算法</h3><h4 id="1-冒泡排序"><a href="#1-冒泡排序" class="headerlink" title="1.冒泡排序"></a>1.冒泡排序</h4><p><img src="https://img-blog.csdnimg.cn/1daa0def8e454f61836f28a8d1cb2e0b.gif" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
 <p><strong>口诀：</strong></p>
 <p>外层循环 n-1;内层循环 n-1-i;两两比较做互换；</p>
@@ -1266,6 +1587,9 @@
 <p><img src="https://img-blog.csdnimg.cn/49a4114d2323450792d15706511acdf4.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
 <p><img src="https://img-blog.csdnimg.cn/842750f7516f4a62aa62e32a07190c1d.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
 <h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a target="_blank" rel="noopener" href="https://raindust.blog.csdn.net/article/details/104127820">C#十大排序算法</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/weiios/p/3933994.html">C#快速排序详解</a><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/e4d0990dd0bd">排序算法2|简单选择排序与堆排序（C#）</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/cdaniu/p/16370507.html">【C# 排序】归并排序 merge sort</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/liuyi89430/article/details/107612559">C#计数排序</a><br><a target="_blank" rel="noopener" href="https://bbs.huaweicloud.com/blogs/313568">【愚公系列】2021年11月 C#版 数据结构与算法解析(桶排序)</a><br><a target="_blank" rel="noopener" href="https://www.freesion.com/article/96281055419/">C# 算法之基数排序排序(非比较排序之三)</a></p>
+<hr>
+<h2 id="🌙设计模式"><a href="#🌙设计模式" class="headerlink" title="🌙设计模式"></a>🌙设计模式</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Impulse/p/4685463.html">C#设计模式总结 - 凡的世界 - 博客园 (cnblogs.com)</a></p>
+<p><a href="https://bmtan.cc/2022/06/30/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">C# 设计模式 - Bmtan</a></p>
 
                 
               </div>

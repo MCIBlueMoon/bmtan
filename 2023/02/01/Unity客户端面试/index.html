@@ -52,9 +52,13 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%85%83%E7%BB%84.png">
 <meta property="og:image" content="https://img-blog.csdn.net/20160528132344296">
 <meta property="og:image" content="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/Lua%E5%8D%8F%E7%A8%8B.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/6A8%40I%7B(%7B%7E9%7EWM9K9LA%7BL)Y3.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/ALG%5BIKSO(O%5BGQ0G6%7E%40AL%24G3.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/TCP%26UDP.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20210530224055792.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NzeTc3Nzc3Nw==,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20210530224106137.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NzeTc3Nzc3Nw==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/25587017bb97d491f6c70d708caaeb4.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/1685011799566.jpg">
 <meta property="og:image" content="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/V2QJXN%25LGY17_GWQIJ%24%7D1W1.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/1daa0def8e454f61836f28a8d1cb2e0b.gif">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/15b1cfff79a049f0bef2dc98617d8d8d.png">
@@ -75,7 +79,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/49a4114d2323450792d15706511acdf4.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/842750f7516f4a62aa62e32a07190c1d.png">
 <meta property="article:published_time" content="2023-02-01T14:44:00.000Z">
-<meta property="article:modified_time" content="2023-05-25T03:52:26.178Z">
+<meta property="article:modified_time" content="2023-05-25T16:02:59.051Z">
 <meta property="article:author" content="Bmtan">
 <meta property="article:tag" content="Unity">
 <meta property="article:tag" content="C#">
@@ -275,7 +279,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          67k 字
+          68k 字
         
       </span>
     
@@ -286,7 +290,7 @@
         
         
         
-          562 分钟
+          569 分钟
         
       </span>
     
@@ -339,11 +343,11 @@
 <li><p><strong>Start</strong></p>
 <p>仅在Update函数第一次被调用前调用。因为它是在Awake之后被调用的，我们可以把一些需要依赖Awake的变量放在Start里面初始化。 同时我们还大多在这个类中执行StartCoroutine进行一些协程的触发。要注意在用C#写脚本时，必须使用StartCoroutine开始一个协程。</p>
 </li>
-<li><p><strong>Update</strong></p>
-<p>当MonoBehaviour启用时，其Update在每一帧被调用。</p>
-</li>
 <li><p><strong>FixedUpdate</strong></p>
 <p>当MonoBehaviour启用时，其 FixedUpdate 在每一固定帧被调用。</p>
+</li>
+<li><p><strong>Update</strong></p>
+<p>当MonoBehaviour启用时，其Update在每一帧被调用。</p>
 </li>
 <li><p><strong>LateUpdate</strong> </p>
 <p>是在所有Update函数调用后被调用。这可用于调整脚本执行顺序。例如:当物体在Update里移动时，跟随物体的相机可以在LateUpdate里实现</p>
@@ -565,6 +569,10 @@
 </li>
 </ul>
 <blockquote>
+<p>协程的坏处</p>
+</blockquote>
+<p>协程本质是迭代器，且是基于unity生命周期的，大量开启协程会引起gc</p>
+<blockquote>
 <p>线程与协程的区别</p>
 </blockquote>
 <p><strong>协程(协同程序)</strong>: 同一时间只能执行某个协程。开辟多个协程开销不大。<strong>协程适合对某任务进行分时处理。</strong></p>
@@ -580,7 +588,7 @@
 <blockquote>
 <p>什么是协同程序？</p>
 </blockquote>
-<p>在主线程运行的同时开启另一段逻辑处理，来协助当前程序的执行，协程很像多线程，但是不是多线程，Unity的协程实在每帧结束之后去检测yield的条件是否满足。</p>
+<p><strong>在主线程运行的同时开启另一段逻辑处理，来协助当前程序的执</strong>行，协程很像多线程，但是不是多线程，Unity的协程实在每帧结束之后去检测yield的条件是否满足。</p>
 <blockquote>
 <p>请简述Unity中协程的原理</p>
 </blockquote>
@@ -854,6 +862,10 @@ CancelInvoke(&quot;MethodName&quot;) ： 停止当前脚本某个Invoke和Invoke
 <p>增加了内存</p>
 </li>
 </ul>
+<blockquote>
+<p>Mipmap是什么</p>
+</blockquote>
+<p>​		Unity中的Mipmap相当于Texture的Lod技术，为了防止物体离相机较远时因为贴图的采样率不足导致出现条纹。Unity中生成Lod的方法很简单，在Texture的面板中勾选Generate Mip Maps，然后点Apply即可</p>
 <blockquote>
 <p>LOD（多细节层次）和 MipMap（纹理图）的作用是什么？</p>
 </blockquote>
@@ -1179,6 +1191,84 @@ CancelInvoke(&quot;MethodName&quot;) ： 停止当前脚本某个Invoke和Invoke
 <li><p><strong>使用对象池</strong>：对象池是一种常见的技术，用于缓存和重复使用游戏对象，而不是频繁地创建和销毁它们。使用对象池可以减少内存分配和垃圾回收的开销，从而提高游戏性能。</p>
 </li>
 </ol>
+<h3 id="Unity内存优化问题"><a href="#Unity内存优化问题" class="headerlink" title="Unity内存优化问题"></a>Unity内存优化问题</h3><blockquote>
+<p>如何优化内存？</p>
+</blockquote>
+<ol>
+<li><p>压缩自带类库；</p>
+</li>
+<li><p>将暂时不用的以后还需要使用的物体隐藏起来而不是直接Destroy掉；</p>
+</li>
+<li><p>释放AssetBundle占用的资源；</p>
+</li>
+<li><p>降低模型的片面数，降低模型的骨骼数量，降低贴图的大小；</p>
+</li>
+<li><p>使用光照贴图，使用多层次细节(LOD)，使用着色器(Shader)，使用预设(Prefab)。</p>
+</li>
+<li><p>代码中少产生临时变量</p>
+</li>
+</ol>
+<blockquote>
+<p>如何优化UI（基于UGUI）</p>
+</blockquote>
+<p><strong>性能上</strong></p>
+<ol>
+<li>打图集，将同一画面的图片放入一个图集中，目的是减少DrawCall</li>
+<li>面板中的图片和文字尽量不要交叉，因为这样会产生多余的DrawCall</li>
+<li>取消勾选在UI组件上的不必要的射线检测</li>
+<li>减少透明图片的重叠使用<br>等等</li>
+</ol>
+<p><strong>内存上</strong></p>
+<ol>
+<li>大图尽量使用9宫格缩放，让美术设计UI面板底图时不要过于复杂<br>尽量是有规律的纹理和颜色变化</li>
+<li>图片的RGBA通道分离<br>等等</li>
+</ol>
+<blockquote>
+<p>UNITY3d在移动设备上的一些优化资源的方法</p>
+</blockquote>
+<ol>
+<li><p>使用assetbundle，实现资源分离和共享，将内存控制到200m之内，同时也可以实现资源的在线更新</p>
+</li>
+<li><p>顶点数对渲染无论是cpu还是gpu都是压力最大的贡献者，降低顶点数到8万以下，fps稳定到了30帧左右</p>
+</li>
+<li><p>只使用一盏动态光，不是用阴影，不使用光照探头。粒子系统是cpu上的大头</p>
+</li>
+<li><p>剪裁粒子系统</p>
+</li>
+<li><p>合并同时出现的粒子系统</p>
+</li>
+<li><p>自己实现轻量级的粒子系统</p>
+</li>
+</ol>
+<p>​	   animator也是一个效率奇差的地方</p>
+<ol start="7">
+<li><p>把不需要跟骨骼动画和动作过渡的地方全部使用animation，控制骨骼数量在30根以下</p>
+</li>
+<li><p>animator出视野不更新</p>
+</li>
+<li><p>删除无意义的animator</p>
+</li>
+<li><p>animator的初始化很耗时（粒子上能不能尽量不用animator）</p>
+</li>
+<li><p>除主角外都不要跟骨骼运动apply root motion</p>
+</li>
+<li><p>绝对禁止掉那些不带刚体带包围盒的物体（static collider ）运动</p>
+</li>
+<li><p>每帧递归的计算finalalpha改为只有初始化和变动时计算</p>
+</li>
+<li><p>去掉法线计算</p>
+</li>
+<li><p>不要每帧计算viewsize 和windowsize</p>
+</li>
+<li><p>filldrawcall时构建顶点缓存使用array.copy</p>
+</li>
+<li><p>代码剪裁：使用strip level ，使用.net2.0 subset</p>
+</li>
+<li><p>尽量减少smooth group</p>
+</li>
+<li><p>给美术定一个严格的经过科学验证的美术标准，并在U3D里面配以相应的检查工具</p>
+</li>
+</ol>
 <h3 id="Unity-对象移动"><a href="#Unity-对象移动" class="headerlink" title="Unity 对象移动"></a>Unity 对象移动</h3><p><strong>1.Transform</strong></p>
 <p>​    通过 Update 函数每帧更新其位置来达到移动目的。</p>
 <p>​     <strong>1.1 Transform.position</strong></p>
@@ -1228,10 +1318,19 @@ CancelInvoke(&quot;MethodName&quot;) ： 停止当前脚本某个Invoke和Invoke
 <p>​    以一定速度移动角色，<strong>以秒为单位</strong>，无需乘以时间，<strong>具备重力。</strong></p>
 <p>​	4 .2 <strong>Move</strong></p>
 <p>​    以一定速度移动角色,不具备重力，需要自行计算下落</p>
-<h3 id="Unity-寻路"><a href="#Unity-寻路" class="headerlink" title="Unity 寻路"></a>Unity 寻路</h3><p>NavMesh是一种基于多边形网络的寻路导航系统，整个寻路分为导航网格的构建和寻路算法两个部分。</p>
+<h3 id="Unity-寻路"><a href="#Unity-寻路" class="headerlink" title="Unity 寻路"></a>Unity 寻路</h3><h4 id="NavMesh"><a href="#NavMesh" class="headerlink" title="NavMesh"></a>NavMesh</h4><p>NavMesh是一种基于多边形网络的寻路导航系统，整个寻路分为导航网格的构建和寻路算法两个部分。</p>
 <p>（1）烘焙导航网格</p>
 <p>（2）需要导航的物体添加 NavMeshAgent 组件</p>
 <p>（3）运行时候使用 NavMeshAgent.SetDestination 函数进行导航</p>
+<h4 id="a-寻路"><a href="#a-寻路" class="headerlink" title="a*寻路"></a>a*寻路</h4><p>最通俗的原理就是寻找周围的点。选出一个到终点最近的点，再从选出的点为起点寻找下一个点，直到到达目标点。</p>
+<p>我们用<strong>f</strong>来代表寻路的总代价，<strong>g</strong>代表从开始点到下一个点的距离，<strong>h</strong>（此处用到麦哈顿街区算法）为从下一个点到目标点的距离。则<strong>f&#x3D;g+h</strong>。</p>
+<blockquote>
+<p>Unity中想要制作自动寻路逻辑，我们应该怎么做？（请至少说出两种做法）</p>
+</blockquote>
+<ol>
+<li>Unity自带的网格寻路系统</li>
+<li>自定义寻路算法（比如 A星寻路算法）</li>
+</ol>
 <h3 id="Unity-Mask实现原理"><a href="#Unity-Mask实现原理" class="headerlink" title="Unity Mask实现原理"></a>Unity Mask实现原理</h3><p><strong>Mask的实现原理：</strong></p>
 <ol>
 <li>Mask会赋予Image一个特殊的材质，这个材质会给Image的每个像素点进行标记，将标记结果存放在一个缓存内（这个缓存叫做 Stencil Buffer）</li>
@@ -1330,18 +1429,22 @@ CancelInvoke(&quot;MethodName&quot;) ： 停止当前脚本某个Invoke和Invoke
 </li>
 </ol>
 <h3 id="Unity中判断两个2D矩形是否相交，有几种方式？（请至少说出两种方式）"><a href="#Unity中判断两个2D矩形是否相交，有几种方式？（请至少说出两种方式）" class="headerlink" title="Unity中判断两个2D矩形是否相交，有几种方式？（请至少说出两种方式）"></a>Unity中判断两个2D矩形是否相交，有几种方式？（请至少说出两种方式）</h3><ol>
-<li>使用Unity物理系统进行碰撞检测</li>
-<li>使用Unity中范围检测相关API</li>
-<li>自己写算法进行检测</li>
+<li><p>使用Unity物理系统进行碰撞检测</p>
+</li>
+<li><p>使用Unity中范围检测相关API</p>
+<p>Physics.OverlapBoxNonAlloc</p>
+<p>Physics.OverlapSphere</p>
+</li>
+<li><p>自己写算法进行检测</p>
+</li>
 </ol>
 <h3 id="Unity制作物理游戏相关功能时，我们采用哪种方式处理位移？为什么？"><a href="#Unity制作物理游戏相关功能时，我们采用哪种方式处理位移？为什么？" class="headerlink" title="Unity制作物理游戏相关功能时，我们采用哪种方式处理位移？为什么？"></a>Unity制作物理游戏相关功能时，我们采用哪种方式处理位移？为什么？</h3><p>通过刚体相关API来处理位移，比如加力、改变刚体速度变量<br>原因：在碰撞检测时能更准确无误</p>
 <h3 id="Unity中想要制作角色的连招功能，在制作状态机时我们一般如何处理？"><a href="#Unity中想要制作角色的连招功能，在制作状态机时我们一般如何处理？" class="headerlink" title="Unity中想要制作角色的连招功能，在制作状态机时我们一般如何处理？"></a>Unity中想要制作角色的连招功能，在制作状态机时我们一般如何处理？</h3><ol>
-<li>状态机条件可以添加一个Trigger类型和Int类型<br>   Trigger条件主要用于触发动作，Int条件主要用于连招计数判断</li>
-<li>逻辑上，当攻击按键输入时，我们需要触发动作，并且进行攻击计数<br>   每次按键时都应该重新进      行攻击计数延迟清零</li>
-</ol>
-<h3 id="Unity中想要制作自动寻路逻辑，我们应该怎么做？（请至少说出两种做法）"><a href="#Unity中想要制作自动寻路逻辑，我们应该怎么做？（请至少说出两种做法）" class="headerlink" title="Unity中想要制作自动寻路逻辑，我们应该怎么做？（请至少说出两种做法）"></a>Unity中想要制作自动寻路逻辑，我们应该怎么做？（请至少说出两种做法）</h3><ol>
-<li>Unity自带的网格寻路系统</li>
-<li>自定义寻路算法（比如 A星寻路算法）</li>
+<li><p>状态机条件可以添加一个Trigger类型和Int类型<br>   Trigger条件主要用于触发动作，Int条件主要用于连招计数判断</p>
+</li>
+<li><p>逻辑上，当攻击按键输入时，我们需要触发动作，并且进行攻击计数<br>   每次按键时都应该重新进      行攻击计数延迟清零</p>
+</li>
+<li></li>
 </ol>
 <h3 id="Unity中如果想要在动作的某一时刻进行伤害检测，我们应该怎么做？（请说出两种做法）"><a href="#Unity中如果想要在动作的某一时刻进行伤害检测，我们应该怎么做？（请说出两种做法）" class="headerlink" title="Unity中如果想要在动作的某一时刻进行伤害检测，我们应该怎么做？（请说出两种做法）"></a>Unity中如果想要在动作的某一时刻进行伤害检测，我们应该怎么做？（请说出两种做法）</h3><p>1.　添加动画事件<br>2.　在切换动画一开始，进行延迟触发，延迟时间为想要触发伤害的时间（延迟可以用延迟函数，也可以用协同程序）</p>
 <h3 id="游戏编辑器（比如-角色编辑器、关卡编辑器、地图编辑器等工具）的本质是什么？"><a href="#游戏编辑器（比如-角色编辑器、关卡编辑器、地图编辑器等工具）的本质是什么？" class="headerlink" title="游戏编辑器（比如 角色编辑器、关卡编辑器、地图编辑器等工具）的本质是什么？"></a>游戏编辑器（比如 角色编辑器、关卡编辑器、地图编辑器等工具）的本质是什么？</h3><p>数据的图形化编辑工具</p>
@@ -1366,84 +1469,7 @@ CancelInvoke(&quot;MethodName&quot;) ： 停止当前脚本某个Invoke和Invoke
 <p><strong>简单说，Resources资源的加载是动态加载内部的，AssetBundle和Addressables是动态加载外部的、WWW和UnityWebReuest加载本地或远端资源、 File FileStream是加载一些文件相关</strong></p>
 <h3 id="Application-streamingAssetsPath-和-Application-persistentDataPath两个路径有何区别？对于我们的意义是什么？"><a href="#Application-streamingAssetsPath-和-Application-persistentDataPath两个路径有何区别？对于我们的意义是什么？" class="headerlink" title="Application.streamingAssetsPath 和 Application.persistentDataPath两个路径有何区别？对于我们的意义是什么？"></a>Application.streamingAssetsPath 和 Application.persistentDataPath两个路径有何区别？对于我们的意义是什么？</h3><p>Application.streamingAssetsPath   只读<br>Application.persistentDataPath      可读可写</p>
 <p>Application.streamingAssetsPath   适合放置一些默认2进制配置文件<br>Application.persistentDataPath      用于处理数据持久化，或作为热更新下载内容的存放目录，因为它可读可写</p>
-<h3 id="Unity内存优化问题"><a href="#Unity内存优化问题" class="headerlink" title="Unity内存优化问题"></a>Unity内存优化问题</h3><blockquote>
-<p>如何优化内存？</p>
-</blockquote>
-<ol>
-<li><p>压缩自带类库；</p>
-</li>
-<li><p>将暂时不用的以后还需要使用的物体隐藏起来而不是直接Destroy掉；</p>
-</li>
-<li><p>释放AssetBundle占用的资源；</p>
-</li>
-<li><p>降低模型的片面数，降低模型的骨骼数量，降低贴图的大小；</p>
-</li>
-<li><p>使用光照贴图，使用多层次细节(LOD)，使用着色器(Shader)，使用预设(Prefab)。</p>
-</li>
-<li><p>代码中少产生临时变量</p>
-</li>
-</ol>
-<blockquote>
-<p>如何优化UI（基于UGUI）</p>
-</blockquote>
-<p><strong>性能上</strong></p>
-<ol>
-<li>打图集，将同一画面的图片放入一个图集中，目的是减少DrawCall</li>
-<li>面板中的图片和文字尽量不要交叉，因为这样会产生多余的DrawCall</li>
-<li>取消勾选在UI组件上的不必要的射线检测</li>
-<li>减少透明图片的重叠使用<br>等等</li>
-</ol>
-<p><strong>内存上</strong></p>
-<ol>
-<li>大图尽量使用9宫格缩放，让美术设计UI面板底图时不要过于复杂<br>尽量是有规律的纹理和颜色变化</li>
-<li>图片的RGBA通道分离<br>等等</li>
-</ol>
-<blockquote>
-<p>UNITY3d在移动设备上的一些优化资源的方法</p>
-</blockquote>
-<ol>
-<li><p>使用assetbundle，实现资源分离和共享，将内存控制到200m之内，同时也可以实现资源的在线更新</p>
-</li>
-<li><p>顶点数对渲染无论是cpu还是gpu都是压力最大的贡献者，降低顶点数到8万以下，fps稳定到了30帧左右</p>
-</li>
-<li><p>只使用一盏动态光，不是用阴影，不使用光照探头。粒子系统是cpu上的大头</p>
-</li>
-<li><p>剪裁粒子系统</p>
-</li>
-<li><p>合并同时出现的粒子系统</p>
-</li>
-<li><p>自己实现轻量级的粒子系统</p>
-</li>
-</ol>
-<p>​	   animator也是一个效率奇差的地方</p>
-<ol start="7">
-<li><p>把不需要跟骨骼动画和动作过渡的地方全部使用animation，控制骨骼数量在30根以下</p>
-</li>
-<li><p>animator出视野不更新</p>
-</li>
-<li><p>删除无意义的animator</p>
-</li>
-<li><p>animator的初始化很耗时（粒子上能不能尽量不用animator）</p>
-</li>
-<li><p>除主角外都不要跟骨骼运动apply root motion</p>
-</li>
-<li><p>绝对禁止掉那些不带刚体带包围盒的物体（static collider ）运动</p>
-</li>
-<li><p>每帧递归的计算finalalpha改为只有初始化和变动时计算</p>
-</li>
-<li><p>去掉法线计算</p>
-</li>
-<li><p>不要每帧计算viewsize 和windowsize</p>
-</li>
-<li><p>filldrawcall时构建顶点缓存使用array.copy</p>
-</li>
-<li><p>代码剪裁：使用strip level ，使用.net2.0 subset</p>
-</li>
-<li><p>尽量减少smooth group</p>
-</li>
-<li><p>给美术定一个严格的经过科学验证的美术标准，并在U3D里面配以相应的检查工具</p>
-</li>
-</ol>
+<p>19. </p>
 <h3 id="Unity中如何解决过多创建和删除对象带来的卡顿问题？"><a href="#Unity中如何解决过多创建和删除对象带来的卡顿问题？" class="headerlink" title="Unity中如何解决过多创建和删除对象带来的卡顿问题？"></a>Unity中如何解决过多创建和删除对象带来的卡顿问题？</h3><p>可以通过协同程序，分时分步创建或删除<br>原理是避免一帧中处理太多对象</p>
 <h3 id="第一次执行GameObject-Instantiate时可能出现明显的卡顿，如何解决该问题？"><a href="#第一次执行GameObject-Instantiate时可能出现明显的卡顿，如何解决该问题？" class="headerlink" title="第一次执行GameObject.Instantiate时可能出现明显的卡顿，如何解决该问题？"></a>第一次执行GameObject.Instantiate时可能出现明显的卡顿，如何解决该问题？</h3><p>我们可以通过<strong>Unity自带的性能分析工具Profiler分析</strong>实例化时造成卡顿的原因<br><strong>程序上</strong>，一般我们可以从以下3个方面去优化它</p>
 <ol>
@@ -1913,6 +1939,10 @@ CancelInvoke(&quot;MethodName&quot;) ： 停止当前脚本某个Invoke和Invoke
 <li><strong>不同对象用有共同行为，我们往往可以使用接口来实现</strong></li>
 </ul>
 <h3 id="C-委托和事件问题"><a href="#C-委托和事件问题" class="headerlink" title="C#委托和事件问题"></a>C#委托和事件问题</h3><blockquote>
+<p>委托是什么</p>
+</blockquote>
+<p>​		C#中的一个引用类型，委托是一个类，它定义了方法的类型，使得可以将方法当作另一个方法的参数来进行传递，这种将方法动态地赋给参数的做法，可以避免在程序中大量使用If-Else(Switch)语句，同时使得程序具有更好的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%8F%AF%E6%89%A9%E5%B1%95%E6%80%A7/8669999?fromModule=lemma_inlink">可扩展性</a>。</p>
+<blockquote>
 <p>委托和事件在使用上的区别是什么？</p>
 </blockquote>
 <ol>
@@ -2001,7 +2031,7 @@ CancelInvoke(&quot;MethodName&quot;) ： 停止当前脚本某个Invoke和Invoke
 <p>什么时候使用：<br>1.异步编程：异步逻辑执行完毕后，再执行回调函数<br>2.事件中心<br>3.UI界面中的空间逻辑回调，比如按钮点击<br>等等</p>
 <h3 id="C-反射问题"><a href="#C-反射问题" class="headerlink" title="C# 反射问题"></a>C# 反射问题</h3><p>程序正在运行时，可以查看其他程序集或者自身的元数据</p>
 <p><strong>一个运行的程序</strong><font color = "red"><b>查看本身或者其它程序的元数据的行为</b></font><strong>就叫做反射</strong></p>
-<h4 id="反射的实现原理"><a href="#反射的实现原理" class="headerlink" title="反射的实现原理"></a>反射的实现原理</h4><p><strong>定义：</strong>运行时，动态获取类型信息,动态创建对象,动态访问成员的过程。<br><strong>另一种定义：</strong>审查元数据并收集元数据的信息。<br>元数据：编译后的最基本数据单元，就是一堆表，反射就是解析这些元数据。<br>反射是在运行期间获取到类、对象、方法、数据的一种手段<br>主要使用类库System.Reflection<br><strong>反射要点：</strong>如何获取类型，根据类型来动态创建对象，反射获取方法以及动态调用方法，动态创建委托</p>
+<h4 id="反射的实现原理"><a href="#反射的实现原理" class="headerlink" title="反射的实现原理"></a>反射的实现原理</h4><p><strong>定义：</strong>运行时，动态获取类型信息,动态创建对象,动态访问成员的过程。<br><strong>另一种定义：</strong>审查元数据并收集元数据的信息。<br>元数据：<strong>编译后的最基本数据单元</strong>，就是一堆表，反射就是解析这些元数据。<br>反射是在运行期间获取到类、对象、方法、数据的一种手段<br>主要使用类库System.Reflection<br><strong>反射要点：</strong>如何获取类型，根据类型来动态创建对象，反射获取方法以及动态调用方法，动态创建委托</p>
 <blockquote>
 <p>反射的作用是什么？</p>
 </blockquote>
@@ -2285,9 +2315,9 @@ CancelInvoke(&quot;MethodName&quot;) ： 停止当前脚本某个Invoke和Invoke
 </li>
 <li><p>避免方式：</p>
 <ol>
-<li>尽量减少new对象，尽量复用对象（可使用缓存池）</li>
-<li>用StringBuilder替换String，避免字符串拼接时产生垃圾</li>
-<li>公共对象用静态声明<br>等等</li>
+<li><strong>尽量减少new对象，尽量复用对象（可使用缓存池）</strong></li>
+<li><strong>用StringBuilder替换String，避免字符串拼接时产生垃圾</strong></li>
+<li><strong>公共对象用静态声明</strong><br>等等</li>
 </ol>
 </li>
 </ul>
@@ -2591,20 +2621,24 @@ CancelInvoke(&quot;MethodName&quot;) ： 停止当前脚本某个Invoke和Invoke
 </tr>
 </tbody></table>
 <h3 id="三次握手，4次挥手"><a href="#三次握手，4次挥手" class="headerlink" title="三次握手，4次挥手"></a>三次握手，4次挥手</h3><ul>
-<li><strong>三次握手</strong><ul>
+<li><p><strong>三次握手</strong></p>
+<ul>
 <li>第一次握手：<strong>TCP连接请求，告诉服务器我要和你建立连接</strong>。客户端发送网络包，服务端收到了。这样服务端就能得出结论：客户端的发送能力、服务端的接收能力是正常的。：客户端给服务端发一个 SYN 报文，并指明客户端的初始化序列号 ISN(c)。此时客户端处于 SYN_Send状态。</li>
 <li>第二次握手：<strong>TCP授予连接，告诉客户端批准连接。</strong>服务端发包，客户端收到了。这样客户端就能得出结论：服务端的接收、发送能力，客户端的接收、发送能力是正常的。不过此时服务器并不能确认客户端的接收能力是否正常。：服务器收到客户端的 SYN 报文之后，会以自己的 SYN 报文作为应答，并且也是指定了自己的初始化序列号 ISN(s)，同时会把客户端的 ISN + 1 作为 ACK 的值，表示自己已经收到了客户端的 SYN，此时服务器处于 SYN_REVD的状态。</li>
 <li>第三次握手：<strong>TCP确认连接，告诉服务器，来就来</strong>。客户端发包，服务端收到了。这样服务端就能得出结论：客户端的接收、发送能力正常，服务器自己的发送、接收能力也正常。：客户端收到 SYN 报文之后，会发送一个 ACK 报文，当然，也是一样把服务器的 ISN + 1 作为 ACK 的值，表示已经收到了服务端的 SYN 报文，此时客户端处于 establised状态。</li>
 <li>服务器收到 ACK 报文之后，也处于 establised 状态，此时，双方以建立起了链接。</li>
 </ul>
+<p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/6A8%40I%7B(%7B%7E9%7EWM9K9LA%7BL)Y3.png" srcset="/img/loading.gif" lazyload></p>
 </li>
-<li><strong>四次挥手</strong><ul>
+<li><p><strong>四次挥手</strong></p>
+<ul>
 <li>第一次挥手：<strong>告诉服务器我数据发完了，你如果还有消息就快发完</strong>。客户端发送一个 FIN 报文，报文中会指定一个序列号。此时客户端处于CLOSED_WAIT1状态。</li>
 <li>第二次握手：<strong>告诉客户端我知道了，请继续等待我的消息</strong>。服务端收到 FIN 之后，会发送 ACK 报文，且把客户端的序列号值 + 1 作为 ACK 报文的序列号值，表明已经收到客户端的报文了，此时服务端处于 CLOSE_WAIT2状态。</li>
 <li>第三次挥手：<strong>告诉客户端消息发完了，你可以正式断开连接了</strong>。如果服务端也想断开连接了，和客户端的第一次挥手一样，发给 FIN 报文，且指定一个序列号。此时服务端处于 LAST_ACK的状态。</li>
 <li>第四次挥手：<strong>告诉服务器我等一会如果没有收到你回复我就断开了</strong>。客户端收到 FIN 之后，一样发送一个 ACK 报文作为应答，且把服务端的序列号值 + 1 作为自己 ACK 报文的序列号值，此时客户端处于 TIME_WAIT状态。需要过一阵子以确保服务端收到自己的 ACK 报文之后才会进入 CLOSED 状态</li>
 <li>服务端收到 ACK 报文之后，就处于关闭连接了，处于 CLOSED 状态。</li>
 </ul>
+<p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/ALG%5BIKSO(O%5BGQ0G6%7E%40AL%24G3.png" srcset="/img/loading.gif" lazyload></p>
 </li>
 </ul>
 <p><strong>总结</strong>：三次握手表示客户端和服务端进行连接的过程，四次挥手是两台设备断开连接做的什么</p>
@@ -2633,7 +2667,7 @@ CancelInvoke(&quot;MethodName&quot;) ： 停止当前脚本某个Invoke和Invoke
 </ul>
 </li>
 </ol>
-<h3 id="服务端和客户端需要做什么"><a href="#服务端和客户端需要做什么" class="headerlink" title="服务端和客户端需要做什么"></a>服务端和客户端需要做什么</h3><p>客户端：</p>
+<h3 id="TCP通信"><a href="#TCP通信" class="headerlink" title="TCP通信"></a>TCP通信</h3><p>客户端：</p>
 <ol>
 <li>创建套接字Socket </li>
 <li>用Connect方法与服务端相连</li>
@@ -2652,6 +2686,42 @@ CancelInvoke(&quot;MethodName&quot;) ： 停止当前脚本某个Invoke和Invoke
 <li>用Shutdown方法释放连接</li>
 <li>关闭套接字</li>
 </ol>
+<p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/25587017bb97d491f6c70d708caaeb4.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="UDP通信"><a href="#UDP通信" class="headerlink" title="UDP通信"></a>UDP通信</h3><blockquote>
+<p>UDP服务端和客户端</p>
+</blockquote>
+<ol>
+<li>创建套接字Socket</li>
+<li>用Bind方法将套接字与本地地址进行绑定 </li>
+<li>用ReceiveFrom和SendTo方法在套接字上收发消息 </li>
+<li>用Shutdown方法释放连接</li>
+<li>关闭套接字</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/1685011799566.jpg" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>如何将不可靠的UDP通信实现为可靠的UDP通信</p>
+</blockquote>
+<p>在消息中加入序号、消息总包数、自己的包ID、长度等等信息 并且实现消息确认、消息重发等功能	</p>
+<h3 id="FTP"><a href="#FTP" class="headerlink" title="FTP"></a>FTP</h3><blockquote>
+<p>FTP是什么? </p>
+</blockquote>
+<p>FTP是文件传输协议，就是一个在网络中上传下载文件的一套规则 </p>
+<blockquote>
+<p>FTP工作原理? </p>
+</blockquote>
+<p>FTP文件传输协议的本质是TCP通信，一般由两个TCP连接来完成工作</p>
+<h3 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h3><blockquote>
+<p>HTTP是什么</p>
+</blockquote>
+<p> HTTP超文本传输协议就是一个在网络中上传下载文件的一套规则</p>
+<blockquote>
+<p>HTTP工作原理（短连接）</p>
+</blockquote>
+<p> HTTP超文本传输协议的本质是TCP通信，连接—&gt;请求—&gt;响应—&gt;断开</p>
+<blockquote>
+<p>HTTP协议的请求类型和响应状态码 </p>
+</blockquote>
+<p>请求方法：GET和POST 响应状态码：1xx消息、2xx成功、3xx重定向、4xx请求错误、5xx服务器错误</p>
 <hr>
 <h2 id="🌙计算机图形学（基于Games101）"><a href="#🌙计算机图形学（基于Games101）" class="headerlink" title="🌙计算机图形学（基于Games101）"></a>🌙计算机图形学（基于Games101）</h2><blockquote>
 <p> <strong>笔记来自于：<a target="_blank" rel="noopener" href="https://www.yuque.com/gaoshanliushui-mbfny/sst4c5/oq643c">https://www.yuque.com/gaoshanliushui-mbfny/sst4c5/oq643c</a></strong></p>

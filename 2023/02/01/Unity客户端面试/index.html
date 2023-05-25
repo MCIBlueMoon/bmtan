@@ -52,6 +52,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%85%83%E7%BB%84.png">
 <meta property="og:image" content="https://img-blog.csdn.net/20160528132344296">
 <meta property="og:image" content="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/Lua%E5%8D%8F%E7%A8%8B.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/TCP%26UDP.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20210530224055792.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NzeTc3Nzc3Nw==,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20210530224106137.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NzeTc3Nzc3Nw==,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/V2QJXN%25LGY17_GWQIJ%24%7D1W1.png">
@@ -74,7 +75,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/49a4114d2323450792d15706511acdf4.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/842750f7516f4a62aa62e32a07190c1d.png">
 <meta property="article:published_time" content="2023-02-01T14:44:00.000Z">
-<meta property="article:modified_time" content="2023-03-08T09:41:41.700Z">
+<meta property="article:modified_time" content="2023-05-25T03:52:26.178Z">
 <meta property="article:author" content="Bmtan">
 <meta property="article:tag" content="Unity">
 <meta property="article:tag" content="C#">
@@ -274,7 +275,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          55k 字
+          67k 字
         
       </span>
     
@@ -285,7 +286,7 @@
         
         
         
-          462 分钟
+          562 分钟
         
       </span>
     
@@ -336,7 +337,7 @@
 <p>当对象变为可用或激活状态时此函数被调用。</p>
 </li>
 <li><p><strong>Start</strong></p>
-<p>仅在Update函数第一次被调用前调用。因为它是在Awake之后被调用的，我们可以把一些需要依赖Awake的变量放在Start里面初始化。 同时我们还大多在这个类中执行StartCoroutine进行一些协程的触发。要注意在用C#写脚本时，必须使用StartCoroutine开始一个协程，但是如果使用的是JavaScript，则不需要这么做。</p>
+<p>仅在Update函数第一次被调用前调用。因为它是在Awake之后被调用的，我们可以把一些需要依赖Awake的变量放在Start里面初始化。 同时我们还大多在这个类中执行StartCoroutine进行一些协程的触发。要注意在用C#写脚本时，必须使用StartCoroutine开始一个协程。</p>
 </li>
 <li><p><strong>Update</strong></p>
 <p>当MonoBehaviour启用时，其Update在每一帧被调用。</p>
@@ -378,6 +379,10 @@
 </blockquote>
 <p>Awake——&gt;OnEnable–&gt;Start——&gt;Update——&gt;FixedUpdate——&gt;LateUpdate——&gt;OnGUI——&gt;OnDisable——&gt;OnDestroy</p>
 <p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/06-05/Unity%E8%84%9A%E6%9C%AC%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<blockquote>
+<p>Unity中鼠标、键盘、触屏、手柄等输入事件会在Update 之前、还是之后、还是同时执行？</p>
+</blockquote>
+<p>之前</p>
 <h3 id="DrawCall问题"><a href="#DrawCall问题" class="headerlink" title="DrawCall问题"></a>DrawCall问题</h3><blockquote>
 <p>什么是DrawCall?</p>
 </blockquote>
@@ -454,8 +459,16 @@
 </ol>
 <p><img src="https://img-blog.csdnimg.cn/20210414152951987.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3podXl1cWlhbmcxMjM4,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="img"></p>
 <ol start="4">
-<li>选择菜单栏里面的 “Edit” -&gt; “Project Settings” -&gt; “Editor”</li>
-<li>在inspector面板里设置“Sprite Packers”下面的“Mode”选项，其中，“Disabled”表示关闭图集功能，“Enabled for Builds”表示打包发布时才打包图集，“Always Enable”表示始终打包图集；Enabled for Builds（Legacy Sprite Packer）表示打包发布时才打包图集（使用旧版技术）；“Always Enable（Legacy Sprite Packer）”表示始终打包图集（使用旧版技术）</li>
+<li><p>选择菜单栏里面的 “Edit” -&gt; “Project Settings” -&gt; “Editor”</p>
+</li>
+<li><p>在inspector面板里设置“Sprite Packers”下面的“Mode”选项，</p>
+<p>其中</p>
+<p>“Disabled”表示关闭图集功能，</p>
+<p>“Enabled for Builds”表示打包发布时才打包图集，</p>
+<p>“Always Enable”表示始终打包图集；</p>
+<p>Enabled for Builds（Legacy Sprite Packer）表示打包发布时才打包图集（使用旧版技术）；</p>
+<p>“Always Enable（Legacy Sprite Packer）”表示始终打包图集（使用旧版技术）</p>
+</li>
 </ol>
 <p><img src="https://img-blog.csdnimg.cn/2021041415304878.png" srcset="/img/loading.gif" lazyload alt="img"></p>
 <ol start="6">
@@ -538,6 +551,7 @@
 </li>
 <li><p><strong>协程（Coroutine）</strong>。</p>
 <p><font color = "red"><b>协程不是线程。协程的实现原理是迭代器，而迭代器的实现原理是状态机。</b></font></p>
+<p> <strong>协程是伴随着主线程一起运行的一段程序。</strong></p>
 <p><strong>是一种轻量级的线程</strong>，它可以在代码执行过程中暂停和恢复执行，避免了线程的上下文切换和锁竞争问题，同时协程也具有良好的可控性和可维护性。在 Unity 中，协程是通过 StartCoroutine 方法来启动的，<strong>协程的执行是在主线程中，而不是在一个独立的执行流程中。</strong></p>
 <p><strong>一般应用一个应用程序只使用线程这一“资源”</strong>。</p>
 <p>Unity只使用了一个线程，<strong>协程是一种”伪线程</strong>“。 </p>
@@ -550,6 +564,19 @@
 </ol>
 </li>
 </ul>
+<blockquote>
+<p>线程与协程的区别</p>
+</blockquote>
+<p><strong>协程(协同程序)</strong>: 同一时间只能执行某个协程。开辟多个协程开销不大。<strong>协程适合对某任务进行分时处理。</strong></p>
+<p><strong>线程:</strong> 同一时间可以同时执行多个线程。开辟多条线程开销很大。<strong>线程适合多任务同时处理。</strong></p>
+<p> <font color = "red"><b>线程和协同程序的主要不同在于</b></font>：<strong>在多处理器情况下，从概念上来讲多线程程序同时运行多个线程；而协同程序是通过协作来完成，在任一指定时刻只有一个协同程序在运行，并且这个正在运行的协同程序只在必要时才会被挂起。</strong></p>
+<blockquote>
+<p>协程的主要作用</p>
+</blockquote>
+<p><strong>延迟执行</strong>：协程可以延迟执行某个任务，从而在指定时间后执行相应的操作。</p>
+<p><strong>异步执行</strong>：协程可以在后台执行任务，从而避免卡顿和阻塞主线程。</p>
+<p><strong>任务管理</strong>：协程可以管理多个任务，从而实现更灵活和可控的代码执行顺序。</p>
+<p>协程是辅助主线程的操作，避免卡顿。</p>
 <blockquote>
 <p>什么是协同程序？</p>
 </blockquote>
@@ -596,14 +623,55 @@
 <p>Unity是否支持写成多线程程序？如果支持的话需要注意什么？</p>
 </blockquote>
 <p>1.只能从主线程访问Unity相关组件、对象以及<br>UnityEngine命名空间中的绝大部分内容<br>2.如果多线程中要和Unity主线程同时修改一些数据<br>可以通过lock关键词加锁</p>
+<h3 id="Unity-Invoke问题"><a href="#Unity-Invoke问题" class="headerlink" title="Unity Invoke问题"></a>Unity Invoke问题</h3><ol>
+<li><strong>Invoke</strong></li>
+</ol>
+<p>​       <strong>Invoke() 方法是 Unity3D 的一种委托机制</strong></p>
+<p>​    如： Invoke(“Test”, 5);  它的意思是：5 秒之后调用 Test() 方法；</p>
+<p>注意：</p>
+<pre><code class="hljs">    1 ：它应该在 脚本的生命周期里的（Start、Update、OnGUI、FixedUpdate、LateUpdate）中被调用；
+    2：Invoke(); 不能接受含有参数的方法；
+    3：在 Time.ScaleTime = 0; 时， Invoke() 无效，因为它不会被调。
+</code></pre>
+<ol start="2">
+<li><p><strong>InvokeRepeating</strong><br> <strong>InvokeRepeating(“Test”, 2 , 3);</strong> </p>
+<p> 这个方法的意思是指：2 秒后调用 Test() 方法，并且之后每隔 3 秒调用一次 Test() 方法。</p>
+<p> 被激活时设置了，但是此时将引擎对象设置为false,还会被执行。</p>
+<pre><code class="hljs">还有三个重要的方法：
+
+IsInvoking：用来判断某方法是否被延时，即将执行。
+CancelInvoke()  : 停止当前脚本中所有的Invoke和InvokeRepeating方法。
+CancelInvoke(&quot;MethodName&quot;) ： 停止当前脚本某个Invoke和InvokeRepeating方法。
+</code></pre>
+</li>
+</ol>
+<blockquote>
+<p>Invoke与协程的区别</p>
+</blockquote>
+<p><strong>Invoke方法</strong>：执行没有被挂起，相当于设置完被调用函数的执行时间后即时向下执行。应用到每隔一段时间执行某个函数很方便。</p>
+<p><strong>Coroutine方法</strong>：新开一条执行序列（跟新建线程差不多）并挂起，等待中断指令结束。开销不大。当需要挂起当前执行时使用。</p>
+<p>协程的效率比Invoke高。</p>
+<blockquote>
+<p>正在运行的脚本，隐藏物体与禁止脚本导致OnDisable，Invoke与coroutine是否正常运行？</p>
+</blockquote>
+<p><strong>如果把物体直接隐藏：Invoke正常运行，coroutine不会正常运行。</strong></p>
+<p><strong>原因：</strong></p>
+<p>​    因为游戏物体隐藏了，一切与游戏物体相关的脚本生命周期都会停止，协程自然也会停止 ；    </p>
+<p>​    如果游戏对象没有隐藏，只是将脚本隐藏，游戏对象照样可以通过反射获取协程迭代器对象继续协程的执行。</p>
 <h3 id="Unity坐标系问题"><a href="#Unity坐标系问题" class="headerlink" title="Unity坐标系问题"></a>Unity坐标系问题</h3><blockquote>
 <p>本地坐标系 世界坐标系</p>
 </blockquote>
 <ul>
 <li><strong>世界坐标系</strong>：世界坐标是指物体在场景中的坐标，当某个物体没有父物体时，它的position即为世界坐标的position，rotation同理；本地坐标是物体相对于它的父物体的坐标而言，这个相对坐标是以父物体本身为坐标轴进行计算的，与世界坐标没有必然联系。而对于没有父物体的物体，可以认为不存在本地坐标这种说法。</li>
 <li><strong>本地坐标系</strong>：当某个物体有父物体时，它的inspector栏transform中的position实际是localposition，即本地坐标。</li>
-<li><strong>使用TransformPoint方法将本地坐标系转为世界坐标系</strong></li>
 </ul>
+<blockquote>
+<p>Unity中如何将本地坐标转为世界坐标？</p>
+</blockquote>
+<ol>
+<li>使用TransformPoint方法将本地坐标系转为世界坐标系</li>
+<li>用本地坐标加上父对象相对世界的坐标（如果有多层父子关系，不停地往上加即可）</li>
+</ol>
 <blockquote>
 <p>transform.forward和Vector3.forword的区别</p>
 </blockquote>
@@ -708,6 +776,12 @@
 <p>由一个完整的网格模型构成，在动画序列的关键帧里记录各个顶点的原位置及其改变量，然后插值运算实现动画效果，角色动画较真实。</p>
 </li>
 </ul>
+<blockquote>
+<p><strong>Animation和Animator的区别</strong></p>
+</blockquote>
+<p>Animation和Animator 虽然都是控制动画的播放，但是它们的<strong>用法和相关语法都是大有不同</strong>的。</p>
+<p><strong>Animation控制一个动画的播放</strong>，而<strong>Animator是多个动画之间相互切换</strong>，并且Animator有一个动画控制器，俗称动画状态机。</p>
+<p>Animator利用它做动画的切换是很方便的，但是它有一个缺点就是占用内存比Animation大。</p>
 <h3 id="Unity-光源问题"><a href="#Unity-光源问题" class="headerlink" title="Unity 光源问题"></a>Unity 光源问题</h3><blockquote>
 <p>Unity提供了几种光源，分别是什么</p>
 </blockquote>
@@ -738,6 +812,36 @@
 <p>景物表面上那些被某些特定光源直接照射但并非被所有特定光源直接照射的区域（半明半暗区域）</p>
 </li>
 </ul>
+<h3 id="Unity-渲染问题"><a href="#Unity-渲染问题" class="headerlink" title="Unity 渲染问题"></a>Unity 渲染问题</h3><blockquote>
+<p>在Unity中如何控制渲染优先级？</p>
+</blockquote>
+<ol>
+<li>不同摄像机渲染时，摄像机深度（Camera depth）控制优先级</li>
+<li>相同摄像机时，排序层级（Sorting Layer）控制优先级</li>
+<li>相同排序层级时，层中的顺序（Order in Layer）控制优先级</li>
+<li>相同摄像机，无排序层级属性时，Shader中的RenderQueue（渲染队列）控制优先级</li>
+</ol>
+<blockquote>
+<p>Unity中场景中一个处于激活状态的物体(场景上只有这一个物体)，不能被摄像机渲染出来，可能有几种情况？（至少说出3种可能的情况）</p>
+</blockquote>
+<ol>
+<li>在摄像机可视范围外（视口范围外）</li>
+<li>在摄像机可视范围外（远近裁剪面之外范围）</li>
+<li>物体的层级不能被摄像机渲染</li>
+<li>该物体使用了透明材质，处于透明状态</li>
+<li>该物体使用了单面渲染材质，摄像机看到的是该物体的背面</li>
+<li>如果存在多摄像机，摄像机深度可能会影响<br>等等</li>
+</ol>
+<blockquote>
+<p>解释一下Unity中的渲染管线（Rendering Pipeline）是什么，如何使用它，并举例说明它在游戏开发中的应用场景。</p>
+</blockquote>
+<p><strong>几何图形的准备</strong>：将场景中的几何图形转换为渲染引擎可以理解的形式，例如将3D模型转换为网格数据（Mesh）和材质信息。</p>
+<p><strong>光照计算</strong>：计算场景中每个几何图形的光照效果，包括直接光照和间接光照。</p>
+<p><strong>视点变换</strong>：根据摄像机的位置和方向将场景中的几何图形转换为摄像机的视图空间（View Space）坐标系下的形式。</p>
+<p><strong>投影变换</strong>：将摄像机的视图空间坐标系下的几何图形转换为投影坐标系下的形式。</p>
+<p><strong>图像空间计算</strong>：将投影坐标系下的几何图形转换为屏幕上的像素坐标。</p>
+<p><strong>着色</strong>：根据材质信息和光照信息对几何图形进行着色，计算每个像素的颜色值。</p>
+<p><strong>合成</strong>：将所有的像素颜色值按照一定的顺序合成为最终的图像，输出到屏幕上。</p>
 <h3 id="Unity-贴图问题"><a href="#Unity-贴图问题" class="headerlink" title="Unity 贴图问题"></a>Unity 贴图问题</h3><blockquote>
 <p>LOD是什么，优缺点是什么？</p>
 </blockquote>
@@ -754,9 +858,9 @@
 <p>LOD（多细节层次）和 MipMap（纹理图）的作用是什么？</p>
 </blockquote>
 <ul>
-<li>优化游戏性能<br>从不同距离渲染对象时，使用的是质量不同的模型(LOD)和贴图(Mipmap)。（一般情况是越远面数越低，图片越小）</li>
+<li><strong>优化游戏性能</strong><br>从不同距离渲染对象时，使用的是质量不同的模型(LOD)和贴图(Mipmap)。（一般情况是越远面数越低，图片越小）</li>
 </ul>
-<h3 id="Unity-UI问题"><a href="#Unity-UI问题" class="headerlink" title="Unity UI问题"></a>Unity UI问题</h3><blockquote>
+<h3 id="Unity-UI问题"><a href="#Unity-UI问题" class="headerlink" title="Unity UI问题"></a>Unity UI问题</h3><h4 id="Canvas问题"><a href="#Canvas问题" class="headerlink" title="Canvas问题"></a>Canvas问题</h4><blockquote>
 <p>UGUI中的Canvas以及三种画布渲染模式区别</p>
 </blockquote>
 <ol>
@@ -829,8 +933,12 @@
 <td>3D UI</td>
 </tr>
 </tbody></table>
+<h4 id="Image和Rawlmage的区别"><a href="#Image和Rawlmage的区别" class="headerlink" title="Image和Rawlmage的区别"></a>Image和Rawlmage的区别</h4><p>1.lmgae比Rawlmage更消耗性能。</p>
+<p>2.lmage只能使用Sprite属性的图片，但是Rawlmage什么样的都可以使用。</p>
+<p>3.Image适合放一些有操作的图片，裁剪平铺旋转什么的，针对Image Type属性。RawImage就放单独展示的图片就可以，性能会比Image好很多。</p>
+<h4 id="unity中的UI层为什么要分为动态和静态"><a href="#unity中的UI层为什么要分为动态和静态" class="headerlink" title="unity中的UI层为什么要分为动态和静态"></a>unity中的UI层为什么要分为动态和静态</h4><p>动态分离出来也是为了减少绘制次数，动态的话 Canves会重新绘制，不分开就会重新绘制一遍静态和动态，增加DC。</p>
 <h3 id="Unity-数学问题"><a href="#Unity-数学问题" class="headerlink" title="Unity 数学问题"></a>Unity 数学问题</h3><h4 id="数学问题"><a href="#数学问题" class="headerlink" title="数学问题"></a>数学问题</h4><p><font color = " red"><b>插值运算</b></font></p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs C#">Mathf.Lerp(start,end,t);<br><span class="hljs-comment">//线性插值</span><br>Vector3.Lerp(start,end,t);<br><span class="hljs-comment">//球形插值</span><br>Vector3.Slerp(strart,end,t);<br></code></pre></td></tr></table></figure>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs C#">Mathf.Lerp(start,end,t);<br><span class="hljs-comment">//线性插值</span><br>Vector3.Lerp(start,end,t);<br>两个向量之间的线性差值，适用于从某点移动到某点（或跟随某物体），缓动效果。<br><span class="hljs-comment">//球形插值</span><br>Vector3.Slerp(strart,end,t);<br>两个向量之间的球形（弧线）差值，适用于从某点移动到某点（或跟随某物体），缓动效果，当前位置与目标位置距离越远，效果越明显。非匀速。<br></code></pre></td></tr></table></figure>
 
 <p><strong>Res:</strong><br>$$<br>start + (end - start) * t<br>$$<br>t ：插值系数 取值范围 0~1</p>
 <p><strong>作用：</strong></p>
@@ -846,8 +954,13 @@
 <p><strong>三角函数</strong></p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-comment">//弧度转角度</span><br><span class="hljs-comment">//弧度 * 57.3f = 对应角度</span><br><span class="hljs-built_in">float</span> rad = <span class="hljs-number">1</span>;<br><span class="hljs-built_in">float</span> anger = rad * Mathf.Rad2Deg;<br><br><span class="hljs-comment">//角度转弧度</span><br><span class="hljs-comment">//角度 * 0.01745 = 对应弧度</span><br>anger = <span class="hljs-number">1</span>;<br>rad = anger * Mathf.Deg2Rad;<br><br><span class="hljs-comment">//三角函数</span><br><span class="hljs-comment">//Mathf的三角函数相关函数，传入的参数需要弧度值</span><br>Mathf.Sin(<span class="hljs-number">30</span> * Mathf.Deg2Rad);<br>Mathf.Cos(<span class="hljs-number">60</span> * Mathf.Deg2Rad);<br><br><span class="hljs-comment">//反三角函数</span><br>rad = Mathf.Asin(<span class="hljs-number">0.5f</span>);<br>print(rad * Mathf.Rad2Deg);<br><br></code></pre></td></tr></table></figure>
 
+<blockquote>
+<p>Unity中使用的是左手还是右手坐标系？我们需要注意什么？</p>
+</blockquote>
+<p><strong>左手坐标系</strong><br>在进行向量相关计算时，要注意左手和右手坐标系的区别</p>
 <hr>
 <h4 id="坐标系"><a href="#坐标系" class="headerlink" title="坐标系"></a>坐标系</h4><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-comment">//世界转本地</span><br><span class="hljs-keyword">this</span>.transform.InverseTransformDirection;<br><span class="hljs-keyword">this</span>.transform.InverseTransformPoint;<br><span class="hljs-keyword">this</span>.transform.InverseTransformVector;<br><br><span class="hljs-comment">//本地转世界</span><br><span class="hljs-keyword">this</span>.transform.TransformDirection;<br><span class="hljs-keyword">this</span>.transform.TransformPoint;<br><span class="hljs-keyword">this</span>.transform.TransformVector;<br><br><span class="hljs-comment">//世界转屏幕</span><br>Camera.main.WorldToScreenPoint;<br><span class="hljs-comment">//屏幕转世界</span><br>Camera.main.ScreenToWorldPoint;<br><br><span class="hljs-comment">//世界转视口</span><br>Camera.main.WorldToViewportPoint;<br><span class="hljs-comment">//视口转世界</span><br>Camera.main.ViewportToWorldPoint;<br><br><span class="hljs-comment">//视口转屏幕</span><br>Camera.main.ViewportToScreenPoint;<br><span class="hljs-comment">//屏幕转视口</span><br>Camera.main.ScreenToViewportPoint;<br></code></pre></td></tr></table></figure>
+
 
 <hr>
 <h4 id="向量问题"><a href="#向量问题" class="headerlink" title="向量问题"></a>向量问题</h4><p>$$<br>AB &#x3D; B - A<br>$$</p>
@@ -869,6 +982,15 @@
 <li><strong>判断对象的方位</strong></li>
 <li><strong>计算两向量之间的夹角</strong></li>
 </ol>
+<blockquote>
+<p>用点乘实现散弹角度实现机制</p>
+</blockquote>
+<p> 以枪口方向为轴，上下或者左右为展开方向。获取夹角。利用点乘的方法。</p>
+<ol>
+<li>通过Vector3.Dot（向量A，向量B）获取两个向量的点乘C。</li>
+<li>然后通过Acos C 然后由弧度转换为角度即可。</li>
+<li>弧度乘以Mathf.Rad2Deg得到角度;</li>
+</ol>
 <p><font color = "red"><b>叉乘作用</b></font></p>
 <ol>
 <li><p><strong>获取一个平面的法向量</strong></p>
@@ -889,6 +1011,13 @@
 
 <p>叉乘结果 y &gt; 0 右侧</p>
 <p>叉乘结果 y &lt; 0 左侧</p>
+<blockquote>
+<p>Unity中如何计算出两个向量之间的夹角，请说出两种方式</p>
+</blockquote>
+<ol>
+<li>利用Vector3中的API：<strong>Vector3.Angle</strong></li>
+<li>先使用 <strong>Vector3.Dot 算出方向向量点乘结果</strong>，再<strong>通过Mathf.Acos反三角函数算出弧度</strong>，再将<strong>弧度转为角度</strong></li>
+</ol>
 <blockquote>
 <p>矩阵相乘的意义及注意点</p>
 </blockquote>
@@ -1023,6 +1152,199 @@
 </li>
 </ul>
 <hr>
+<h3 id="Unity-性能优化"><a href="#Unity-性能优化" class="headerlink" title="Unity 性能优化"></a>Unity 性能优化</h3><p><strong>内存：</strong></p>
+<ol>
+<li><p>尽量要占用少</p>
+<ul>
+<li><strong>使用对象池：</strong>对象池是一种常见的技术，用于缓存和重复使用游戏对象，而不是频繁地创建和销毁它们。使用对象池可以减少内存分配和垃圾回收的开销，从而提高游戏性能。</li>
+<li><strong>减少资源占用：</strong>在开发过程中，应该尽量避免使用过多的高分辨率纹理和复杂的模型。可以使用纹理压缩、减少纹理尺寸、使用轻量级的模型等方式来减小资源占用。</li>
+<li><strong>及时销毁不再使用的对象：</strong>当游戏中不再需要使用某些对象时，应该及时销毁它们，以释放它们占用的内存。尤其是一些长时间存在的对象，如粒子系统、音频和视频资源等，都应该及时销毁。</li>
+<li><strong>使用异步加载：</strong>如果游戏中需要加载大量的资源，可以使用异步加载技术。异步加载可以减少游戏卡顿和内存占用，从而提高游戏性能。可以使用Unity提供的异步加载API或者自定义异步加载方式来实现异步加载。</li>
+<li><strong>使用资源打包：</strong>在打包游戏时，可以使用资源打包技术来减少游戏的内存占用。资源打包可以将多个资源打包成一个单独的文件，从而减小游戏的内存占用。可以使用Unity提供的Asset Bundle功能或者自定义打包方式来实现资源打包。</li>
+</ul>
+</li>
+<li><p>减少GC</p>
+</li>
+</ol>
+<p><strong>CPU&#x2F;GPU性能</strong></p>
+<ol>
+<li><p><strong>减少Draw Call</strong>：在Unity中，每次渲染一个物体都会使用一个Draw Call。过多的Draw Call会导致渲染性能下降，因此应该尽量减少它们的数量。可以通过合并网格、使用物体批处理和减少物体数量等方式来减少Draw Call。</p>
+</li>
+<li><p><strong>使用级别LOD</strong>：如果场景中有大量的物体，可以使用级别LOD技术来优化性能。通过在远离玩家的位置使用低分辨率的网格，可以降低渲染开销，提高性能。</p>
+</li>
+<li><p><strong>合理使用资源</strong>：在开发过程中，应该尽量避免使用过多的高分辨率纹理和复杂的模型。可以使用纹理压缩、减少纹理尺寸、使用轻量级的模型等方式来减小资源占用。</p>
+</li>
+<li><p><strong>使用光照贴图</strong>：在游戏中，光照是非常重要的，但是使用动态光照会带来很大的渲染开销。因此，可以使用光照贴图来减少动态光照的数量。光照贴图可以在编辑器中生成，并且可以有效地提高游戏的性能。</p>
+</li>
+<li><p><strong>使用对象池</strong>：对象池是一种常见的技术，用于缓存和重复使用游戏对象，而不是频繁地创建和销毁它们。使用对象池可以减少内存分配和垃圾回收的开销，从而提高游戏性能。</p>
+</li>
+</ol>
+<h3 id="Unity-对象移动"><a href="#Unity-对象移动" class="headerlink" title="Unity 对象移动"></a>Unity 对象移动</h3><p><strong>1.Transform</strong></p>
+<p>​    通过 Update 函数每帧更新其位置来达到移动目的。</p>
+<p>​     <strong>1.1 Transform.position</strong></p>
+<p>​    向量相加</p>
+<p>​    最基础的移动方式，每帧+&#x3D;计算好的新位置，更加直观。 </p>
+<p>​     <strong>1.2 Transform.Translate</strong></p>
+<p>​    在平移的方向和距离上移动变换。</p>
+<p>​    <strong>每秒</strong>向某方向移动多少距离，此种方法和上一种没有太大区别，但当需要坐标转换时，使用此方法可省略转换步骤。</p>
+<p><strong>2. Vector3</strong></p>
+<p>​	Vector3 类型可以存储物体的位置、方向。 V3 自带的类方法通过对位置的一些运算得到相对平滑的参数，其移动本质还是修改物体的 position。</p>
+<ol start="2">
+<li>1 <strong>Vector3.Lerp</strong></li>
+</ol>
+<p>​	两个向量之间的线性插值，适用于从某点移动到某点（或跟随某物体），缓动效果。</p>
+<ol start="2">
+<li>2 <strong>Vector3.Slerp</strong></li>
+</ol>
+<p>​	两个向量之间的球形（弧线）插值，适用于从某点移动到某点（或跟随某物体），缓动效果，当前位置与目标位置距离越远，效果越明显。<strong>非匀速。</strong></p>
+<ol start="2">
+<li>3 <strong>Vector3.MoveTowards</strong></li>
+</ol>
+<p>​	和 Lerp 函数基本相同，但此函数多了一个最大速度限制，且是<strong>匀速</strong>朝目标运动，而 Lerp 和 Slerp 则是将抵达位置时放缓（减速）</p>
+<ol start="2">
+<li><p>4 <strong>Vector3.SmoothDamp</strong></p>
+<p>​	官方翻译为：“平滑阻尼”，无比丝滑的从 A 移动到 B 点，速度可控，比较适用于摄像机跟随，Lerp 也比较适用于摄像机跟随</p>
+</li>
+</ol>
+<p><strong>3. Rigidbody</strong></p>
+<p>​	Rigidbody 组件通过物理模拟来控制一个物体的位置，当使用此组件控制物体移动时，应在 FixedUpdate 函数中更新数据，该方法会在每一次执行物理模拟前被调用，这样要比 Update 函数更加精确。</p>
+<p>​	<strong>3.1</strong> <strong>AddForce</strong></p>
+<p>​    添加一个方向的力到刚体，刚体将开始移动，这种方式适合模拟外力作用下的刚体运动，如子弹。但注意，此力是累加的，不适合重复施加力来模拟物体！</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs reasonml"><span class="hljs-constructor">AddForce(有方向的力(V3)</span>，力的模式(ForceMode,默认：ForceMode.Force))<br><br><span class="hljs-constructor">ForceMode(力的模式)</span>:<br><br><span class="hljs-number">1.</span><span class="hljs-constructor">Force(可持续的力，受质量影响)</span><br><br><span class="hljs-number">2.</span><span class="hljs-constructor">Acceleration(可持续的加速度，不受质量影响)</span><br><br><span class="hljs-number">3.</span><span class="hljs-constructor">Impulse(一个瞬间冲击力，受质量影响)</span><br><br><span class="hljs-number">4.</span><span class="hljs-constructor">VelocityChange(一个瞬间速度变化，不受质量影响)</span><br><br>  public <span class="hljs-built_in">float</span> forceNumber = <span class="hljs-number">20</span>f;<br> <br>     public Rigidbody rig; <span class="hljs-comment">//获取当前物体的刚体组件</span><br> <br>     void <span class="hljs-constructor">FixedUpdate()</span><br> <br>     &#123;<br> <br>         Vector3 force = <span class="hljs-keyword">new</span> <span class="hljs-constructor">Vector3(0, 0, <span class="hljs-params">forceNumber</span>)</span>;<br> <br>         rig.<span class="hljs-constructor">AddForce(<span class="hljs-params">force</span>, ForceMode.Force)</span>;<br>     &#125; <br><br><br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>2 <strong>MovePosition</strong></li>
+</ol>
+<p>​	移动刚体到一个新的位置，移动的同时受到物理模拟的影响。</p>
+<ol start="3">
+<li>3 <strong>Velocity</strong></li>
+</ol>
+<p>​	瞬间给一个物体恒定的速度，将该物体提升到这个速度，保持。相比较 AddForce 更加适合跳跃功能。每次跳跃都是恒定高度。做跳跃的话： </p>
+<ol start="4">
+<li><strong>Character Controller</strong></li>
+</ol>
+<p>​	角色控制器顾名思义，是 Unity 推出的特别用于角色移动的组件，使用角色控制器的物体有刚体的效果，但不会翻滚（意思是运动仅受限于碰撞体，不受其他因素影响），很适合角色移动。还可以设置斜坡参数，一定坡度自动抬升，本身也是个碰撞体。</p>
+<p>​	4 .1 <strong>SimpleMove</strong></p>
+<p>​    以一定速度移动角色，<strong>以秒为单位</strong>，无需乘以时间，<strong>具备重力。</strong></p>
+<p>​	4 .2 <strong>Move</strong></p>
+<p>​    以一定速度移动角色,不具备重力，需要自行计算下落</p>
+<h3 id="Unity-寻路"><a href="#Unity-寻路" class="headerlink" title="Unity 寻路"></a>Unity 寻路</h3><p>NavMesh是一种基于多边形网络的寻路导航系统，整个寻路分为导航网格的构建和寻路算法两个部分。</p>
+<p>（1）烘焙导航网格</p>
+<p>（2）需要导航的物体添加 NavMeshAgent 组件</p>
+<p>（3）运行时候使用 NavMeshAgent.SetDestination 函数进行导航</p>
+<h3 id="Unity-Mask实现原理"><a href="#Unity-Mask实现原理" class="headerlink" title="Unity Mask实现原理"></a>Unity Mask实现原理</h3><p><strong>Mask的实现原理：</strong></p>
+<ol>
+<li>Mask会赋予Image一个特殊的材质，这个材质会给Image的每个像素点进行标记，将标记结果存放在一个缓存内（这个缓存叫做 Stencil Buffer）</li>
+<li>当子级UI进行渲染的时候会去检查这个 Stencil Buffer内的标记，如果当前覆盖的区域存在标记（即该区域在Image的覆盖范围内），进行渲染，否则不渲染。</li>
+</ol>
+<h3 id="Unity-帧同步"><a href="#Unity-帧同步" class="headerlink" title="Unity 帧同步"></a>Unity 帧同步</h3><blockquote>
+<p> 什么是帧同步？</p>
+</blockquote>
+<p><strong>帧同步是一种前后端数据同步的方式，一般应用于对实时性要求很高的网络游戏。</strong></p>
+<p><strong>基本实现流程及思路可以概括为</strong></p>
+<ol>
+<li>所有客户端每帧上传操作指令集到服务器;</li>
+<li>服务端将这些操作指令集保存到对应帧序列字典，并记录帧号，并在下一帧将其广播给所有客户端;</li>
+<li>客户端收到指令集后，分别按帧序，帧号进行执行指令集中的操作命令。</li>
+<li>也就是：<strong>相同的时机(帧序列) + 相同的操作命令(指令集-确定性) &#x3D; 相同的结果(帧同步)</strong></li>
+</ol>
+<h3 id="Unity的GC"><a href="#Unity的GC" class="headerlink" title="Unity的GC"></a>Unity的GC</h3><ol>
+<li><p><strong>贝姆垃圾收集器</strong></p>
+<p>Untiy使用的GC机制是通过贝姆垃圾收集器（Boehm GC）来实现的，是应用在C&#x2F;C++语言上的一个保守的垃圾回收器，同时也适用于其它执行环境的各类编程语言，比如我们使用的基于mono实现的C#。</p>
+</li>
+<li><p><strong>回收机制</strong></p>
+</li>
+</ol>
+<p>​	Unity的GC的是采用 <strong>贝姆垃圾收集器</strong> ，本质上采用的是<strong>非分代非压缩的标记清除算法</strong>。</p>
+<p>​	它会在需要进行GC时占用主线程，进行<strong>遍历-标记-垃圾回收</strong>的过程，然后在归还主线程控制权。这会导致帧数的突然下降，产生卡顿（不过因为该实现是非压缩式的，所以卡顿现象相对较轻，但是对内存利用率进一步下降了，会有内存碎片的问题）。</p>
+<p>​	所以我们需要慎重地处理对象的创建（内存请求），还有释放（使用GC管理内存是没有主动释放内存的接口的，但是我们可以通过消除对某个对象的引用来做到这一点）。此外，Unity的代码分为两部分：<strong>托管与非托管</strong>，GC影响的只有托管部分的代码使用的堆内存。而且这个托管堆占用的地址空间不会返还给操作系统。</p>
+<p>​	标记清楚算法可以解决两个变量相互引用，产生标记的现象。</p>
+<ol start="3">
+<li><p><strong>托管堆的垃圾回收机制</strong></p>
+<p> Unity使用的垃圾机制是<strong>Boehm GC算法</strong>，他是<strong>非分代，非压缩</strong>的。<strong>非分代意味着每次回收都需要扫描整个堆</strong>，而<strong>非压缩则意味着内存分配后整个托管堆会存在间隙或者说内存碎片</strong>。这两个特点意味着Unity中托管堆的垃圾回收机制会耗时较长而且内存利用率存在着问题。</p>
+</li>
+<li><p><strong>整个垃圾回收的流程</strong></p>
+<ol>
+<li><p>停止所有进行托管堆内存分配的线程。        </p>
+</li>
+<li><p>找到所有不再被需要的内存，将其标记为垃圾。</p>
+</li>
+<li><p>将所有被标记的内存释放到空闲内存。</p>
+</li>
+<li><p>恢复之前停止的托管堆内存分配的线程。</p>
+</li>
+</ol>
+</li>
+<li><p><strong>GC优化</strong><br> GC对性能影响的原因（占用主线程进行大量工作），而优化GC即是减小占用GC占用主线程时花费的CPU时间，所以优化GC优化的是CPU时间，而非内存。</p>
+</li>
+</ol>
+<h3 id="Unity和Android与iOS如何交互？"><a href="#Unity和Android与iOS如何交互？" class="headerlink" title="Unity和Android与iOS如何交互？"></a>Unity和Android与iOS如何交互？</h3><p>UnitySendMessage(“Cube111”,”methodName111”,”传给unity。。。”);</p>
+<h3 id="Unity-Text-和-TMPtext的区别-优缺点"><a href="#Unity-Text-和-TMPtext的区别-优缺点" class="headerlink" title="Unity Text 和 TMPtext的区别 优缺点"></a>Unity Text 和 TMPtext的区别 优缺点</h3><p>​		Text是像素渲染放大之后就会模糊，<strong>使用Text父物体的放大缩小会影响子物体Text的清晰度</strong>， <strong>TMPtext不会，它是网格渲染TMPtext会把字体生成一个类似于贴图的东西然后读取贴图的坐标来获取对应的文字</strong>，更换文字的<strong>消耗会比Text大</strong>，<strong>TMPtext适用于那种不会变动的文字</strong>，特别是在量大的情况下，性能比Text高一些，需要<strong>经常变动的问题用Text好点</strong>，TMPtext在字体库很大的情况下查找更换会比较慢。</p>
+<h3 id="Unity-行为树和有限状态机"><a href="#Unity-行为树和有限状态机" class="headerlink" title="Unity 行为树和有限状态机"></a>Unity 行为树和有限状态机</h3><p><strong>有限状态机系统</strong>：是指在不同阶段会呈现出不同的运行状态的系统，这些状态是有限的、不重叠的。这样的系统在某一时刻一定会处于其所有状态中的一个状态，此时它接收一部分允许的输入，产生一部分可能的响应，并且迁移到一部分可能的状态。</p>
+<ol>
+<li>基本节点是状态：他包含了一系列运行在该状态的行为以及离开这个状态的条件。</li>
+</ol>
+<ol start="2">
+<li><p>状态可以任意跳转,实现简单,但是对于大的状态机很难维护，状态逻辑的重用性低。</p>
+</li>
+<li><p>每一个状态的逻辑会随着一些新状态的增加而越来越复杂。维持状态的数量和状态逻辑复杂性是一个很大的难点。需要合理的分割以及重用状态。</p>
+</li>
+<li><p>状态机状态的复用性很差，一旦一些因素变化导致这个环境发生变化。你只能新增一个状态，并且给这个新状态添加连接他以及其他状态的跳转逻辑。</p>
+</li>
+<li><p>状态机的跳转条件一旦不满足，就会一直卡在某一个状态。</p>
+</li>
+</ol>
+<p><strong>行为树：</strong>一个流行的AI技术，涵盖了层次状态机，事件调度，事件计划，行为等一系列技术。实现AI的过程更加得有技巧，框架设计者较为全面考虑了我们可能会遇到的种种情况，把每种情况都抽象成了一个类型的节点，而我们要做的就是按照规范去写节点，然后把节点连接成一颗行为树。更加得具有面向对象的味道，行为模块间的藕合度相对较低。</p>
+<ol>
+<li>高度模块化状态，去掉状态中的跳转逻辑，使得状态变成一个“行为”。</li>
+</ol>
+<ol start="2">
+<li><p>“行为”和”行为”之间的跳转是通过父节点的类型来决定的。比如并行处理两个行为，在状态机里面无法同时处理两个状态。</p>
+</li>
+<li><p>通过增加控制节点的类型，可以达到复用行为的目的。</p>
+</li>
+<li><p>可视化编辑。</p>
+</li>
+</ol>
+<p><strong>行为树的概念</strong>：</p>
+<p>对于<strong>有限状态机</strong>而言，<strong>必须明确状态的转换方式</strong>；</p>
+<p>对于<strong>行为树</strong>，必须明确状态前提：<strong>前提条件</strong>。</p>
+<p>每一个行为必须有“前提条件” ，这决定了该行为是否被选择。<br>行为树的运算也是通过帧循环的update来驱动，不一定是每帧都update，但是要周期性update。<br>每一次run从根节点(root)开始，每一运行都会选择一个可行的子节点运行，这种选择可以是随机方式，也可以是预设好优先条件。<br>行为树由叶子节点和中间节点组成，叶子节点是最基本的行为(如跑动，攻击)，中间节点代表逻辑单元(巡逻，逃跑)。<br>当一个叶子节点被选择后，就会激活其对应的基本的行为。<br>最基本的行为可能执行成功也可能失败。<br>高等级的行为（中间节点）是否执行成功依赖于他们的孩子节点是否执行成功。<br>一个子节点失败可能导致父母节点选择另外一个孩子。<br>除了选择(selector)一个单独的子节点行为，一个节点还可能顺序(sequence)or并行(concurrent)得运行他的所有子节点。<br>一个行为除了有前提条件，可能还有上下文条件(父节点or孩子节点可能存储一定的状态变量)。<br>高优先级的行为可能抢占低优先级的行为。<br>优点：</p>
+<ol>
+<li><p>行为逻辑和状态数据分离，任何节点写好以后可以反复利用。</p>
+</li>
+<li><p>重用性高，可用通过重组不同的节点来实现不同的行为树。</p>
+</li>
+<li><p>呈线性的方式扩展，易于扩展。</p>
+</li>
+<li><p>可配置，把工作交给designer。</p>
+</li>
+<li><p>能够胜任”AI” “掉宝”等等场景。</p>
+</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li><p>每一帧都从root开始，有可能会访问到所有的节点，相对State Machine消耗更多的cpu。</p>
+</li>
+<li><p>任何一个简单的操作都必须要使用节点。</p>
+</li>
+</ol>
+<h3 id="Unity中判断两个2D矩形是否相交，有几种方式？（请至少说出两种方式）"><a href="#Unity中判断两个2D矩形是否相交，有几种方式？（请至少说出两种方式）" class="headerlink" title="Unity中判断两个2D矩形是否相交，有几种方式？（请至少说出两种方式）"></a>Unity中判断两个2D矩形是否相交，有几种方式？（请至少说出两种方式）</h3><ol>
+<li>使用Unity物理系统进行碰撞检测</li>
+<li>使用Unity中范围检测相关API</li>
+<li>自己写算法进行检测</li>
+</ol>
+<h3 id="Unity制作物理游戏相关功能时，我们采用哪种方式处理位移？为什么？"><a href="#Unity制作物理游戏相关功能时，我们采用哪种方式处理位移？为什么？" class="headerlink" title="Unity制作物理游戏相关功能时，我们采用哪种方式处理位移？为什么？"></a>Unity制作物理游戏相关功能时，我们采用哪种方式处理位移？为什么？</h3><p>通过刚体相关API来处理位移，比如加力、改变刚体速度变量<br>原因：在碰撞检测时能更准确无误</p>
+<h3 id="Unity中想要制作角色的连招功能，在制作状态机时我们一般如何处理？"><a href="#Unity中想要制作角色的连招功能，在制作状态机时我们一般如何处理？" class="headerlink" title="Unity中想要制作角色的连招功能，在制作状态机时我们一般如何处理？"></a>Unity中想要制作角色的连招功能，在制作状态机时我们一般如何处理？</h3><ol>
+<li>状态机条件可以添加一个Trigger类型和Int类型<br>   Trigger条件主要用于触发动作，Int条件主要用于连招计数判断</li>
+<li>逻辑上，当攻击按键输入时，我们需要触发动作，并且进行攻击计数<br>   每次按键时都应该重新进      行攻击计数延迟清零</li>
+</ol>
+<h3 id="Unity中想要制作自动寻路逻辑，我们应该怎么做？（请至少说出两种做法）"><a href="#Unity中想要制作自动寻路逻辑，我们应该怎么做？（请至少说出两种做法）" class="headerlink" title="Unity中想要制作自动寻路逻辑，我们应该怎么做？（请至少说出两种做法）"></a>Unity中想要制作自动寻路逻辑，我们应该怎么做？（请至少说出两种做法）</h3><ol>
+<li>Unity自带的网格寻路系统</li>
+<li>自定义寻路算法（比如 A星寻路算法）</li>
+</ol>
+<h3 id="Unity中如果想要在动作的某一时刻进行伤害检测，我们应该怎么做？（请说出两种做法）"><a href="#Unity中如果想要在动作的某一时刻进行伤害检测，我们应该怎么做？（请说出两种做法）" class="headerlink" title="Unity中如果想要在动作的某一时刻进行伤害检测，我们应该怎么做？（请说出两种做法）"></a>Unity中如果想要在动作的某一时刻进行伤害检测，我们应该怎么做？（请说出两种做法）</h3><p>1.　添加动画事件<br>2.　在切换动画一开始，进行延迟触发，延迟时间为想要触发伤害的时间（延迟可以用延迟函数，也可以用协同程序）</p>
+<h3 id="游戏编辑器（比如-角色编辑器、关卡编辑器、地图编辑器等工具）的本质是什么？"><a href="#游戏编辑器（比如-角色编辑器、关卡编辑器、地图编辑器等工具）的本质是什么？" class="headerlink" title="游戏编辑器（比如 角色编辑器、关卡编辑器、地图编辑器等工具）的本质是什么？"></a>游戏编辑器（比如 角色编辑器、关卡编辑器、地图编辑器等工具）的本质是什么？</h3><p>数据的图形化编辑工具</p>
 <h3 id="动态加载资源的方式？他们之间的区别"><a href="#动态加载资源的方式？他们之间的区别" class="headerlink" title="动态加载资源的方式？他们之间的区别"></a>动态加载资源的方式？他们之间的区别</h3><ol>
 <li><strong>Resources</strong></li>
 </ol>
@@ -1143,6 +1465,14 @@
 <p>C#代码——&gt;Mono C#编译器——&gt;IL中间代码——&gt; <font color = "red"><b>Mono VM——&gt;操作系统的原生代码</b></font></p>
 <p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/image-20230201222507758.png" srcset="/img/loading.gif" lazyload></p>
 <blockquote>
+<p>Net与Mono的关系</p>
+</blockquote>
+<p>​	Net是一个语言平台，Mono为.Net提供集成开发环境，集成并实现了.NET的编译器、CLR和基础类库，使得.Net暖既可以运行在windows也可以运行于linux，Unix，Mac OS等。</p>
+<blockquote>
+<p>Mono 和 Unity 的区别</p>
+</blockquote>
+<p>Unity 因为方便和跨平台选择了 C#作为主要的开发语言。而且 C#的跨平台是基于.Net Framework 框架下的（CIL，通用描述语言）和 CLR（通用运行环境的）。 在经过各种考量后，Unity 选择了开源，并且平台支持性很好的 Mono 这一开源 的.Net Framework 跨平台实现方案。</p>
+<blockquote>
 <p>IL2CPP</p>
 </blockquote>
 <p>C#代码——&gt;Mono C#编译器——&gt;IL中间代码——&gt;<font color = "red"><b>IL2CPP——&gt;C++——&gt;C++编译器——&gt;原生汇编代码——&gt;IL2CPP VM</b></font></p>
@@ -1208,10 +1538,21 @@
 <li><p>在游戏中频繁创建对象、实例化对象的地方，都可以用到对象池。<br>比如前端开发中，游戏中的子弹、伤害字体、特效等等<br>比如后端开发中线程池等等</p>
 </li>
 </ol>
-<p>。</p>
+<h3 id="buff-系统中，如何用一个-byte，记录多种buff状态标识"><a href="#buff-系统中，如何用一个-byte，记录多种buff状态标识" class="headerlink" title="buff 系统中，如何用一个 byte，记录多种buff状态标识"></a>buff 系统中，如何用一个 byte，记录多种buff状态标识</h3><p>答案：<br>一个byte，有8位，我们可以让每一位代表一种状态，0代表无，1代表有</p>
+<p>byte buffType &#x3D; 0;</p>
+<p>0000 0000<br>0000 0001  中毒 buff<br>0000 0010  灼烧 buff<br>0000 0100  回春 buff</p>
+<p>当状态添加时，进行 或 ( | ) 运算<br>buffType | 灼烧 buff &#x3D; 0000 0010<br>buffType | 中毒 buff &#x3D; 0000 0011</p>
+<p>当状态移除时，进行 异或 ( ^ ) 运算<br>buffType 0000 0011<br>buffType ^ 中毒 buff &#x3D; 0000 0011 ^ 0000 0001 &#x3D; 0000 0010</p>
 <h3 id="Unity客户端与服务器交互方式"><a href="#Unity客户端与服务器交互方式" class="headerlink" title="Unity客户端与服务器交互方式"></a>Unity客户端与服务器交互方式</h3><p><strong>消息数据：</strong>Socket或HTTP<br><strong>文件数据：</strong>FTP或HTTP</p>
 <p><strong>socket</strong>通常也称作”套接字”,实现服务器和客户端之间的物理连接，并进行数据传输，主要有UDP和TCP两个协议。<strong>Socket处于网络协议的传输层</strong>。</p>
 <p>http协议传输的主要有http协议 和基于http协议的Soap协议（web service）,常见的方式是 http 的post 和get 请求，web 服务。</p>
+<h3 id="Unity-ESC"><a href="#Unity-ESC" class="headerlink" title="Unity ESC"></a>Unity ESC</h3><p><strong>什么是Unity ECS</strong></p>
+<p>什么是Unity ECS<br>Unity ECS是Unity引擎中的一种高性能游戏开发架构，它采用了基于数据的设计思路，与传统的面向对象编程不同。它的目标是提高游戏的性能和可伸缩性。</p>
+<p>Unity ECS通过实体（Entity）、组件（Component）和系统（System）这三个概念来描述游戏对象。实体是游戏对象的标识符，组件是游戏对象的属性，系统是对实体和组件的操作。</p>
+<p>Unity ECS与传统的面向对象编程不同，主要体现在以下方面：</p>
+<p><strong>面向数据</strong>：ECS是一种基于数据的编程模型，它着重于描述游戏对象的属性和行为，而不是游戏对象本身。这使得ECS能够更加高效地处理大量的游戏对象。</p>
+<p><strong>任务并行</strong>：ECS使用任务并行技术，使得游戏的逻辑可以在多个CPU核心上并行执行，从而提高了游戏的性能。</p>
+<p><strong>内存布局</strong>：ECS使用紧凑的内存布局，使得游戏对象的数据可以更快地被访问，从而提高了游戏的性能。</p>
 <h2 id="🌙C"><a href="#🌙C" class="headerlink" title="🌙C#"></a>🌙C#</h2><h3 id="面向对象的三大特性"><a href="#面向对象的三大特性" class="headerlink" title="面向对象的三大特性"></a>面向对象的三大特性</h3><p><em><strong>封装</strong></em> ：隐藏对象的属性，并实现细节（方法），对外提供接口，<br>public全局，protected子类，internal同集，隐藏private<br>同类，public属性器，private字段，对赋值进行限定。<br>sealed修饰符的子类是不能被继承的。</p>
 <ul>
 <li><p><strong>设计上：</strong>分而治之，封装变化、高内聚低耦合 	</p>
@@ -1235,18 +1576,15 @@
 <li>string str &#x3D; string.Empty</li>
 </ul>
 <p><strong>str &#x3D; null</strong> 在堆中没有分配内存地址<br><strong>str &#x3D; “”</strong> 和 <strong>string.Empty</strong> 一样都是在堆内存中分配了空间，里面存储的是空字符串<br>而<strong>string.Empty</strong>是一个静态只读变量</p>
-<h3 id="string和stringbuilder和stringBuffer区别"><a href="#string和stringbuilder和stringBuffer区别" class="headerlink" title="string和stringbuilder和stringBuffer区别"></a>string和stringbuilder和stringBuffer区别</h3><ul>
+<h3 id="string和stringBuilder区别"><a href="#string和stringBuilder区别" class="headerlink" title="string和stringBuilder区别"></a>string和stringBuilder区别</h3><ul>
 <li><p><strong>string</strong></p>
 <p>String不变性，字符序列不可变，对原管理中实例对象赋值，会重新开一个新的实例对象赋值，新开的实例对象会等待被GC。<br>string拼接要重新开辟空间，因为string原值不会改变，导致GC频繁，性能消耗大</p>
-</li>
-<li><p><strong>StringBuffer</strong></p>
-<p>StringBuffer是字符串可变对象，可通过自带的StringBuffer.方法来改变并生成想要的字符串。对原实例对象做拼接的实例，不会生成新的实例对象。<br>拼接使用StringBuilder和StringBuffer，只开辟一个内存空间，这是性能优化的点。</p>
 </li>
 <li><p><strong>StringBuilder</strong></p>
 <p>StringBuilder是字符串可变对象，基本和StringBuilder相同。唯一的区别是StringBuffer是线程安全，相关方法前带synchronized关键字，一般用于多线程。StringBuilder是非线程安全，所以性能略好，一般用于单线程</p>
 </li>
 </ul>
-<p><strong>三者性能比较</strong> StringBuilder&gt;StringBuffer&gt;String</p>
+<p><strong>三者性能比较</strong> StringBuilder&gt;String</p>
 <blockquote>
 <p>在开发时，对string和StringBuilder我们应该如何选择</p>
 </blockquote>
@@ -1322,6 +1660,13 @@
 
 
 
+<h3 id="内存中，堆和栈的区别是什么？"><a href="#内存中，堆和栈的区别是什么？" class="headerlink" title="内存中，堆和栈的区别是什么？"></a>内存中，堆和栈的区别是什么？</h3><p>堆和栈是操作系统堆进程占用的内存空间的两种管理方式</p>
+<ul>
+<li><p><strong>栈：</strong>由操作系统自动分配释放，存放函数的参数值，局部变量值，栈中数据的生命周期随着函数的执行完成而结束</p>
+</li>
+<li><p><strong>堆：</strong>一般由程序员分配释放，如果开发人员不释放，程序结束时由操作系统回收<br>（在C#中 托管堆内存 会由 C#帮助我们管理，存在GC垃圾回收机制）</p>
+</li>
+</ul>
 <h3 id="C-容器类、各自特点、性能区别"><a href="#C-容器类、各自特点、性能区别" class="headerlink" title="C#容器类、各自特点、性能区别"></a>C#容器类、各自特点、性能区别</h3><h4 id="Stack栈"><a href="#Stack栈" class="headerlink" title="Stack栈"></a><strong>Stack栈</strong></h4><p><strong>先进后出</strong>，入栈和出栈，底层泛型数组实现，入栈动态扩容2倍</p>
 <hr>
 <h4 id="Queue队列"><a href="#Queue队列" class="headerlink" title="Queue队列"></a><strong>Queue队列</strong></h4><p><strong>先进先出</strong>，入队和出队，底层泛型数组实现，表头表尾指针，判空还是满通过size比较</p>
@@ -1440,7 +1785,8 @@
 <p>是一种键值对的形式存放数据，即 key值 、value 值 一 一映射的。key的类型没有限制，可以是整数、字符串甚至是实例对象。</p>
 <p>该类最大的<strong>优点</strong>就是它**查找元素的时间复杂度接近O(1)**，实际项目中常被用来做一些数据的本地缓存，提升整体效率。</p>
 <p><font color = "red" > <b>重点！！！！👇👇👇👇👇</b></font></p>
-<h5 id="Dictionary底层原理"><a href="#Dictionary底层原理" class="headerlink" title="Dictionary底层原理"></a><strong>Dictionary底层原理</strong></h5><p>有两个关键的算法，<strong>Hash算法 和 解决Hash 碰撞冲突 的算法</strong>。key value的映射关系用的就是Hash函数来建立的。</p>
+<h5 id="Dictionary底层原理"><a href="#Dictionary底层原理" class="headerlink" title="Dictionary底层原理"></a><strong>Dictionary底层原理</strong></h5><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/96633352">【C#】浅析C# Dictionary实现原理 - 知乎 (zhihu.com)</a></p>
+<p>有两个关键的算法，<strong>Hash算法 和 解决Hash 碰撞冲突 的算法</strong>。key value的映射关系用的就是Hash函数来建立的。</p>
 <ol>
 <li><p>哈希算法：<strong>将不定长度的二进制数据集给映射到一个较短的二进制长度数据集</strong>一个Key通过HashFunc（哈希函数）得到HashCode</p>
 </li>
@@ -1461,6 +1807,16 @@
 <p>Collection版本控制，字典重要变量version，这个变量，在每一次新增、修改和删除操作时，都会使version++<br>之后每一次迭代过程都会检查版本号是否一致，如果不一致将抛出异常。<br>这样就避免了在迭代过程中修改了集合，造成很多诡异的问题。</p>
 <p><font color = "red"><b>总结：</b></font></p>
 <p>Dictionary由数组构成，Hash函数作为地址构建，拉链法解决Hash冲突。Dictionary也是线程不安全的，因此在多线程访问的时候，需要自行加lock处理。</p>
+<ul>
+<li>C# Dictionary使用一个<strong>Entry结构体</strong>来存储键值对，每个Entry包含一个哈希码、一个下一个元素的索引、一个键和一个值。</li>
+<li>C# Dictionary使用一个<strong>int数组</strong>来表示哈希桶，每个桶存储了对应的Entry在Entry数组中的索引，如果桶为空，则为-1。</li>
+<li>C# Dictionary使用一个<strong>Entry数组</strong>来存放所有的元素，每个元素通过next字段指向同一桶中的下一个元素，形成链表结构。</li>
+<li>C# Dictionary使用<strong>除留余数法</strong>来计算哈希码和桶索引，即<code>bucketIndex = hashCode % buckets.Length</code>。</li>
+<li>C# Dictionary使用<strong>拉链法</strong>来解决哈希冲突，即将冲突的元素放在同一桶中的链表上。</li>
+<li>C# Dictionary在添加、删除或查找元素时，都需要先计算哈希码和桶索引，然后遍历对应桶中的链表。</li>
+<li>C# Dictionary在添加元素时，如果发现空闲位置（被删除的Entry），则优先复用该位置；如果发现数组已满或者碰撞次数过多，则进行扩容操作。</li>
+<li>C# Dictionary在扩容操作时，会重新分配哈希桶和Entry数组，并重新计算所有元素的哈希码和桶索引。</li>
+</ul>
 <p>大概：</p>
 <p>Dictionary 是一种通过 key value 存储数据的结构，它通过哈希算法，将不定长的二进制数据集映射到一个较短的二进制长度数据集，其中的key通过哈希函数得到hashcode。再通过哈希桶算法，为每一个hashcode建立一个桶，桶里面放着数组。还对每一个hashcode进行分段显示，常用的是对hashcode取余。如果产生碰撞冲突，使用拉链法解决冲突，即对产生冲突的元素建立一个单链表，头指针存储到对应的哈希桶位置。Dictionary下还有一个结构体Entry，调用添加（ADD）方法都会封装在这一个结构体中。</p>
 <blockquote>
@@ -1477,7 +1833,7 @@
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-comment">//哈希表结构体</span><br><span class="hljs-keyword">private</span> <span class="hljs-keyword">struct</span> bucket &#123;<br>   <span class="hljs-keyword">public</span> Object key;<span class="hljs-comment">//键</span><br>    <span class="hljs-keyword">public</span> Object val;<span class="hljs-comment">//值</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> hash_col;<span class="hljs-comment">//哈希码</span><br>&#125;<br><span class="hljs-comment">//字典结构体</span><br><span class="hljs-keyword">private</span> <span class="hljs-keyword">struct</span> Entry &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> hashCode;    <span class="hljs-comment">// 除符号位以外的31位hashCode值, 如果该Entry没有被使用，那么为-1</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> next;        <span class="hljs-comment">// 下一个元素的下标索引，如果没有下一个就为-1</span><br>    <span class="hljs-keyword">public</span> TKey key;        <span class="hljs-comment">// 存放元素的键</span><br>    <span class="hljs-keyword">public</span> TValue <span class="hljs-keyword">value</span>;    <span class="hljs-comment">// 存放元素的值</span><br>&#125;<br><br><span class="hljs-keyword">private</span> <span class="hljs-built_in">int</span>[] buckets;      <span class="hljs-comment">// Hash桶</span><br><span class="hljs-keyword">private</span> Entry[] entries;    <span class="hljs-comment">// Entry数组，存放元素</span><br><span class="hljs-keyword">private</span> <span class="hljs-built_in">int</span> count;          <span class="hljs-comment">// 当前entries的index位置</span><br><span class="hljs-keyword">private</span> <span class="hljs-built_in">int</span> version;        <span class="hljs-comment">// 当前版本，防止迭代过程中集合被更改</span><br><span class="hljs-keyword">private</span> <span class="hljs-built_in">int</span> freeList;       <span class="hljs-comment">// 被删除Entry在entries中的下标index，这个位置是空闲的</span><br><span class="hljs-keyword">private</span> <span class="hljs-built_in">int</span> freeCount;      <span class="hljs-comment">// 有多少个被删除的Entry，有多少个空闲的位置</span><br><span class="hljs-keyword">private</span> IEqualityComparer&lt;TKey&gt; comparer;   <span class="hljs-comment">// 比较器</span><br><span class="hljs-keyword">private</span> KeyCollection keys;     <span class="hljs-comment">// 存放Key的集合</span><br><span class="hljs-keyword">private</span> ValueCollection values;     <span class="hljs-comment">// 存放Value的集合</span><br><br><br></code></pre></td></tr></table></figure>
 
 <hr>
-<h3 id="泛型是什么-好处是什么"><a href="#泛型是什么-好处是什么" class="headerlink" title="泛型是什么,好处是什么"></a>泛型是什么,好处是什么</h3><p>多个代码对 【不同数据类型】 执行 【相同指令】的情况<br><strong>泛型：</strong>多个类型共享一组代码<br>泛型允许类型参数化，泛型类型是类型的模板<br><strong>5种泛型：</strong>&lt; **类、结构、接口、委托、方法** &gt;<br>类型占位符 <strong>T</strong> 来表示泛型</p>
+<h3 id="C-泛型问题"><a href="#C-泛型问题" class="headerlink" title="C# 泛型问题"></a>C# 泛型问题</h3><h4 id="泛型是什么-好处是什么"><a href="#泛型是什么-好处是什么" class="headerlink" title="泛型是什么,好处是什么"></a>泛型是什么,好处是什么</h4><p>多个代码对 【不同数据类型】 执行 【相同指令】的情况<br><strong>泛型：</strong>多个类型共享一组代码<br>泛型允许类型参数化，泛型类型是类型的模板<br><strong>5种泛型：</strong>&lt; **类、结构、接口、委托、方法** &gt;<br>类型占位符 <strong>T</strong> 来表示泛型</p>
 <p>泛型类不是实际的类，而是类的模板<br>从泛型类型创建实例<br>声明泛型类型 &gt;&gt; 通过提供【真实类型】创建构造函数类型 &gt;&gt; 从构造类型创建实例<br>类&lt;T1,T2&gt; 泛型类型参数</p>
 <p><strong>性能</strong>：泛型不会强行对值类型进行装箱和拆箱，或对引用类型进行向下强制类型转换，所以性能得到提高<br><strong>安全</strong>：通过知道使用泛型定义的变量的类型限制，编译器可以在一定程度上验证类型假设，所以泛型提高了程序的类型安全。</p>
 <blockquote>
@@ -1487,7 +1843,7 @@
 <li>可以为不同类型对象的相同行为进行通用处理，提升代码复用率</li>
 <li>避免装箱拆箱，提升性能</li>
 </ol>
-<h3 id="泛型约束有几种"><a href="#泛型约束有几种" class="headerlink" title="泛型约束有几种"></a>泛型约束有几种</h3><ol>
+<h4 id="泛型约束有几种"><a href="#泛型约束有几种" class="headerlink" title="泛型约束有几种"></a>泛型约束有几种</h4><ol>
 <li>值类型约束 T:struct</li>
 <li>引用类型约束 T:class</li>
 <li>公共无参构造约束 T:new()</li>
@@ -1495,10 +1851,16 @@
 <li>接口约束 T:接口名</li>
 <li>另一个泛型约束 T:U</li>
 </ol>
+<h3 id="C-中如何让一个类不能再被其他类所继承？"><a href="#C-中如何让一个类不能再被其他类所继承？" class="headerlink" title="C#中如何让一个类不能再被其他类所继承？"></a>C#中如何让一个类不能再被其他类所继承？</h3><p>使用密封关键字sealed修饰该类</p>
 <h3 id="C-接口和抽象类问题"><a href="#C-接口和抽象类问题" class="headerlink" title="C#接口和抽象类问题"></a>C#接口和抽象类问题</h3><blockquote>
 <p>什么是接口，描述一下接口的成员具体实现</p>
 </blockquote>
-<p>接口interface，不能定义字段，可以定义【非静态的】属性、索引器、事件、方法<br>默认public，但不能写任何访问修饰符<br>接口是引用类型，可以通过as运算符强转，获取某对象的接口的引用<br>接口可以继承N个接口，继承类要实现所有接口的方法</p>
+<ol>
+<li>接口interface，不能定义字段，可以定义【非静态的】属性、索引器、事件、方法</li>
+<li>默认public，但不能写任何访问修饰符</li>
+<li>接口是引用类型，可以通过as运算符强转，获取某对象的接口的引用</li>
+<li>接口可以继承N个接口，继承类要实现所有接口的方法</li>
+</ol>
 <p>声明接口IA &gt; 继承接口的类B &gt; 类B实现接口所有方法<br>接口要小而精，定义一组方法，继承接口的派生类要实现接口的所有方法。<br>接口和抽象类是不能被实例化的对象（引用类型）。</p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-built_in">delegate</span> <span class="hljs-keyword">void</span> <span class="hljs-title">DelegateTest</span>()</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title">ITest</span> <span class="hljs-comment">//只能包含非静态成员函数，隐式public，但不允许访问修饰符</span><br>    &#123;<br>        <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Method</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> a</span>)</span>; <span class="hljs-comment">//方法</span><br>        <span class="hljs-built_in">string</span> Property <span class="hljs-comment">//属性</span><br>        &#123;<br>            <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>;<br>        &#125;<br>        <span class="hljs-keyword">event</span> DelegateTest EventTest; <span class="hljs-comment">//事件，需要先定义一个委托</span><br>        <span class="hljs-built_in">int</span> <span class="hljs-keyword">this</span>[<span class="hljs-built_in">int</span> index] <span class="hljs-comment">//索引器</span><br>        &#123;<br>            <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>;<br>        &#125;<br>    &#125;<br><br></code></pre></td></tr></table></figure>
 
@@ -1587,6 +1949,24 @@
 <td>否，事件修饰的是一个对象</td>
 </tr>
 </tbody></table>
+<p>事件是基于委托的</p>
+<ol>
+<li><p>类型兼容</p>
+</li>
+<li><p>存储方法的引用</p>
+<p>委托是事件的“底层基础”</p>
+<p>事件是委托的“上层建筑”</p>
+</li>
+</ol>
+<blockquote>
+<p>委托和事件的关系</p>
+</blockquote>
+<p>首先需要澄清的是： 事件不是委托类型的字段，也不是一种特殊委托类型的字段，也不是一种特殊方式声明的委托方式字段。<strong>事件只是委托类型字段的包装器、限制器，限制外界对委托字段的访问</strong>。委托类型的字段通过事件包装、限制之后，外界只能访问他的+&#x3D;、-&#x3D;操作符，换言之只能够【添加】或【移除】事件处理器，用来阻挡非法操作的“蒙版”，它绝对不是委托字段的本身。</p>
+<blockquote>
+<p>为什么要使用委托类型来声明事件、为什么事件是基于委托的</p>
+</blockquote>
+<p>站在事件的拥有者来说：是为了表明事件拥有者、能够对外部通知什么样的消息</p>
+<p>站在事件订阅者、被通知者角度来说：是一种【约定】事件处理器能够收到什么样的消息也约束了我们使用什么样的方法、签名来处理响应这个事件，并且，我们会使用委托类型的实例去储存方法的引用、去储存未来这个事件处理器。当事件的响应者，向事件的拥有者，提供了一个与之匹配的事件的事件处理器之后需要找一个地方把事件处理器保存、记录、储存下来。能够记录、引用方法的这个任务，只有委托才能做到</p>
 <blockquote>
 <p>C#中委托和接口有什么区别？各用在什么场合？</p>
 </blockquote>
@@ -1617,8 +1997,10 @@
 
 
 
+<h3 id="C-回调函数指什么？一般在什么时候使用？（至少说出3种使用场景）"><a href="#C-回调函数指什么？一般在什么时候使用？（至少说出3种使用场景）" class="headerlink" title="C# 回调函数指什么？一般在什么时候使用？（至少说出3种使用场景）"></a>C# 回调函数指什么？一般在什么时候使用？（至少说出3种使用场景）</h3><p>回调函数指在程序设计中，将一个函数作为参数传递给另一个函数，并在另一个函数执行完毕后被调用的函数，在C#中，一般以委托形式出现</p>
+<p>什么时候使用：<br>1.异步编程：异步逻辑执行完毕后，再执行回调函数<br>2.事件中心<br>3.UI界面中的空间逻辑回调，比如按钮点击<br>等等</p>
 <h3 id="C-反射问题"><a href="#C-反射问题" class="headerlink" title="C# 反射问题"></a>C# 反射问题</h3><p>程序正在运行时，可以查看其他程序集或者自身的元数据</p>
-<p><strong>一个运行的程序查看本身或者其它程序的元数据的行为就叫做反射</strong></p>
+<p><strong>一个运行的程序</strong><font color = "red"><b>查看本身或者其它程序的元数据的行为</b></font><strong>就叫做反射</strong></p>
 <h4 id="反射的实现原理"><a href="#反射的实现原理" class="headerlink" title="反射的实现原理"></a>反射的实现原理</h4><p><strong>定义：</strong>运行时，动态获取类型信息,动态创建对象,动态访问成员的过程。<br><strong>另一种定义：</strong>审查元数据并收集元数据的信息。<br>元数据：编译后的最基本数据单元，就是一堆表，反射就是解析这些元数据。<br>反射是在运行期间获取到类、对象、方法、数据的一种手段<br>主要使用类库System.Reflection<br><strong>反射要点：</strong>如何获取类型，根据类型来动态创建对象，反射获取方法以及动态调用方法，动态创建委托</p>
 <blockquote>
 <p>反射的作用是什么？</p>
@@ -1718,7 +2100,11 @@
 <li>引用命名空间</li>
 <li>安全使用引用对象</li>
 </ol>
-<h3 id="C-中如何让一个类不能再被其他类所继承？"><a href="#C-中如何让一个类不能再被其他类所继承？" class="headerlink" title="C#中如何让一个类不能再被其他类所继承？"></a>C#中如何让一个类不能再被其他类所继承？</h3><p>使用密封关键字sealed修饰该类</p>
+<h3 id="C-中new关键字的作用（至少说出3种）"><a href="#C-中new关键字的作用（至少说出3种）" class="headerlink" title="C#中new关键字的作用（至少说出3种）"></a>C#中new关键字的作用（至少说出3种）</h3><ol>
+<li>创建新对象</li>
+<li>子类函数声明时加上new关键字，可以隐藏掉父类方法</li>
+<li>泛型约束中使用new关键词，表示需要无参构造</li>
+</ol>
 <h3 id="C-如何拓展方法"><a href="#C-如何拓展方法" class="headerlink" title="C# 如何拓展方法"></a>C# 如何拓展方法</h3><p>拓展方法：为现有非静态 变量类型 添加 新方法</p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs C#"><span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Tools</span><br>&#123;<br>    <span class="hljs-comment">//为int 拓展了一个成员方法</span><br>    <span class="hljs-comment">//成员方法 是需要 实例化对象后 才能使用的</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">SpeakValue</span>(<span class="hljs-params"><span class="hljs-keyword">this</span> <span class="hljs-built_in">int</span> <span class="hljs-keyword">value</span></span>)</span><br>    &#123;<br>        <span class="hljs-comment">//拓展方法的逻辑   </span><br>    &#125;<br>&#125;<br><span class="hljs-comment">//使用</span><br><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-built_in">string</span>[] args</span>)</span><br>&#123;<br>    <span class="hljs-built_in">int</span> i = <span class="hljs-number">10</span>;<br>    i.SpeakValue();<br>    <span class="hljs-comment">// 输出拓展方法的逻辑</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
@@ -1737,6 +2123,10 @@
 <li>第一个参数用this修饰</li>
 </ol>
 <p>注意：如果拓展名如果和已有参数相同，会直接调用已有方法</p>
+<blockquote>
+<p>如果我们想为Unity中的Transform类添加一个自定义的方法，应该如何处理？</p>
+</blockquote>
+<p>通过C#的拓展方法相关知识点进行添加</p>
 <h3 id="什么是闭包？可以举例说明"><a href="#什么是闭包？可以举例说明" class="headerlink" title="什么是闭包？可以举例说明"></a>什么是闭包？可以举例说明</h3><p>闭包是指有权访问另一个函数作用域中的变量的函数<br>所以闭包一般都是指的一个函数<br>创建这种特殊闭包函数的方式往往是在一个函数中创建另一个函数</p>
 <p><strong>闭包需要满足四个条件</strong></p>
 <ol>
@@ -1804,8 +2194,8 @@
 <h3 id="内存泄漏问题"><a href="#内存泄漏问题" class="headerlink" title="内存泄漏问题"></a>内存泄漏问题</h3><blockquote>
 <p>内存泄漏指什么？</p>
 </blockquote>
-<p>内存泄漏指的就是对象超过生命周期后而不能被GC回收，一般指不会再使用的引用对象由于某些操作而不能被GC垃圾回收，而一直占用着内存</p>
-<p>更风趣通俗一点的说就是：没用的家伙没有被当成垃圾回收</p>
+<p>内存泄漏指的就是对象超过生命周期后而不能被GC回收，一般指<strong>不会再使用的引用对象由于某些操作而不能被GC垃圾回收，而一直占用着内存</strong></p>
+<p>更风趣通俗一点的说就是：<strong>没用的家伙没有被当成垃圾回收</strong></p>
 <blockquote>
 <p>常见的内存泄漏有哪些？</p>
 </blockquote>
@@ -1825,6 +2215,10 @@
 </blockquote>
 <p>我们常见的序列化方式 <strong>xml、Json、2进制等</strong>。就是将内存中的数据按照我们自己定义的规则进行序列化，序列化之后就可以用于存储和传输，当读取和接受数据时，只需要按照对应规则进行反序列化便可得到原始数据</p>
 <p>所谓的存储读取和传输接受，其实一般指的就是<strong>数据持久化和网络通讯</strong><br>所以我们经常会在这两块知识点看到序列化反序列化这两个关键词</p>
+<blockquote>
+<p>文件中保存了文本信息，但是打开后却是乱码，一般是什么原因造成的？</p>
+</blockquote>
+<p>序列化和反序列化字符串时使用的编码格式不统一</p>
 <h3 id="C-中try-catch-finally的执行顺序"><a href="#C-中try-catch-finally的执行顺序" class="headerlink" title="C#中try catch finally的执行顺序"></a>C#中try catch finally的执行顺序</h3><p>1.首先明确一点，就是不管怎样，finally一定会执行，即使程序有异常，并且在catch中thorw 了 ，finally还是会被执行。</p>
 <p>2.当try和catch中有return时，finally仍然执行。</p>
 <p>3.finally是在return后面的表达式运算完之后执行的，在执行完return时 ，程序并没有跳出，而是进入到finally中继续执行，</p>
@@ -1837,6 +2231,8 @@
 
 <p>此时返回的值是：{ “one”, “three” };</p>
 <p>4.finally中不能有return语句，编译都无法通过，提示：控制不能离开finally子句主体</p>
+<h3 id="C-内存抖动指什么？如何避免内存抖动"><a href="#C-内存抖动指什么？如何避免内存抖动" class="headerlink" title="Ｃ# 内存抖动指什么？如何避免内存抖动"></a>Ｃ# 内存抖动指什么？如何避免内存抖动</h3><p>答案：<br>内存抖动指<strong>短时间内有大量的对象被创建或者被回收的现象</strong><br>频繁的内存抖动会造成 GC 频繁运行，造成卡顿</p>
+<p><strong>避免方式：</strong><br>对象池<br>享元模式<br>等</p>
 <h3 id="C-索引器问题"><a href="#C-索引器问题" class="headerlink" title="C# 索引器问题"></a>C# 索引器问题</h3><p><strong>索引器概念：</strong></p>
 <p>让对象可以让数组已有通过索引访问其中元素，使程序看起来更直观，更容易编写</p>
 <blockquote>
@@ -1942,6 +2338,10 @@
 <p>正常调用方法，直接访问表中的元素，有啥传啥</p>
 </li>
 </ul>
+<h3 id="Lua元方法"><a href="#Lua元方法" class="headerlink" title="Lua元方法"></a>Lua元方法</h3><blockquote>
+<p>Lua中常用的元方法有哪些？至少说出3个原方法</p>
+</blockquote>
+<p><code>__</code>index<br><code>__</code>newindex<br><code>__</code>tostring<br><code>__</code>call<br><code>__</code>add 运算符+<br><code>__</code>sub 运算符-<br><code>__</code>mul 运算符*<br><code>__</code>div 运算符&#x2F;<br><code>__</code>mod 运算符%<br><code>__</code>unm 运算符-<br><code>__</code>concat 运算符..<br><code>__</code>eq 运算符&#x3D;&#x3D;<br><code>__</code>lt 运算符&lt;<br><code>__</code>le 运算符&lt;&#x3D;<br>等</p>
 <h3 id="Lua元表-Metatable"><a href="#Lua元表-Metatable" class="headerlink" title="Lua元表(Metatable)"></a>Lua元表(Metatable)</h3><p>在 Lua table 中我们可以访问对应的key来得到value值，但是却无法对两个 table 进行操作。</p>
 <p>因此 Lua 提供了<strong>元表(Metatable)，允许我们改变table的行为，每个行为关联了对应的元方法</strong>。</p>
 <p>例如，使用元表我们可以定义Lua如何计算两个table的相加操作a+b。</p>
@@ -1965,23 +2365,23 @@
 </li>
 <li><p>判断该表是否有元表，如果没有元表，返回nil，有元表则继续。</p>
 </li>
-<li><p>判断元表有没有__index方法，如果__index方法为nil，则返回nil；如果___index方法是一个表，则重复1、2、3；如果__index方法是一个函数，则返回该函数的返回值。</p>
+<li><p>判断元表有没有<code>__</code>index方法，如果<code>__</code>index方法为nil，则返回nil；如果<code>__</code>index方法是一个表，则重复1、2、3；如果<code>__</code>index方法是一个函数，则返回该函数的返回值。</p>
 </li>
 </ol>
 <ul>
-<li><p><strong>__newindex 元方法</strong></p>
-<p>___newindex 元方法用来对表更新，__index则用来对表访问 。</p>
+<li><p><strong><code>__</code>newindex 元方法</strong></p>
+<p><code>__</code>newindex 元方法用来对表更新，__index则用来对表访问 。</p>
 </li>
 </ul>
 <p>当你给表的一个缺少的索引赋值，解释器就会查找__newindex 元方法：如果存在则调用这个函数而不进行赋值操作。</p>
 <ul>
 <li><strong>__call 元方法</strong></li>
 </ul>
-<p>​	   __call 元方法用于控制 function 的调用行为。</p>
+<p>​	   <code>__</code>call 元方法用于控制 function 的调用行为。</p>
 <ul>
 <li><strong>__tostring 元方法</strong></li>
 </ul>
-<p>​	   __tostring 元方法用于修改表的输出行为。</p>
+<p>​	   <code>__</code>tostring 元方法用于修改表的输出行为。</p>
 <ul>
 <li><p><strong>rawget（table，“key”）</strong></p>
 <p>当我们使用它时，会去找自己身上有没有这个变量，不会去metatable找</p>
@@ -2008,7 +2408,7 @@
 <h3 id="Lua如何实现面向对象的三大特性？"><a href="#Lua如何实现面向对象的三大特性？" class="headerlink" title="Lua如何实现面向对象的三大特性？"></a>Lua如何实现面向对象的三大特性？</h3><p>面向对象三大特性</p>
 <ul>
 <li>封装：利用<strong>table进行封装</strong></li>
-<li>继承：利用<strong>元表和_index</strong>模拟继承关系<br>       设置<strong>子类的元表为父类</strong>，<strong>父类的_index为父类自己</strong><br>       当<strong>子类</strong>身上<strong>找不到对应属性和方法</strong>时<br>       会<strong>查找元表的__index中的内容，也就是会查找父类中的内容</strong><br>       通过这种方式来模拟继承</li>
+<li>继承：利用<strong>元表和<code>__</code>index</strong>模拟继承关系<br>       设置<strong>子类的元表为父类</strong>，<strong>父类的_index为父类自己</strong><br>       当<strong>子类</strong>身上<strong>找不到对应属性和方法</strong>时<br>       会<strong>查找元表的<code>__</code>index中的内容，也就是会查找父类中的内容</strong><br>       通过这种方式来模拟继承</li>
 <li>多态：子类自己去实现带：的同名方法即可</li>
 </ul>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs lua"><span class="hljs-comment">--面向对象三大特性 ： 封装 继承 多态</span><br><br>Object = &#123;&#125;<br><br><span class="hljs-comment">--封装</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Object:new</span><span class="hljs-params">()</span></span><br>	<span class="hljs-keyword">local</span> obj = &#123;&#125;<br>    <span class="hljs-built_in">self</span>.<span class="hljs-built_in">__index</span> = <span class="hljs-built_in">self</span>;<br>    <span class="hljs-built_in">setmetatable</span>(obj,<span class="hljs-built_in">self</span>)<br>    <span class="hljs-keyword">return</span> obj<br><span class="hljs-keyword">end</span><br><br><span class="hljs-comment">--继承</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Object:subClass</span><span class="hljs-params">(classname)</span></span><br>    <span class="hljs-built_in">_G</span>[classname] = &#123;&#125;<br>    <span class="hljs-keyword">local</span> obj = <span class="hljs-built_in">_G</span>[classname]<br>    <span class="hljs-built_in">self</span>.<span class="hljs-built_in">__index</span> = <span class="hljs-built_in">self</span><br>    obj.base = <span class="hljs-built_in">self</span><br>    <span class="hljs-built_in">setmetatable</span>(obj,<span class="hljs-built_in">self</span>)<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
@@ -2125,13 +2525,30 @@
 <p>——缺点：首次更新下载解压缩包时间旧</p>
 </li>
 </ul>
+<h3 id="Unity热更新解决方案中，Lua和ILRuntime方案的本质是什么？"><a href="#Unity热更新解决方案中，Lua和ILRuntime方案的本质是什么？" class="headerlink" title="Unity热更新解决方案中，Lua和ILRuntime方案的本质是什么？"></a>Unity热更新解决方案中，Lua和ILRuntime方案的本质是什么？</h3><p><strong>Lua热更本质：</strong><br>Lua是解释型语言，不需要实现编译，在运行时动态解释执行。xLua和toLua等Lua热更新解决方案，是通过在Unity中内置Lua虚拟机（解释器）来执行Lua逻辑的</p>
+<p><strong>ILruntime热更本质：</strong><br>ILRuntime通过读取DLL文件中的IL汇编码，通过在Unity中内置的IL解释执行虚拟机（解释器）来执行热更DLL中的代码</p>
+<p>总体来说，他们都是在Unity中内置各自的解释器（写好的用于解释执行相关的代码）来执行我们的热更新代码</p>
 <h3 id="如果不考虑IOS平台，只在Windows和Android平台上发布游戏，如何在不使用第三方热更新方案的前提下实现热更新功能"><a href="#如果不考虑IOS平台，只在Windows和Android平台上发布游戏，如何在不使用第三方热更新方案的前提下实现热更新功能" class="headerlink" title="如果不考虑IOS平台，只在Windows和Android平台上发布游戏，如何在不使用第三方热更新方案的前提下实现热更新功能"></a>如果不考虑IOS平台，只在Windows和Android平台上发布游戏，如何在不使用第三方热更新方案的前提下实现热更新功能</h3><p><strong>C#的反射</strong><br>可以通过热更DLL文件的形式，加载程序集（dll）<br>利用反射执行热更DLL包中的逻辑</p>
 <hr>
 <h2 id="🌙计算机网络"><a href="#🌙计算机网络" class="headerlink" title="🌙计算机网络"></a>🌙计算机网络</h2><h3 id="TCP-UDP"><a href="#TCP-UDP" class="headerlink" title="TCP UDP"></a>TCP UDP</h3><p>TCP&#x2F;IP协议（一）网络基础知识 网络七层协议<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/wanghuaijun/p/10092930.html">https://www.cnblogs.com/wanghuaijun/p/10092930.html</a></p>
 <ul>
-<li><strong>TCP</strong>(Transmission Control Protocol 传输控制协议)：<strong>是一种面向连接的、可靠的、基于字节流的传输层通信协议</strong>，使用三次握手协议建立连接、四次挥手断开连接。面向连接意味着两个使用TCP的应用(通常是一个客户端和一个服务器)在彼此交换数据包之前必须先建立一个TCP连接。在一个TCP连接中，仅有两方进行彼此通信，广播和多播不能用TCP。TCP 协议的作用是，保证数据通信的完整性和可靠性，防止丢包。TCP把连接作为最基本的对象，每一条TCP连接都有两个端点，这种端点我们叫作套接字(socket)，端口号拼接到IP地址即构成了套接字。</li>
-<li><strong>UDP</strong>(User Datagram Protocol 用户数据报协议)：<strong>是OSI</strong>(Open System Interconnection 开放式系统互联)<strong>参考模型中一种无连接的传输层协议，提供面向事务的简单不可靠信息传送服务</strong>。UDP协议的主要作用是将网络数据流量压缩成数据包的形式。</li>
-<li>区别：<ul>
+<li><p><strong>TCP</strong>(Transmission Control Protocol 传输控制协议)：<strong>是一种面向连接的、可靠的、基于字节流的传输层通信协议</strong>，使用三次握手协议建立连接、四次挥手断开连接。面向连接意味着两个使用TCP的应用(通常是一个客户端和一个服务器)在彼此交换数据包之前必须先建立一个TCP连接。在一个TCP连接中，仅有两方进行彼此通信，广播和多播不能用TCP。TCP 协议的作用是，保证数据通信的完整性和可靠性，防止丢包。TCP把连接作为最基本的对象，每一条TCP连接都有两个端点，这种端点我们叫作套接字(socket)，端口号拼接到IP地址即构成了套接字。</p>
+<p><strong>特点：</strong></p>
+<ol>
+<li>面向连接</li>
+<li>一对一</li>
+<li>可靠性高</li>
+<li>有序的</li>
+</ol>
+<blockquote>
+<p>TCP协议的可靠性是如何达到的？</p>
+</blockquote>
+<p>TCP协议是通过检验和、确认应答信号、重发机制、连接管理、流量控制、拥塞控制等手段达到可靠的</p>
+</li>
+<li><p><strong>UDP</strong>(User Datagram Protocol 用户数据报协议)：<strong>是OSI</strong>(Open System Interconnection 开放式系统互联)<strong>参考模型中一种无连接的传输层协议，提供面向事务的简单不可靠信息传送服务</strong>。UDP协议的主要作用是将网络数据流量压缩成数据包的形式。</p>
+</li>
+<li><p>区别：</p>
+<ul>
 <li>TCP提供的是面向连接的、可靠的数据流传输；UDP提供的是非面向连接的、不可靠的数据流传输。</li>
 <li>TCP提供可靠的服务，通过TCP连接传送的数据，无差错、不丢失、不重复，按序到达；UDP尽最大努力交付，即不保证可靠交付。</li>
 <li>TCP面向字节流；UDP面向报文。</li>
@@ -2144,29 +2561,97 @@
 </ul>
 </li>
 </ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>TCP</th>
+<th>UDP</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>连接方面</td>
+<td>面向连接</td>
+<td>无连接</td>
+</tr>
+<tr>
+<td>是否可靠</td>
+<td>可靠</td>
+<td>不可靠</td>
+</tr>
+<tr>
+<td>传输效率</td>
+<td>相对UDP低</td>
+<td></td>
+</tr>
+<tr>
+<td>连接对象</td>
+<td>一对一</td>
+<td>n对n</td>
+</tr>
+</tbody></table>
 <h3 id="三次握手，4次挥手"><a href="#三次握手，4次挥手" class="headerlink" title="三次握手，4次挥手"></a>三次握手，4次挥手</h3><ul>
 <li><strong>三次握手</strong><ul>
-<li>第一次握手：客户端发送网络包，服务端收到了。这样服务端就能得出结论：客户端的发送能力、服务端的接收能力是正常的。：客户端给服务端发一个 SYN 报文，并指明客户端的初始化序列号 ISN(c)。此时客户端处于 SYN_Send状态。</li>
-<li>第二次握手：服务端发包，客户端收到了。这样客户端就能得出结论：服务端的接收、发送能力，客户端的接收、发送能力是正常的。不过此时服务器并不能确认客户端的接收能力是否正常。：服务器收到客户端的 SYN 报文之后，会以自己的 SYN 报文作为应答，并且也是指定了自己的初始化序列号 ISN(s)，同时会把客户端的 ISN + 1 作为 ACK 的值，表示自己已经收到了客户端的 SYN，此时服务器处于 SYN_REVD的状态。</li>
-<li>第三次握手：客户端发包，服务端收到了。这样服务端就能得出结论：客户端的接收、发送能力正常，服务器自己的发送、接收能力也正常。：客户端收到 SYN 报文之后，会发送一个 ACK 报文，当然，也是一样把服务器的 ISN + 1 作为 ACK 的值，表示已经收到了服务端的 SYN 报文，此时客户端处于 establised状态。</li>
+<li>第一次握手：<strong>TCP连接请求，告诉服务器我要和你建立连接</strong>。客户端发送网络包，服务端收到了。这样服务端就能得出结论：客户端的发送能力、服务端的接收能力是正常的。：客户端给服务端发一个 SYN 报文，并指明客户端的初始化序列号 ISN(c)。此时客户端处于 SYN_Send状态。</li>
+<li>第二次握手：<strong>TCP授予连接，告诉客户端批准连接。</strong>服务端发包，客户端收到了。这样客户端就能得出结论：服务端的接收、发送能力，客户端的接收、发送能力是正常的。不过此时服务器并不能确认客户端的接收能力是否正常。：服务器收到客户端的 SYN 报文之后，会以自己的 SYN 报文作为应答，并且也是指定了自己的初始化序列号 ISN(s)，同时会把客户端的 ISN + 1 作为 ACK 的值，表示自己已经收到了客户端的 SYN，此时服务器处于 SYN_REVD的状态。</li>
+<li>第三次握手：<strong>TCP确认连接，告诉服务器，来就来</strong>。客户端发包，服务端收到了。这样服务端就能得出结论：客户端的接收、发送能力正常，服务器自己的发送、接收能力也正常。：客户端收到 SYN 报文之后，会发送一个 ACK 报文，当然，也是一样把服务器的 ISN + 1 作为 ACK 的值，表示已经收到了服务端的 SYN 报文，此时客户端处于 establised状态。</li>
 <li>服务器收到 ACK 报文之后，也处于 establised 状态，此时，双方以建立起了链接。</li>
 </ul>
 </li>
 <li><strong>四次挥手</strong><ul>
-<li>第一次挥手：客户端发送一个 FIN 报文，报文中会指定一个序列号。此时客户端处于CLOSED_WAIT1状态。</li>
-<li>第二次握手：服务端收到 FIN 之后，会发送 ACK 报文，且把客户端的序列号值 + 1 作为 ACK 报文的序列号值，表明已经收到客户端的报文了，此时服务端处于 CLOSE_WAIT2状态。</li>
-<li>第三次挥手：如果服务端也想断开连接了，和客户端的第一次挥手一样，发给 FIN 报文，且指定一个序列号。此时服务端处于 LAST_ACK的状态。</li>
-<li>第四次挥手：客户端收到 FIN 之后，一样发送一个 ACK 报文作为应答，且把服务端的序列号值 + 1 作为自己 ACK 报文的序列号值，此时客户端处于 TIME_WAIT状态。需要过一阵子以确保服务端收到自己的 ACK 报文之后才会进入 CLOSED 状态</li>
+<li>第一次挥手：<strong>告诉服务器我数据发完了，你如果还有消息就快发完</strong>。客户端发送一个 FIN 报文，报文中会指定一个序列号。此时客户端处于CLOSED_WAIT1状态。</li>
+<li>第二次握手：<strong>告诉客户端我知道了，请继续等待我的消息</strong>。服务端收到 FIN 之后，会发送 ACK 报文，且把客户端的序列号值 + 1 作为 ACK 报文的序列号值，表明已经收到客户端的报文了，此时服务端处于 CLOSE_WAIT2状态。</li>
+<li>第三次挥手：<strong>告诉客户端消息发完了，你可以正式断开连接了</strong>。如果服务端也想断开连接了，和客户端的第一次挥手一样，发给 FIN 报文，且指定一个序列号。此时服务端处于 LAST_ACK的状态。</li>
+<li>第四次挥手：<strong>告诉服务器我等一会如果没有收到你回复我就断开了</strong>。客户端收到 FIN 之后，一样发送一个 ACK 报文作为应答，且把服务端的序列号值 + 1 作为自己 ACK 报文的序列号值，此时客户端处于 TIME_WAIT状态。需要过一阵子以确保服务端收到自己的 ACK 报文之后才会进入 CLOSED 状态</li>
 <li>服务端收到 ACK 报文之后，就处于关闭连接了，处于 CLOSED 状态。</li>
 </ul>
 </li>
 </ul>
+<p><strong>总结</strong>：三次握手表示客户端和服务端进行连接的过程，四次挥手是两台设备断开连接做的什么</p>
+<p><img src="https://raw.githubusercontent.com/MCIBlueMoon/PicGO_Img/main/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/TCP%26UDP.png" srcset="/img/loading.gif" lazyload></p>
 <h3 id="状态同步-帧同步"><a href="#状态同步-帧同步" class="headerlink" title="状态同步,帧同步"></a>状态同步,帧同步</h3><p>帧同步和状态同步该怎么选（上）<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/104932624">https://zhuanlan.zhihu.com/p/104932624</a></p>
 <p>帧同步和状态同步<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/33898014">https://zhuanlan.zhihu.com/p/33898014</a></p>
 <h3 id="OSI模型"><a href="#OSI模型" class="headerlink" title="OSI模型"></a>OSI模型</h3><p>OSI（Open System Interconnection）是由国际标准化组织（ISO）制定的网络模型，该模型定义了不同计算机如何互相连接，是设计和描述计算机网络通信的基本框架。<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=OSI%E6%A8%A1%E5%9E%8B&spm=1001.2101.3001.7020">OSI模型</a>将网络通信分为7层：</p>
 <p><img src="https://img-blog.csdnimg.cn/20210530224055792.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NzeTc3Nzc3Nw==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
 <p>OSI仅是一个理论上的模型，实际使用的是TCP&#x2F;IP网络模型，TCP&#x2F;IP模型将OSI模型的应用层，表示层和会话层合并为应用层：</p>
 <p><img src="https://img-blog.csdnimg.cn/20210530224106137.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NzeTc3Nzc3Nw==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="img"></p>
+<hr>
+<h2 id="🌙Unity-网络编程"><a href="#🌙Unity-网络编程" class="headerlink" title="🌙Unity 网络编程"></a>🌙Unity 网络编程</h2><h3 id="Socket套接字有3种不同的类型"><a href="#Socket套接字有3种不同的类型" class="headerlink" title="Socket套接字有3种不同的类型"></a>Socket套接字有3种不同的类型</h3><ol>
+<li><p>流套接字</p>
+<ul>
+<li>主要用于实现TCP通信，提供了面向连接、可靠的、有序的、数据无差错且无重复的数据传输服务</li>
+</ul>
+</li>
+<li><p>数据报套接字</p>
+<ul>
+<li>主要用于实现UDP通信，提供了无连接的通信服务，数据包的长度不能大于32KB，不提供正确性检查，不保证顺序，可能出现重发、丢失等情况</li>
+</ul>
+</li>
+<li><p>原始套接字（不常用，不深入)</p>
+<ul>
+<li>主要用于实现IP数据包通信，用于直接访问协议的较低层，常用于侦听和分析数据包</li>
+</ul>
+</li>
+</ol>
+<h3 id="服务端和客户端需要做什么"><a href="#服务端和客户端需要做什么" class="headerlink" title="服务端和客户端需要做什么"></a>服务端和客户端需要做什么</h3><p>客户端：</p>
+<ol>
+<li>创建套接字Socket </li>
+<li>用Connect方法与服务端相连</li>
+<li>用Send和Receive相关方法收发数据</li>
+<li>用Shutdown方法释放连接 </li>
+<li>关闭套接字</li>
+</ol>
+<p>服务端 </p>
+<ol>
+<li>创建套接字Socket</li>
+<li>用Bind方法将套接字与本地地址绑定</li>
+<li>用Listen方法监听 </li>
+<li>用Accept方法等待客户端连接 </li>
+<li>建立连接，Accept返回新套接字 </li>
+<li>用Send和Receive相关方法收发数据</li>
+<li>用Shutdown方法释放连接</li>
+<li>关闭套接字</li>
+</ol>
 <hr>
 <h2 id="🌙计算机图形学（基于Games101）"><a href="#🌙计算机图形学（基于Games101）" class="headerlink" title="🌙计算机图形学（基于Games101）"></a>🌙计算机图形学（基于Games101）</h2><blockquote>
 <p> <strong>笔记来自于：<a target="_blank" rel="noopener" href="https://www.yuque.com/gaoshanliushui-mbfny/sst4c5/oq643c">https://www.yuque.com/gaoshanliushui-mbfny/sst4c5/oq643c</a></strong></p>
